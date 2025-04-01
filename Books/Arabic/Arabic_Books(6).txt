@@ -1,0 +1,47 @@
+[
+    {
+        "name": "في قلبي أنثى عبرية",
+        "author": "خولة حمدي",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1596236670i/23962807.jpg",
+        "description": "رواية تجمع بين الحب والهوية والصراع بين الأديان والثقافات.",
+        "category": "رومانسية"
+    },
+    {
+        "name": "الشيطان يعظ",
+        "author": "أحمد خالد توفيق",
+        "image": "https://www.noor-book.com/publice/covers_cache_webp/6/6/9/1/4c9aa3a1d469178a1f9bccb518e9e02a.png.webp",
+        "description": "رواية رعب تدور حول شاب يستكمل مسار حياته وسط أحداث مروعة وصراعات داخلية.",
+        "category": "رعب"
+    },
+    {
+        "name": "أرض زيكولا",
+        "author": "عمرو عبد الحميد",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1441287700i/9753375.jpg",
+        "description": "رواية خيالية تدور في عالم مختلف حيث تتشابك أحداثها مع الفكر والعلاقات الإنسانية في مدينة زيكولا.",
+        "category": "خيال علمي"
+    },
+    {
+        "name": "عمارة يعقوبيان",
+        "author": "علاء الأسواني",
+        "image": "https://www.neelwafurat.com/images/lb/abookstore/covers/normal/324/324381.jpg",
+        "description": "رواية تتناول قصة مجموعة من الشخصيات تعيش في عمارة يعقوبيان في قلب القاهرة وتعرض تفاصيل حياتهم الاجتماعية.",
+        "category": "دراما"
+    },
+    {
+        "name": "أرض السافلين",
+        "author": "أحمد خالد توفيق",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1524639533i/39939062.jpg",
+        "description": "رواية رعب حول عالم مليء بالكائنات الغريبة وخلق عالم آخر من الخوف والتوتر.",
+        "category": "رعب"
+    },
+    {
+        "name": "أوراق شمعون المصري",
+        "author": "محمد أحمد خلف الله",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1617297686i/57599734.jpg",
+        "description": "رواية تاريخية تأخذ القارئ في رحلة عبر حياة شمعون المصري، الشخصية التي عاشت في العصور القديمة ومرّت بتجارب معقدة من الصراع الداخلي والحروب.",
+        "category": "رواية تاريخية"
+    }
+]
+
+
+
