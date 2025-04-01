@@ -1,0 +1,54 @@
+[
+    {
+        "name": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "image": "https://m.media-amazon.com/images/I/91HPG31dTwL._AC_UF1000,1000_QL80_.jpg",
+        "description": "A coming-of-age novel that explores themes of alienation and rebellion through the eyes of Holden Caulfield.",
+        "category": "Fiction"
+    },
+    {
+        "name": "Brave New World",
+        "author": "Aldous Huxley",
+        "image": "https://m.media-amazon.com/images/I/81zE42gT3xL._AC_UF1000,1000_QL80_.jpg",
+        "description": "A dystopian classic that envisions a future where happiness is engineered, but at a great cost.",
+        "category": "Dystopian"
+    },
+    {
+        "name": "Moby-Dick",
+        "author": "Herman Melville",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Moby-Dick_FE_title_page.jpg",
+        "description": "A deep and symbolic tale of obsession, revenge, and the sea, following Captain Ahab's hunt for the white whale.",
+        "category": "Adventure"
+    },
+    {
+        "name": "Sapiens: A Graphic History",
+        "author": "Yuval Noah Harari",
+        "image": "https://diwanegypt.com/wp-content/uploads/2022/02/9781787332812.jpg",
+        "description": "A visually stunning adaptation of Harari’s bestselling book about the history of humankind.",
+        "category": "History"
+    },
+    {
+        "name": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg",
+        "description": "A gothic novel exploring vanity, moral corruption, and the cost of eternal youth.",
+        "category": "Gothic Fiction"
+    },
+    {
+        "name": "The Road",
+        "author": "Cormac McCarthy",
+        "image": "https://m.media-amazon.com/images/I/41GuWgTvzoL._SY445_SX342_.jpg",
+        "description": "A haunting post-apocalyptic journey of a father and son trying to survive in a desolate world.",
+        "category": "Post-Apocalyptic"
+    },
+    {
+        "name": "Where the Crawdads Sing",
+        "author": "Delia Owens",
+        "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1582135294i/36809135.jpg",
+        "description": "A mysterious and emotional tale of a girl growing up alone in the marshlands of North Carolina.",
+        "category": "Mystery"
+    }
+]
+
+
+
