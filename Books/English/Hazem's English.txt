@@ -1,0 +1,150 @@
+[
+
+{
+
+"name": "The Buffalo Hunter Hunter",
+
+"author": "Stephen Graham Jones",
+
+"image": "https://pyxis.nymag.com/v1/imgs/ce0/760/d7ba914a635485073971432da29d3cf1d5-buffalohunter.rvertical.w570.png",
+
+"description": "A chilling historical horror novel set in the American west in 1912 following a Lutheran priest who transcribes the life of a vampire who haunts the fields of the Blackfeet reservation looking for justice.",
+
+"category": "Horror"
+
+},
+
+
+{
+
+"name": "Stag Dance",
+
+"author": "Torrey Peters",
+
+"image": "https://pyxis.nymag.com/v1/imgs/41e/e4f/e6f05062fae872ecd463b60ab14bc31025-stagdance.rvertical.w570.png",
+
+"description": "In this collection of one novel and three novellas, the bestselling author of Detransition, Baby pushes trans-genre to its limits to explore who gets included—and excluded—from the possibilities of gender.",
+
+"category": "Short Stories"
+
+},
+
+
+{
+
+"name": "Ultramarine",
+
+"author": "Mariette Navarro",
+
+"image": "https://pyxis.nymag.com/v1/imgs/a7b/dfc/c7fe438752e3755c877b4b963ad6062ca1-ultramarine-book.rvertical.w570.png",
+
+"description": "French playwright Mariette Navarro’s debut novel, Ultramarine, follows the female captain of a cargo ship, the only woman onboard.",
+
+"category": "Fiction"
+
+},
+
+
+{
+
+"name": "The Unworthy",
+
+"author": "Agustina Bazterrica",
+
+"image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1722354275i/214151601.jpg",
+
+"description": "The long-awaited new novel from the author of global sensation Tender Is the Flesh: a thrilling work of literary horror about a woman cloistered in a secretive, violent religious order, while outside the world has fallen into chaos.",
+
+"category": "Horror"
+
+},
+
+
+{
+
+"name": "One Day, Everyone Will Have Always Been Against This",
+
+"author": "Omar El Akkad",
+
+"image": "https://pyxis.nymag.com/v1/imgs/37a/0d9/0b3c97526a50f330df7e4e4fd63709fa69-oneday-everyone.rvertical.w570.png",
+
+"description": "Omar El Akkad’s “breakup letter with the West,” One Day, Everyone Will Have Always Been Against This, charts the author’s gradual recognition of the many lies and hypocrisies at the core of western ideals.",
+
+"category": "Nonfiction-Politics"
+
+},
+
+
+{
+
+"name": "Immemorial",
+
+"author": "Lauren Markham",
+
+"image": "https://pyxis.nymag.com/v1/imgs/c9d/301/9e51cf81e5cd120b6b705227b49463c04e-immeorial-book.rvertical.w570.png",
+
+"description": "A speculative essay on language in the face of climate catastrophe: how we memorialize what has been lost and what soon will be, pushing public imagination into generative realms.",
+
+"category": "Nonfiction-Essays"
+
+},
+{
+
+"name": "Black in Blues: How a Color Tells the Story of My People",
+
+"author": "Imani Perry",
+
+"image": "https://pyxis.nymag.com/v1/imgs/1b3/bc7/d00e2bde65a660d2fa3d02a1285d5b9ee7-backinblues.rvertical.w570.png",
+
+"description": "A surprising and beautiful meditation on the color blue—and its fascinating role in Black history and culture—from National Book Award winner Imani Perry",
+
+"category": "Nonfiction-History"
+
+},
+
+
+{
+
+"name": "The Harder I Fight the More I Love You",
+
+"author": "Neko Case",
+
+"image": "https://pyxis.nymag.com/v1/imgs/1b6/403/28d9d0f70ef412c2d90f352bef1bf4dea5-theharder-ifight.rvertical.w570.png",
+
+"description": "Indie-rock idol Neko Case, singer of “I Wish I Was the Moon” and front woman of the New Pornographers, has hinted in songs at the turmoil she experienced in her childhood, but her lyrics are far more oblique than this memoir.",
+
+"category": "Memoir-Nonfiction"
+
+},
+
+
+{
+
+"name": "We Do Not Part",
+
+"author": "Han Kang",
+
+"image": "https://pyxis.nymag.com/v1/imgs/938/dde/d98afdff8723b9404d770d5d659e6b57a5-wedo-notpart.rvertical.w570.png",
+
+"description": "In a small apartment in Seoul, a historian named Kyungha lives in near-total isolation, wracked by chronic pain.",
+
+"category": "Asian Literature"
+
+},
+
+
+{
+
+"name": "Wake Up and Open Your Eyes",
+
+"author": "Clay McLeod Chapman",
+
+"image": "https://pyxis.nymag.com/v1/imgs/e30/090/7a198a19b019fdfc7c10a23af87726b89e-wakeup.rvertical.w570.jpg",
+
+"description": "Clay McLeod Chapman has written some of the most ballsy, go-for-the-throat horror of recent years, but in Wake Up and Open Your Eyes he digs a scalpel point into the exposed nerves of Trump’s America.",
+
+"category": "Horror - Fiction"
+
+},
+]
+
