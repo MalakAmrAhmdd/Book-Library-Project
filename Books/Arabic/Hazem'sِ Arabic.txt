@@ -1,0 +1,46 @@
+[
+
+{
+
+"name": "موسم الهجرة إلى الشمال",
+
+"author": "Tayeb Salih - الطيب صالح",
+
+"image": "https://upload.wikimedia.org/wikipedia/ar/c/ce/%D9%85%D9%88%D8%B3%D9%85_%D8%A7%D9%84%D9%87%D8%AC%D8%B1%D8%A9_%D8%A5%D9%84%D9%89_%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84.jpg",
+
+"description": "يزور مصطفى سعيد، وهو طالب عربي، الغرب. مصطفى يصل من الجنوب، من إفريقيا، بعيدًا عن الثقافة الغربية إلى الغرب بصفة طالب.",
+
+"category": "خيال أدبي"
+
+},
+
+{
+
+"name": "سيدات القمر",
+
+"author": "Jokha Alharthi - جوخة الحارثي",
+
+"image": "https://upload.wikimedia.org/wikipedia/ar/b/b7/%D8%B3%D9%8A%D8%AF%D8%A7%D8%AA_%D8%A7%D9%84%D9%82%D9%85%D8%B1_%D8%B1%D9%88%D8%A7%D9%8A%D8%A9.jpg",
+
+"description": "رواية تتناول تحوّلات الماضي والحاضر، وتَجْمع، بلغةٍ رشيقةٍ، بين مآسي بشر لا ينقصهم شيء ومآسي آخرين ينقصهم كلُّ شيء.",
+
+"category": "اجتماعي"
+
+},
+
+{
+
+"name": "فرانكشتاين في بغداد",
+
+"author": "Ahmed Saadawi - أحمد سعداوي",
+
+"image": "https://tse4.mm.bing.net/th?id=OIP.PWYGwERz85ZQ_Ll-tIyLsQHaLW&pid=Api",
+
+"description": "قوم بطل الرواية هادي العتاك (بائع عاديات من سكان حي البتاويين وسط بغداد)، بجمع بقايا جثث ضحايا التفجيرات الإرهابية خلال شتاء 2005",
+
+"category": "خيال أدبي"
+
+}
+
+]
+
