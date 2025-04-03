@@ -1,0 +1,49 @@
+[
+   {
+        "name": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "image": "https://th.bing.com/th/id/R.5b59e0885d8091068eefc098f720b51d?rik=DY%2fqFLat2l4G0Q&pid=ImgRaw&r=0",
+        "description": "A novel set in the American South during the 1930s, addressing issues of race and injustice through the eyes of a young girl.",
+        "category": "Fiction"
+    },
+ {
+        "name": "1984",
+        "author": "George Orwell",
+        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/b468d093312907.5e6139cf2ab03.png",
+        "description": "A dystopian novel exploring themes of totalitarianism, surveillance, and individualism in a repressive society.",
+        "category": "Science Fiction"
+    },
+
+{
+        "name": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "image": "https://th.bing.com/th/id/OIP.S7SJ_bM-1a1R2jnu_LHCHgHaKN?rs=1&pid=ImgDetMain",
+        "description": "A classic novel exploring themes of love, marriage, and social class in 19th-century England.",
+        "category": "Romance"
+    },
+
+ {
+        "name": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "image": "https://th.bing.com/th/id/R.7c5697ee72aae7fe607f69d223740452?rik=LPrBnBgCEjY%2bbA&pid=ImgRaw&r=0",
+        "description": "A novel set in the Roaring Twenties, exploring themes of wealth, love, and the American Dream.",
+        "category": "Fiction"
+    },
+
+{
+        "name": "Rich Dad Poor Dad",
+        "author": "Robert T. Kiyosaki",
+        "image": "https://cdn.kobo.com/book-images/c81ea4de-cfb7-415d-8634-314aad041fdb/1200/1200/False/rich-dad-poor-dad-9.jpg",
+        "description": "A personal finance book that contrasts two differing approaches to money management and investing, advocating for financial education and independence.",
+        "category": "Personal Finance"
+    },
+
+{
+        "name": "Surrounded by Idiots",
+        "author": "Thomas Erikson",
+        "image": "https://th.bing.com/th/id/R.9e9f8de2b03ec53cca4a0ce5bd172452?rik=rFjIWQLVMdyGUQ&pid=ImgRaw&r=0",
+        "description": "A book that explores different personality types and provides insights on how to effectively communicate with each.",
+        "category": "Psychology"
+    },
+
+]

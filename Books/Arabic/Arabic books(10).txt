@@ -1,0 +1,84 @@
+]
+
+ { 
+    "name": "أولاد حارتنا",
+        "author": "نجيب محفوظ",
+        "image": "https://1.bp.blogspot.com/-lcUbiOPZb_w/YGNdQd_csNI/AAAAAAAAGA0/WI9tjVshRfoJKjBspbWCOyaZf6OuhP_uQCLcBGAsYHQ/s666/poli6.jpg",
+     "description": "رواية مثيرة للجدل تتناول موضوعات فلسفية ودينية من خلال سرد رمزي.",
+        "category": "أدب"
+ },
+
+ {
+    "name": "الفيل الأزرق",
+        "author": "أحمد مراد",
+        "image": "https://www.shoroukbookstores.com/images/Books/original/9789770932278.jpg",
+    "description": "رواية تتبع يحيى، طبيب نفسي يعود للعمل في مستشفى العباسية، حيث يواجه حالات غامضة تغير حياته.",
+        "category": "إثارة"
+   },
+
+ {
+    "name": "عائد إلى حيفا",
+        "author": "غسان كنفاني",
+        "image": "https://th.bing.com/th/id/OIP._SwGuPXWZlqsz5mr0MXLBwHaMB?rs=1&pid=ImgDetMain",
+    "description": "رواية قصيرة تسلط الضوء على مأساة النكبة الفلسطينية من خلال قصة زوجين يعودان إلى حيفا بعد عشرين عامًا.",
+        "category": "أدب"
+ },
+
+ {
+    "name": "الطنطورية",
+        "author": "رضوى عاشور",
+        "image": "https://th.bing.com/th/id/OIP.DrV7pjH7gHeCqsZmL2SzaAHaKt?rs=1&pid=ImgDetMain",
+    "description": "رواية تروي تجربة رُقيّة الطنطورية خلال الاجتياح الإسرائيلي للبنان عام 1982.",
+        "category": "أدب"
+    },
+
+ {
+    "name": "ذاكرة الجسد",
+        "author": "أحلام مستغانمي",
+        "image": "https://th.bing.com/th/id/R.013d1afbb1f04a241b28ce1898934820?rik=sTUHdkYuTFxy%2fw&pid=ImgRaw&r=0",
+    "description": "رواية تستكشف العلاقة المعقدة بين الفن، الحب، والوطنية من خلال قصة حب بين رسام ومقاومة.",
+        "category": "رومانسية"
+    },
+
+{
+    "name": "عمارة يعقوبيان",
+        "author": "علاء الأسواني",
+        "image": "https://ketabpedia.com/wp-content/uploads/2019/02/bka802.jpg",
+    "description": "رواية تدور أحداثها في عمارة سكنية بالقاهرة، تسلط الضوء على حياة سكانها المتنوعين وتستكشف القضايا الاجتماعية والسياسية في مصر.",
+        "category": "أدب"
+    },
+
+ {
+    "name": "النبي",
+        "author": "جبران خليل جبران",
+        "image": "https://th.bing.com/th/id/OIP.k8LUmRXhdXWzuezKwofi5gAAAA?rs=1&pid=ImgDetMain",
+    "description": "كتاب يضم مجموعة من المقالات الشعرية التي تغطي جوانب الحياة والحالة الإنسانية، مقدماً رؤى فلسفية وروحية.",
+        "category": "فلسفة"
+    },
+
+{
+    "name": "ثلاثية القاهرة",
+        "author": "نجيب محفوظ",
+        "image": "https://th.bing.com/th/id/OIP.BEexhfv86ax1BVnSPZWRSAHaDw?rs=1&pid=ImgDetMain",
+    "description": "ثلاثية روائية تتبع حياة عائلة في القاهرة من أوائل القرن العشرين حتى الخمسينيات، تعكس التغيرات الاجتماعية والسياسية في مصر.",
+        "category": "تاريخي"
+    },
+
+
+{
+        "name": "الرجال من المريخ والنساء من الزهرة",
+        "author": "جون غراي",
+        "image": "https://ak-asset.jarir.com/akeneo-prod/asset/m1images/1/3/130610.jpg",
+        "description": "كتاب يستكشف الفروقات بين الرجال والنساء في التفكير والتواصل، ويقدم نصائح لتحسين العلاقات بين الجنسين.",
+        "category": "تطوير الذات"
+    },
+
+  {
+        "name": "قواعد العشق الأربعون",
+        "author": "إليف شافاق",
+        "image": "https://1.bp.blogspot.com/-PntUqZZrwZg/VpOf_T3r7WI/AAAAAAAACxE/j2wvVa2_0d4/s1600/%25D9%2582%25D9%2588%25D8%25A7%25D8%25B9%25D8%25AF%2B%25D8%25A7%25D9%2584%25D8%25B9%25D8%25B4%25D9%2582%2B%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B1%25D8%25A8%25D8%25B9%25D9%2588%25D9%2586.jpg",
+        "description": "رواية تجمع بين قصتين متوازيتين، تستكشفان الحب والتصوف من خلال علاقة جلال الدين الرومي وشمس التبريزي.",
+        "category": "رومانسية"
+    },
+
+]
