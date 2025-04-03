@@ -2,7 +2,162 @@ body{
     background-image: url(assets/Background.png);
     background-size: 100%;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
+.form{
+    width: 400px;
+    height: 420px;
+    border-radius: 20px;
+    background: rgba(255, 253, 251, 0.98);
+    box-shadow: -1px 1px 14px 3px rgba(0, 0, 0, 0.05);
+    margin: auto;
+    margin-top: 95px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
 
+.layout{
+    margin: auto;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-height: 40px;
+    justify-content: center;
+ 
+}
+
+.logo img {
+    width: 33px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.logo p {
+    color: #8C6051;
+font-family: Roboto;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.welcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px; /* Reduce gap for less space */
+    justify-content: center;
+
+}
+
+.text1{
+    color: #4D4D4D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    max-height: 10px;
+
+}
+
+.text2{
+    color: #ABABAB;
+    text-align: center;
+    font-family: Inter;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    max-height: 30px;
+    margin-top: -3px;
+}
+
+.new{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userLabel, .passlabel{
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; 
+}
+
+#username, #pass{
+    border-radius: 5px;
+    border: 1px solid #DCD9D9;
+    background: #FFFDFB;
+    box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.15) inset;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch; 
+    height: 30px; 
+    width:200px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+::placeholder{
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+}
+
+#submit{
+    border-radius: 5px;
+    background-color: #45322E; 
+    display: flex;
+    width: 215px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    border: none; 
+    cursor: pointer;
+}
+
+.new{
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    gap: 2px;
+    justify-content: center;
+}
+
+.new p {
+    color: #4D4D4D;
+    text-align: right;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; 
+}
+
+.new a{
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
