@@ -52,9 +52,9 @@ body {
 .nav-rows {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
-     
+     align-items: center;
 }
 
 .sidebar-row {
@@ -100,4 +100,80 @@ body {
 .main-content {
     width: 120%;
     padding: 20px;
+}
+ .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+    margin-top: 15px;
+}
+
+.dashboard-text {
+    color: #45322E;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.114px;
+}
+
+.container-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.white-container {
+    background-color: #fefbf8;
+    width: 15%; 
+    height: 70px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 12px;
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 10;
+}
+
+.icon-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.5;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.icon-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #636466;
+    font-family: "Nunito Sans", sans-serif;
+    margin-bottom: 12px;
+}
+
+.number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #202224;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.icon-image {
+    width: 30px;
+    height: 30px;
 }
