@@ -33,6 +33,7 @@ body {
     align-items: flex-start; 
     padding: 40px; 
     background: #fefbf8; 
+    overflow: hidden;
 }
 
 .logo-row {
