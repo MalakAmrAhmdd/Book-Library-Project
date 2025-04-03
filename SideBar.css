@@ -26,7 +26,6 @@ body {
 
 .sidebar {
     width: 15%; 
-    position: fixed;
     display: flex;
     flex-direction: column; 
     justify-content: space-between; 
