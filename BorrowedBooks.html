@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="BorrowedBooks.css">
 </head>
 <body>
     <div class="container">
@@ -59,58 +59,14 @@
         <div class="main-content">
             <!-- Main content here -->
             <div class="header">
-                <span class="Header-text">Dashboard</span>
+                <span class="Header-text">Books List</span>
             </div>
-            <div class="container-row">
-                <div class="white-container">
-                    <div class="container-column">
-                        <div class="icon-text">Total Users</div>
-                        <div class="number">40,689</div>
-                    </div>
-                    <div class="icon-column">
-                        <img src="assets/users_ll.png" alt="Users Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="white-container">
-                    <div class="container-column">
-                        <div class="icon-text">Total Admins</div>
-                        <div class="number">40,689</div>
-                    </div>
-                    <div class="icon-column">
-                        <img src="assets/admin.png" alt="Admins Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="white-container">
-                    <div class="container-column">
-                        <div class="icon-text">Total Books</div>
-                        <div class="number">40,689</div>
-                    </div>
-                    <div class="icon-column">
-                        <img src="assets/books.png" alt="Books Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="white-container">
-                    <div class="container-column">
-                        <div class="icon-text">Total Borrows</div>
-                        <div class="number">40,689</div>
-                    </div>
-                    <div class="icon-column">
-                        <img src="assets/tabler_book.png" alt="Borrows Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="white-container">
-                    <div class="container-column">
-                        <div class="icon-text">Total Returns</div>
-                        <div class="number">40,689</div>
-                    </div>
-                    <div class="icon-column">
-                        <img src="assets/back.png" alt="Returns Icon" class="icon-image">
-                    </div>
-                </div>
+            
+            <div class="tab-buttons">
+                <a href="Books.html" class="tab-button">Available Books</a>
+                <a href="BorrowedBooks.html" class="tab-button active">Borrowed Books</a>
             </div>
-            <div class="latest-borrows">
-                <span class="latest-borrows-text">Latest Borrows</span>
-            </div>
+            
             <div class="borrows-table">
                 <table>
                     <thead>
