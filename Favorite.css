@@ -89,6 +89,10 @@ body {
     font-weight: 600;
     color: inherit;
 }
+.sidebar-link {
+    text-decoration: none; 
+    color: inherit; 
+}
 
 .separator {
     width: 1px; 
