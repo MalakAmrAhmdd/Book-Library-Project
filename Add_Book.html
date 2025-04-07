@@ -62,15 +62,31 @@
         <div class="main-content">
             <!-- Main content here -->
             <div class="background">
-                <a href="Dashboard.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to Dashboard</a>
-                <div class="addBookHeader">
-                    <span class="header-text">Fill up book details</span>
+                <div class = "addbookheader">
+                    <span class = "header-text">Fill up Book Details</span>
                 </div>
-                <div class="book-form">
-                    <form class="book-details">
-                        <input type="text" id="book-name" placeholder="Enter Book name">
-                        <input type="text" id="author-name" placeholder="Author-name">
-                        <textarea id="text-description" placeholder="Description"></textarea>
+                <div class = "book_form">
+                    <form class = "book-details">
+                        <input type = "text" id="book-name" placeholder = "Enter Book name">
+                        <input type = "text" id="author-name" placeholder = "Author-name">
+                        <textarea id ="description" placeholder = "Description"></textarea>
+                        <div class="dropmenu">
+                            <select name = "category" id="category">
+                                <option value="" selected="selected">Category</option>
+                                <option value="1">Sci-Fi</option>
+                                <option value ="2">Psychology</option>
+                                <option value ="3">Fantasy</option>
+                                <option value="4">Romance</option>
+                                <option value="5">Novel</option>
+                            </select>
+                            <select name ="lang" id="lang">
+                                <option value="" selected="selected">Lang</option>
+                                <option value="1">English</option>
+                                <option value="2">Arabic</option>
+                            </select>
+                        </div>
+                        <input type="submit" id="submit_button" value="Submit">
+
                     </form>
                     <div class="upload-container">
                         <label for="file-upload" class="upload-box">
@@ -78,8 +94,17 @@
                             <span>Upload image here</span>
                         </label>
                     </div>
+                  
                 </div>
             </div>
+            
+            
+
+  
+
+
+
+
         </div>
     </div>
 </body>
