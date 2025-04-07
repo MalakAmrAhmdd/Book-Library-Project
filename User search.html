@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
+    <title>Search</title>
+    <link rel="stylesheet" href="User search.css">
+
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <!-- Logo Row -->
+            <div class="logo-row">
+                <img src="assets/logo.png" alt="Logo" class="icon">
+                <span class="logo-text">BiblioGate</span>
+            </div>
+
+           
+            <div class="nav-rows">
+                <a href="User_Homepage.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <img src="assets/Home.svg" alt="Dashboard Icon" class="icon">
+                        <span class="text">Homepage</span>
+                    </div>
+                </a>
+                
+                <a href="Favorite.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <img src="assets/fav icon.svg" alt="Add Book Icon" class="icon">
+                        <span class="text">Favorites</span>
+                    </div>
+                </a>
+                <div class="sidebar-row">
+                    <img src="assets/search icon.svg" alt="Users Icon" class="icon">
+                    <span class="text">Search</span>
+                </div>
+                <div class="sidebar-row">
+                    <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
+                    <span class="text">Borrowings</span>
+                </div>
+            </div>
+            
+          <!-- User Section -->
+        <div class="user-section">
+            <!-- Profile -->
+            <div class="sidebar-row profile">
+                <img src="assets/profile.svg" alt="Profile Icon" class="icon">
+                <span class="text">Profile</span>
+            </div>
+            
+            <!-- Log Out -->
+            <div class="sidebar-row log-out">
+                <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
+                <a href="Sign_in.html" class="sidebar-link">
+                    <span class="text">Log Out</span>
+                </a>
+            </div>
+        </div>
+
+        </nav>
+        <div class="separator"></div>
+        <div class="main-content">
+            <!-- Add "Back to home" link and "Your Favorites" header -->
+            <a href="User_Homepage.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to home</a>
+            <div class="search-bar">
+                <select class="categories">
+                    <option value="All" selected>All</option>
+                    <option value="Title">Title</option>
+                    <option value="Author">Author</option>
+                    <option value="Category">Category</option>
+                </select>
+                <div class="search-container">
+                    <span class="search-text">Search Users</span>
+                    <span style="color: #797a7a;">
+                        <i class="fa fa-search"></i>
+                      </span>
+                </div>
+            </div>
+            <!-- Main content here -->
+            <div class="book-list">
+                <div class="table-header">
+                    <span class="column-title">Title</span>
+                    <span class="column-category">Category</span>
+                    <span class="column-status">Status</span>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">The Picture of Dorian Gray</span>
+                            <span class="book-author">Oscar Wilde, 1890</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Gothic Fiction</span>
+                        <span class="subcategory-text">Classic Literature</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <button class="notfav-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">Becoming</span>
+                            <span class="book-author">Michelle Obama, 2018</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Biography</span>
+                        <span class="subcategory-text">Memoir</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge borrowed">Borrowed</span>
+                        <button class="favorite-button">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924361i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">To Kill a Mockingbird</span>
+                            <span class="book-author">Harper Lee, 1960</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Fiction</span>
+                        <span class="subcategory-text">Classic</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <button class="notfav-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924361i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">1984</span>
+                            <span class="book-author">George Orwell, 1949</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Dystopian</span>
+                        <span class="subcategory-text">Science Fiction</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge borrowed">Borrowed</span>
+                        <button class="notfav-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">The Great Gatsby</span>
+                            <span class="book-author">F. Scott Fitzgerald, 1925</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Fiction</span>
+                        <span class="subcategory-text">Classic</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <button class="notfav-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">Pride and Prejudice</span>
+                            <span class="book-author">Jane Austen, 1813</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Romance</span>
+                        <span class="subcategory-text">Classic Literature</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <button class="favorite-button">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">The Catcher in the Rye</span>
+                            <span class="book-author">J.D. Salinger, 1951</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Fiction</span>
+                        <span class="subcategory-text">Classic</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge borrowed">Borrowed</span>
+                        <button class="notfav-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">Moby-Dick</span>
+                            <span class="book-author">Herman Melville, 1851</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Adventure</span>
+                        <span class="subcategory-text">Classic Literature</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <button class="favorite-button">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">The Hobbit</span>
+                            <span class="book-author">J.R.R. Tolkien, 1937</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Fantasy</span>
+                        <span class="subcategory-text">Adventure</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge borrowed">Borrowed</span>
+                        <button class="notfav-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="column-title">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/4671.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <span class="book-title">War and Peace</span>
+                            <span class="book-author">Leo Tolstoy, 1869</span>
+                            <span class="book-edition">First Edition</span>
+                        </div>
+                    </div>
+                    <div class="column-category">
+                        <span class="category-text">Historical Fiction</span>
+                        <span class="subcategory-text">Classic</span>
+                    </div>
+                    <div class="column-status">
+                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <button class="favorite-button">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="preview-button">Preview</button>
+                    </div>
+                </div>
+                <!-- Repeat .table-row for additional rows -->
+            </div>
+            <div class="footer">
+                <span style=" color: #8a8a8a">
+                    <i class="fas fa-angle-left"  color: 5D1B21;></i>
+                </span>
+                
+                <span class="footer-text">Page 1 of 2</span>
+                <span style="color: #5D1B21;">
+                    <i class="fas fa-angle-right" class="footer-right-icon"></i>
+                </span>
+                
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>
