@@ -23,24 +23,31 @@
 
 
     <div class="nav-rows">
-      <div class="sidebar-row">
-        <img src="assets/Home.svg" alt="Dashboard Icon" class="icon">
-        <span class="text">Homepage</span>
-      </div>
-      <a href="Favorite.html" class="sidebar-link">
+      <a href="User_Homepage.html" class="sidebar-link">
         <div class="sidebar-row">
-          <img src="assets/fav icon.svg" alt="Add Book Icon" class="icon">
-          <span class="text">Favorites</span>
+          <img src="assets/Home.svg" alt="Dashboard Icon" class="icon">
+          <span class="text">Homepage</span>
         </div>
       </a>
-      <div class="sidebar-row">
-        <img src="assets/search icon.svg" alt="Users Icon" class="icon">
-        <span class="text">Search</span>
-      </div>
-      <div class="sidebar-row">
-        <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
-        <span class="text">Borrowings</span>
-      </div>
+      
+      <a href="Favorite.html" class="sidebar-link">
+        <div class="sidebar-row">
+            <img src="assets/fav icon.svg" alt="Add Book Icon" class="icon">
+            <span class="text">Favorites</span>
+        </div>
+    </a>
+    <a href="User search.html" class="sidebar-link">
+        <div class="sidebar-row">
+            <img src="assets/search icon.svg" alt="Users Icon" class="icon">
+            <span class="text">Search</span>
+        </div>
+    </a>
+    <a href="User Borrowings.html" class="sidebar-link">
+        <div class="sidebar-row">
+            <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
+            <span class="text">Borrowings</span>
+        </div>
+    </a>
     </div>
 
     <!-- User Section -->
@@ -55,9 +62,9 @@
       <div class="sidebar-row log-out">
         <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
         <a href="Sign_in.html" class="sidebar-link">
-          <span class="text">Log Out</span>
+            <span class="text">Log Out</span>
         </a>
-      </div>
+    </div>
     </div>
 
   </nav>
@@ -67,10 +74,7 @@
 
   <div class="main-content">
     <!-- Back to home button -->
-    <div class="back-to-home" onclick="window.location.href='User_Homepage.html'">
-      <img src="assets/arrow-small-left1.png" alt="Left Arrow" class="arrow-icon">
-      <span class="back-to-home-text">Back to home</span>
-    </div>
+    <a href="User_Homepage.html" class="back-to-home"><i class='fas fa-angle-left'></i>  Back to home</a>
 
     <!-- Header section -->
     <div class="header">

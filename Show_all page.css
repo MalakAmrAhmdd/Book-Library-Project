@@ -126,7 +126,15 @@ body {
     overflow-y: auto;
     max-height: 100vh;
 }
-
+.back-to-home {
+    display:flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -147,9 +155,10 @@ body {
 .table-row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-    width: 100%;
-    margin: 20px 0;
+    gap: 30px;
+    width: 95%;
+    margin: 20px 20px;
+
 }
 
 .table-row::-webkit-scrollbar {
@@ -198,14 +207,7 @@ body {
     margin-right: 5px;
 }
 
-.back-to-home-text {
-    color: #4D4D4D;
-    font-family: Inter;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 128.523%; /* 19.278px */
-}
+
 
 .book-holder {
     display: flex;
@@ -223,7 +225,7 @@ body {
 }
 
 .book-image{
-    width: 123px;
+    width: 97%;
     height: 170px;
     border-radius: 5px;
 }

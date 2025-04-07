@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
-    <title>Search</title>
-    <link rel="stylesheet" href="User search.css">
+    <title>Borrowings</title>
+    <link rel="stylesheet" href="User Borrowings.css">
 
 </head>
 <body>
@@ -21,6 +21,7 @@
                 <span class="logo-text">BiblioGate</span>
             </div>
 
+           
             <div class="nav-rows">
                 <a href="User_Homepage.html" class="sidebar-link">
                     <div class="sidebar-row">
@@ -35,16 +36,19 @@
                         <span class="text">Favorites</span>
                     </div>
                 </a>
-                <div class="sidebar-row">
-                    <img src="assets/search icon.svg" alt="Users Icon" class="icon">
-                    <span class="text">Search</span>
-                </div>
+                <a href="User search.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <img src="assets/search icon.svg" alt="Users Icon" class="icon">
+                        <span class="text">Search</span>
+                    </div>
+                </a>
                 <a href="User Borrowings.html" class="sidebar-link">
                     <div class="sidebar-row">
                         <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
                         <span class="text">Borrowings</span>
                     </div>
                 </a>
+                
             </div>
             
           <!-- User Section -->
@@ -69,26 +73,13 @@
         <div class="main-content">
             <!-- Add "Back to home" link and "Your Favorites" header -->
             <a href="User_Homepage.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to home</a>
-            <div class="search-bar">
-                <select class="categories">
-                    <option value="All" selected>All</option>
-                    <option value="Title">Title</option>
-                    <option value="Author">Author</option>
-                    <option value="Category">Category</option>
-                </select>
-                <div class="search-container">
-                    <span class="search-text">Search Users</span>
-                    <span style="color: #797a7a;">
-                        <i class="fa fa-search"></i>
-                      </span>
-                </div>
-            </div>
+            <h1 class="borrowings-header">Your Borrowings</h1>
             <!-- Main content here -->
             <div class="book-list">
                 <div class="table-header">
                     <span class="column-title">Title</span>
                     <span class="column-category">Category</span>
-                    <span class="column-status">Status</span>
+                    <span class="column-status">Actions</span>
                 </div>
                 <div class="table-row">
                     <div class="column-title">
@@ -104,7 +95,7 @@
                         <span class="subcategory-text">Classic Literature</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="notfav-button">
                             <i class="far fa-heart"></i>
                         </button>
@@ -125,7 +116,7 @@
                         <span class="subcategory-text">Memoir</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="favorite-button">
                             <i class="fas fa-heart"></i>
                         </button>
@@ -146,7 +137,7 @@
                         <span class="subcategory-text">Classic</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="notfav-button">
                             <i class="far fa-heart"></i>
                         </button>
@@ -167,7 +158,7 @@
                         <span class="subcategory-text">Science Fiction</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="notfav-button">
                             <i class="far fa-heart"></i>
                         </button>
@@ -188,7 +179,7 @@
                         <span class="subcategory-text">Classic</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="notfav-button">
                             <i class="far fa-heart"></i>
                         </button>
@@ -209,7 +200,7 @@
                         <span class="subcategory-text">Classic Literature</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="favorite-button">
                             <i class="fas fa-heart"></i>
                         </button>
@@ -230,7 +221,7 @@
                         <span class="subcategory-text">Classic</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="notfav-button">
                             <i class="far fa-heart"></i>
                         </button>
@@ -272,7 +263,7 @@
                         <span class="subcategory-text">Adventure</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="notfav-button">
                             <i class="far fa-heart"></i>
                         </button>
@@ -293,7 +284,7 @@
                         <span class="subcategory-text">Classic</span>
                     </div>
                     <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
+                        <span class="status-badge in-shelf">Give Back</span>
                         <button class="favorite-button">
                             <i class="fas fa-heart"></i>
                         </button>
