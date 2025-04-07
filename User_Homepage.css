@@ -211,7 +211,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    margin-right: 10px;
+    min-height: 250px;
+    text-decoration: none;
 }
 
 .book-image{
@@ -237,11 +238,11 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 128.523%;
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-
+    text-decoration: none;
 }
 
 .book-author {
