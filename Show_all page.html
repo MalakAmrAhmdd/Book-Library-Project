@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
+
+  <title>Sidebar</title>
+  <link rel="stylesheet" href="Show_all page.css">
+</head>
+<body>
+<div class="container">
+  <nav class="sidebar">
+    <!-- Logo Row -->
+    <div class="logo-row">
+      <img src="assets/logo icon.svg" alt="Logo" class="icon">
+      <span class="logo-text">BiblioGate</span>
+    </div>
+
+
+    <div class="nav-rows">
+      <div class="sidebar-row">
+        <img src="assets/Home.svg" alt="Dashboard Icon" class="icon">
+        <span class="text">Homepage</span>
+      </div>
+      <a href="Favorite.html" class="sidebar-link">
+        <div class="sidebar-row">
+          <img src="assets/fav icon.svg" alt="Add Book Icon" class="icon">
+          <span class="text">Favorites</span>
+        </div>
+      </a>
+      <div class="sidebar-row">
+        <img src="assets/search icon.svg" alt="Users Icon" class="icon">
+        <span class="text">Search</span>
+      </div>
+      <div class="sidebar-row">
+        <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
+        <span class="text">Borrowings</span>
+      </div>
+    </div>
+
+    <!-- User Section -->
+    <div class="user-section">
+      <!-- Profile -->
+      <div class="sidebar-row profile">
+        <img src="assets/profile.svg" alt="Profile Icon" class="icon">
+        <span class="text">Profile</span>
+      </div>
+
+      <!-- Log Out -->
+      <div class="sidebar-row log-out">
+        <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
+        <a href="Sign_in.html" class="sidebar-link">
+          <span class="text">Log Out</span>
+        </a>
+      </div>
+    </div>
+
+  </nav>
+
+
+  <div class="separator"></div>
+
+  <div class="main-content">
+    <!-- Back to home button -->
+    <div class="back-to-home" onclick="window.location.href='User_Homepage.html'">
+      <img src="assets/arrow-small-left1.png" alt="Left Arrow" class="arrow-icon">
+      <span class="back-to-home-text">Back to home</span>
+    </div>
+
+    <!-- Header section -->
+    <div class="header">
+      <span class="homepage-text">Recommended for you</span>
+    </div>
+
+    <!-- Books section -->
+    <div class="table-row">
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/don't make me think.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Don't Make Me Think</span>
+        </a>
+        <span class="book-author">Steve Krug, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/The design of everyday things.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">The Design of Everyday Things</span>
+        </a>
+        <span class="book-author">Don Norman, 1988</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Sprint.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Sprint : How to solve big problems</span>
+        </a>
+        <span class="book-author">Jake Knapp, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Lean UX.png" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Lean UX : Design Great Products</span>
+        </a>
+        <span class="book-author">Jeff Gothelf, 2016</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/the road to react.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">The Road to React</span>
+        </a>
+        <span class="book-author">Steve Krug, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Rich dad poor dad.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Rich Dad Poor Dad</span>
+        </a>
+        <span class="book-author">Robert T.Kiyosaki, 1997</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Harry potter.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Harry Potter And The Philosopher Stone</span>
+        </a>
+        <span class="book-author">J.K. Rowling, 2002</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/don't make me think.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Don't Make Me Think</span>
+        </a>
+        <span class="book-author">Steve Krug, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/The design of everyday things.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">The Design of Everyday Things</span>
+        </a>
+        <span class="book-author">Don Norman, 1988</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Sprint.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Sprint : How to solve big problems</span>
+        </a>
+        <span class="book-author">Jake Knapp, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Lean UX.png" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Lean UX : Design Great Products</span>
+        </a>
+        <span class="book-author">Jeff Gothelf, 2016</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/the road to react.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">The Road to React</span>
+        </a>
+        <span class="book-author">Steve Krug, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Rich dad poor dad.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Rich Dad Poor Dad</span>
+        </a>
+        <span class="book-author">Robert T.Kiyosaki, 1997</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Harry potter.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Harry Potter And The Philosopher Stone</span>
+        </a>
+        <span class="book-author">J.K. Rowling, 2002</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/don't make me think.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Don't Make Me Think</span>
+        </a>
+        <span class="book-author">Steve Krug, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/The design of everyday things.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">The Design of Everyday Things</span>
+        </a>
+        <span class="book-author">Don Norman, 1988</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Sprint.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Sprint : How to solve big problems</span>
+        </a>
+        <span class="book-author">Jake Knapp, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Lean UX.png" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Lean UX : Design Great Products</span>
+        </a>
+        <span class="book-author">Jeff Gothelf, 2016</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/the road to react.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">The Road to React</span>
+        </a>
+        <span class="book-author">Steve Krug, 2000</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Rich dad poor dad.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Rich Dad Poor Dad</span>
+        </a>
+        <span class="book-author">Robert T.Kiyosaki, 1997</span>
+      </div>
+
+      <div class="book-holder">
+        <a href="path/to/book-details.html">
+          <div class="book-image">
+            <img src="Books/English/engBookCovers/Harry potter.jpg" alt="Book Cover" class="book-cover">
+          </div>
+          <span class="book-title">Harry Potter And The Philosopher Stone</span>
+        </a>
+        <span class="book-author">J.K. Rowling, 2002</span>
+      </div>
+      <!-- Add more book-holders as needed -->
+    </div>
+
+    <div class="footer">
+                <span style=" color: #8a8a8a">
+                    <i class="fas fa-angle-left"  color: 5D1B21;></i>
+                </span>
+
+      <span class="footer-text">Page 1 of 2</span>
+      <span style="color: #5D1B21;">
+                    <i class="fas fa-angle-right" class="footer-right-icon"></i>
+                </span>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
