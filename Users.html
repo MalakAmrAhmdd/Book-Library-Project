@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Users.css">
+    <link rel="stylesheet" href="Dashboard.css">
     <title>Users</title>
 </head>
 <body>
@@ -26,23 +27,23 @@
             <div class="nav-rows">
                 <a href="Dashboard.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/dashboard.png" alt="Dashboard Icon" class="icon">
+                        <i class="fa fa-dashboard" class="icon"></i>
                         <span class="text">Dashboard</span>
                     </div>
                 </a>
                 <div class="sidebar-row">
-                    <img src="assets/add_book.png" alt="Add Book Icon" class="icon">
+                    <i class="fa fa-plus" class="icon"></i>
                     <span class="text">Add Book</span>
                 </div>
                 <a href="Users.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/users.png" alt="Users Icon" class="icon">
+                        <i class="fa fa-users" class="icon"></i>
                         <span class="text">Users</span>
                     </div>
                 </a>
                 <a href="Books.html" class="sidebar-link">
                 <div class="sidebar-row">
-                    <img src="assets/books.png" alt="Books Icon" class="icon">
+                    <i class="fa fa-book" class="icon"></i>
                     <span class="text">Books</span>
                 </div>
                 </a>
@@ -50,17 +51,22 @@
 
             <!-- Log Out Row -->
             <div class="sidebar-row log-out">
-                <img src="assets/log_out.png" alt="Log Out Icon" class="icon">
-                <span class="text">Log Out</span>
+                <i class="fa fa-sign-out fa-rotate-180" class="icon"></i>
+                <a href="Sign_in.html" class="sidebar-link">
+                    <span class="text">Log Out</span>
+                </a>
             </div>
         </nav>
         <div class="separator"></div>
         <div class="main-content">
             <!-- Main Content for Users Page -->
+            <a href="Dashboard.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to Dashboard</a>
             <div class="header">
                 <span class="Header-text">Users List</span>
                 <div class="search-container">
-                    <img src="assets/search.png" alt="Search Icon" class="search-icon">
+                    <span style="color: #797a7a;">
+                        <i class="fa fa-search"></i>
+                      </span>
                     <span class="search-text">Search Users</span>
                 </div>
             </div>
@@ -81,56 +87,56 @@
                             <td>Christine Brooks</td>
                             <td>089 Kutch Green Apt. 448</td>
                             <td>04 Sep 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00002</td>
                             <td>Rosie Pearson</td>
                             <td>979 Immanuel Ferry Suite 526</td>
                             <td>28 May 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00003</td>
                             <td>Darrell Caldwell</td>
                             <td>8587 Frida Ports</td>
                             <td>23 Nov 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00004</td>
                             <td>Christine Brooks</td>
                             <td>089 Kutch Green Apt. 448</td>
                             <td>04 Sep 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00005</td>
                             <td>Rosie Pearson</td>
                             <td>979 Immanuel Ferry Suite 526</td>
                             <td>28 May 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00006</td>
                             <td>Darrell Caldwell</td>
                             <td>8587 Frida Ports</td>
                             <td>23 Nov 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00007</td>
                             <td>Christine Brooks</td>
                             <td>089 Kutch Green Apt. 448</td>
                             <td>04 Sep 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                         <tr>
                             <td>00008</td>
                             <td>Rosie Pearson</td>
                             <td>979 Immanuel Ferry Suite 526</td>
                             <td>28 May 2019</td>
-                            <td><a href="UserDetails.html">View Details</a></td>
+                            <td><a href="UserDetails.html" class="viewLink">View Details</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -138,6 +144,10 @@
             </div>
             <div class="table-footer">
                 <span class="table-info">Showing 1-08 of 78</span>
+                <div class="toggle-container">
+                    <button class="toggle-button" onclick="toggleTab(this)"><i class='fas fa-angle-left'></i></button>
+                    <button class="toggle-button active" onclick="toggleTab(this)"><i class='fas fa-angle-right'></i></button>
+                </div>
             </div>
         </div>
     </div>

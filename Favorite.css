@@ -79,8 +79,8 @@ body {
 }
 
 .icon {
-    width: 24px; 
-    height: 24px; 
+    width: 20px; 
+    height: 20px; 
     color: inherit; 
 }
 
@@ -101,6 +101,7 @@ body {
     padding: 20px;
     overflow-y: auto; 
     max-height: 100vh; 
+    margin-left: 20px;
 }
 
 
@@ -143,9 +144,9 @@ body {
 .book-list {
     margin-top: 20px;
     width: 100%;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
     overflow: hidden;
 }
 
@@ -153,10 +154,11 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background: var(--background-color);
+    /* background: var(--background-color); */
     font-weight: 600;
     color: #000; /* Change to black */
-    border-bottom: 1px solid var(--separator-color);
+    /* border-bottom: 1px solid var(--separator-color); */
+    
 }
 
 .table-row {
@@ -165,6 +167,9 @@ body {
     align-items: center;
     padding: 10px 20px;
     border-bottom: 1px solid var(--separator-color);
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .table-row:last-child {
@@ -188,17 +193,21 @@ body {
 .book-info {
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
 }
 
 .book-title {
-    font-weight: bold;
-    font-size: 16px;
-    color: #000;
+    font-weight: normal;
+    font-size: 15px;
+    font-family: Inter;
+    color: #4d4d4d;
+    margin-bottom: 5px;
 }
 
 .book-author,
 .book-edition {
     font-size: 12px;
+    padding: 0 2 0 2px;
     color: var(--text-color-secondary);
 }
 
@@ -213,8 +222,8 @@ body {
 
 .category-text {
     font-size: 16px;
-    font-weight: 600;
-    color: #000;
+    font-weight: normal;
+    color: #4d4d4d;
 }
 
 .subcategory-text {
@@ -234,6 +243,7 @@ body {
 .status-badge {
     padding: 5px 10px;
     border-radius: 12px;
+    min-width: 70px;
     font-size: 12px;
     font-weight: 600;
     color: #fff;
@@ -257,6 +267,7 @@ body {
     padding: 5px 10px;
     border: 1px solid var(--text-color-primary);
     border-radius: 4px;
+    min-width: 70px;
     background: none;
     color: var(--text-color-primary);
     font-size: 12px;
@@ -285,6 +296,6 @@ body {
 .favorites-header {
     font-size: 24px;
     font-weight: 700;
-    color: #000; 
+    color: #45322E; 
     margin-bottom: 20px;
 }

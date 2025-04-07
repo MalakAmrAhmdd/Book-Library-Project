@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
     <title>Dashboard</title>
     <link rel="stylesheet" href="UserDetails.css">
+    <link rel="stylesheet" href="Dashboard.css">
 </head>
 <body>
     <div class="container">
@@ -26,40 +27,46 @@
             <!-- Navigation Rows -->
             <div class="nav-rows">
                 <a href="Dashboard.html" class="sidebar-link">
-                <div class="sidebar-row">
-                    <img src="assets/dashboard.png" alt="Dashboard Icon" class="icon">
-                    <span class="text">Dashboard</span>
-                </div>
+                    <div class="sidebar-row">
+                        <i class="fa fa-dashboard" class="icon"></i>
+                        <span class="text">Dashboard</span>
+                    </div>
                 </a>
-
-                <div class="sidebar-row">
-                    <img src="assets/add_book.png" alt="Add Book Icon" class="icon">
-                    <span class="text">Add Book</span>
-                </div>
+                <a href="Add_Book.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <i class="fa fa-plus" class="icon"></i>
+                        <span class="text">Add Book</span>
+                    </div>
+                </a>
+                
                 <a href="Users.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/users.png" alt="Users Icon" class="icon">
+                        <i class="fa fa-users" class="icon"></i>
                         <span class="text">Users</span>
                     </div>
                 </a>
                 <a href="Books.html" class="sidebar-link">
                 <div class="sidebar-row">
-                    <img src="assets/books.png" alt="Books Icon" class="icon">
+                    <i class="fa fa-book" class="icon"></i>
                     <span class="text">Books</span>
                 </div>
-            </a>
+                </a>
             </div>
 
             <!-- Log Out Row -->
             <div class="sidebar-row log-out">
-                <img src="assets/log_out.png" alt="Log Out Icon" class="icon">
-                <span class="text">Log Out</span>
+                <i class="fa fa-sign-out fa-rotate-180" class="icon"></i>
+                
+                <a href="Sign_in.html" class="sidebar-link">
+                    <span class="text">Log Out</span>
+                </a>
             </div>
             
         </nav>
         <div class="separator"></div>
         <div class="main-content">
             <!-- Main content here -->
+            <a href="Users.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to Users</a>
             <div class="header">
                 <span class="Header-text">Users Details</span>
             </div>
@@ -79,7 +86,7 @@
             <div class="Borrowed-Books">
                 <span class="Borrowed-Books-text">Borrowed Books</span>
             </div>
-            <div class="borrows-table">
+            <div class="Books">
                 <table>
                     <thead>
                         <tr class="table-heading">
@@ -125,53 +132,66 @@
                 
             </div>
             <div class="table-footer">
-                <span class="table-info">Showing 1-05 of 10</span>
+                <span class="table-info">Showing 1-08 of 78</span>
+                <div class="toggle-container">
+                    <button class="toggle-button" onclick="toggleTab(this)"><i class='fas fa-angle-left'></i></button>
+                    <button class="toggle-button active" onclick="toggleTab(this)"><i class='fas fa-angle-right'></i></button>
+                </div>
             </div>
             <div class="Returned-Books">
                 <span class="Returned-Books-text">Returned Books</span>
             </div>
-            <table>
-                <thead>
-                    <tr class="table-heading">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>00001</td>
-                        <td>Christine Brooks</td>
-                        <td>089 Kutch Green Apt. 448</td>
-                        <td>04 Sep 2019</td>
-                    </tr>
-                    <tr>
-                        <td>00002</td>
-                        <td>Rosie Pearson</td>
-                        <td>979 Immanuel Ferry Suite 526</td>
-                        <td>28 May 2019</td>
-                    </tr>
-                    <tr>
-                        <td>00003</td>
-                        <td>Darrell Caldwell</td>
-                        <td>8587 Frida Ports</td>
-                        <td>23 Nov 2019</td>
-                    </tr>
-                    <tr>
-                        <td>00004</td>
-                        <td>Gilbert Johnston</td>
-                        <td>768 Destiny Lake Suite 600</td>
-                        <td>05 Feb 2019</td>
-                    </tr>
-                    <tr>
-                        <td>00005</td>
-                        <td>Alan Cain</td>
-                        <td>042 Mylene Throughway</td>
-                        <td>29 Jul 2019</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="Books">
+                <table>
+                    <thead>
+                        <tr class="table-heading">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>00001</td>
+                            <td>Christine Brooks</td>
+                            <td>089 Kutch Green Apt. 448</td>
+                            <td>04 Sep 2019</td>
+                        </tr>
+                        <tr>
+                            <td>00002</td>
+                            <td>Rosie Pearson</td>
+                            <td>979 Immanuel Ferry Suite 526</td>
+                            <td>28 May 2019</td>
+                        </tr>
+                        <tr>
+                            <td>00003</td>
+                            <td>Darrell Caldwell</td>
+                            <td>8587 Frida Ports</td>
+                            <td>23 Nov 2019</td>
+                        </tr>
+                        <tr>
+                            <td>00004</td>
+                            <td>Gilbert Johnston</td>
+                            <td>768 Destiny Lake Suite 600</td>
+                            <td>05 Feb 2019</td>
+                        </tr>
+                        <tr>
+                            <td>00005</td>
+                            <td>Alan Cain</td>
+                            <td>042 Mylene Throughway</td>
+                            <td>29 Jul 2019</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-footer">
+                <span class="table-info">Showing 1-08 of 78</span>
+                <div class="toggle-container">
+                    <button class="toggle-button" onclick="toggleTab(this)"><i class='fas fa-angle-left'></i></button>
+                    <button class="toggle-button active" onclick="toggleTab(this)"><i class='fas fa-angle-right'></i></button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

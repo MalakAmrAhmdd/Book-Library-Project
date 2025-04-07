@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
     <title>Add Book</title>
     <link rel="stylesheet" href="Add_Book.css">
+    <link rel="stylesheet" href="Dashboard.css">
 </head>
 <body>
     <div class="container">
@@ -25,59 +26,58 @@
 
             <!-- Navigation Rows -->
             <div class="nav-rows">
+                <a href="Dashboard.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <i class="fa fa-dashboard" class="icon"></i>
+                        <span class="text">Dashboard</span>
+                    </div>
+                </a>
                 <div class="sidebar-row">
-                    <img src="assets/dashboard.png" alt="Dashboard Icon" class="icon">
-                    <span class="text">Dashboard</span>
-                </div>
-                <div class="sidebar-row">
-                    <img src="assets/add_book.png" alt="Add Book Icon" class="icon">
+                    <i class="fa fa-plus" class="icon"></i>
                     <span class="text">Add Book</span>
                 </div>
+                <a href="Users.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <i class="fa fa-users" class="icon"></i>
+                        <span class="text">Users</span>
+                    </div>
+                </a>
+                <a href="Books.html" class="sidebar-link">
                 <div class="sidebar-row">
-                    <img src="assets/users.png" alt="Users Icon" class="icon">
-                    <span class="text">Users</span>
-                </div>
-                <div class="sidebar-row">
-                    <img src="assets/books.png" alt="Books Icon" class="icon">
+                    <i class="fa fa-book" class="icon"></i>
                     <span class="text">Books</span>
                 </div>
+                </a>
             </div>
 
             <!-- Log Out Row -->
             <div class="sidebar-row log-out">
-                <img src="assets/log_out.png" alt="Log Out Icon" class="icon">
+                <i class="fa fa-sign-out fa-rotate-180" class="icon"></i>
                 <span class="text">Log Out</span>
             </div>
         </nav>
         <div class="separator"></div>
         <div class="main-content">
             <!-- Main content here -->
-            <div class="background"></div>
-            <div class="content-box"></div>
-            <div class="submit-button">Submit</div>
-            <div class="filters">
-                <div class="filter-box"></div>
-                <div class="filter-text">Category</div>
-                <div class="filter-box"></div>
-                <div class="filter-text">Lang</div>
-            </div>
-            <div class="heading">Fill up Book Details</div>
-            <div class="form">
-                <div class="form-group">
-                    <div class="input-box"></div>
-                    <div class="input-label">Book name</div>
-                    <div class="input-box"></div>
-                    <div class="input-label">Author Name</div>
-                    <div class="input-box large"></div>
-                    <div class="input-label">Description</div>
+            <div class="background">
+                <a href="Dashboard.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to Dashboard</a>
+                <div class="addBookHeader">
+                    <span class="header-text">Fill up book details</span>
                 </div>
-                <div class="upload-box"></div>
-                <div class="upload-text">Upload image here</div>
+                <div class="book-form">
+                    <form class="book-details">
+                        <input type="text" id="book-name" placeholder="Enter Book name">
+                        <input type="text" id="author-name" placeholder="Author-name">
+                        <textarea id="text-description" placeholder="Description"></textarea>
+                    </form>
+                    <div class="upload-container">
+                        <label for="file-upload" class="upload-box">
+                            <input type="file" id="file-upload" accept="image/*">
+                            <span>Upload image here</span>
+                        </label>
+                    </div>
+                </div>
             </div>
-
-
-
-
         </div>
     </div>
 </body>

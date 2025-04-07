@@ -13,6 +13,8 @@
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
     <title>Dashboard</title>
     <link rel="stylesheet" href="BorrowedBooks.css">
+    <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="Books.css">
 </head>
 <body>
     <div class="container">
@@ -27,32 +29,37 @@
             <div class="nav-rows">
                 <a href="Dashboard.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/dashboard.png" alt="Dashboard Icon" class="icon">
+                        <i class="fa fa-dashboard" class="icon"></i>
                         <span class="text">Dashboard</span>
                     </div>
                 </a>
-                <div class="sidebar-row">
-                    <img src="assets/add_book.png" alt="Add Book Icon" class="icon">
-                    <span class="text">Add Book</span>
-                </div>
+                <a href="Add_Book.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <i class="fa fa-plus" class="icon"></i>
+                        <span class="text">Add Book</span>
+                    </div>
+                </a>
                 <a href="Users.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/users.png" alt="Users Icon" class="icon">
+                        <i class="fa fa-users" class="icon"></i>
                         <span class="text">Users</span>
                     </div>
                 </a>
                 <a href="Books.html" class="sidebar-link">
-                    <div class="sidebar-row">
-                        <img src="assets/books.png" alt="Books Icon" class="icon">
-                        <span class="text">Books</span>
-                    </div>
+                <div class="sidebar-row">
+                    <i class="fa fa-book" class="icon"></i>
+                    <span class="text">Books</span>
+                </div>
                 </a>
             </div>
-        
+
             <!-- Log Out Row -->
             <div class="sidebar-row log-out">
-                <img src="assets/log_out.png" alt="Log Out Icon" class="icon">
-                <span class="text">Log Out</span>
+                <i class="fa fa-sign-out fa-rotate-180" class="icon"></i>
+                
+                <a href="Sign_in.html" class="sidebar-link">
+                    <span class="text">Log Out</span>
+                </a>
             </div>
         </nav>
         <div class="separator"></div>
@@ -62,11 +69,11 @@
                 <span class="Header-text">Books List</span>
             </div>
             
-            <div class="tab-buttons">
-                <a href="Books.html" class="tab-button">Available Books</a>
-                <a href="BorrowedBooks.html" class="tab-button active">Borrowed Books</a>
+            <div class="toggle-container">
+                <a href="Books.html" class="toggle-button active">Available Books</a>
+                <a class="toggle-button">Borrowed Books</a>
             </div>
-            
+
             <div class="borrows-table">
                 <table>
                     <thead>
@@ -146,7 +153,13 @@
                     </tbody>
                 </table>
             </div>
-
+            <div class="table-footer">
+                <span class="table-info">Showing 1-08 of 78</span>
+                <div class="toggle-book-container">
+                    <button class="toggle-button" onclick="toggleTab(this)"><i class='fas fa-angle-left'></i></button>
+                    <button class="toggle-button active" onclick="toggleTab(this)"><i class='fas fa-angle-right'></i></button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
