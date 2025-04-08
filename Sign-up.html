@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Sign_in.css">
+    <link rel="stylesheet" href="Sign-up.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
-    <title>Sign-in</title>
+    <title>Sign-up</title>
 </head>
 
 <body>
@@ -29,12 +29,26 @@
                 <label for="username" class="userLabel">Username:</label><br>
                 <input type="text" id="username" name="username" placeholder="Enter your username">
                 <label for="pass"  class="passlabel">Password:</label><br>
-                <input type="text" id="pass" name="pass" placeholder="Enter your password"><br>
-                <input type="submit" id="submit" value="Login">
+                <input type="text" id="pass" name="pass" placeholder="Enter your password">
+                <label for="pass"  class="passlabel">Confirm Password:</label><br>
+                <input type="text" id="pass" name="pass" placeholder="Confirm your password">
+                <div class="role-choice">
+                        <a href="Dashboard.html" class="role-link"> 
+                            <input type="radio" id="role" name="admin" checked><br>
+                            <label for="admin"  class="role-name">Admin</label><br>
+                        </a>
+                        
+                        <a href="User_Homepage.html" class="role-link">
+                            <input type="radio" id="role" name="user"><br>
+                            <label for="user"  class="role-name">User</label><br>
+                        </a>
+                </div>
+
+                <input type="submit" id="submit" value="Register">
             </form>
             <div class="new">
-                <p>New user?</p>
-                <a href="Sign-up.html">Register Here</a>
+                <p>Already have an account?</p>
+                <a href="Sign_in.html">Login here</a>
             </div>
         </div>
     </div>

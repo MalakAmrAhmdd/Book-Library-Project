@@ -20,7 +20,9 @@ body{
 
 .layout{
     margin: auto;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .logo{
     display: flex;
@@ -45,6 +47,7 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
+
 
 .welcome{
     display: flex;
@@ -164,3 +167,32 @@ line-height: normal;
     text-underline-position: from-font;
 }
 
+.role-choice{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 0px 10%;
+    margin-bottom: 10px;
+}
+
+
+.role-name{
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    padding-top: 2px;
+}
+
+.role-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#role{
+    accent-color: #45322e;
+}
