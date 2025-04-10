@@ -115,25 +115,25 @@ tbody td {
     gap: 10px;
     background-color: white;
     border: 1px solid #d5d5d5;
-    border-radius: 20px; 
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.01); 
-    padding: 10px 20px; 
-    height: 20px;
-    width: 280px; 
+    border-radius: 20px;
+    padding: 10px 25px;
+    width: 250px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
 
 .search-icon {
-    width: 20px;
-    height: 20px;
-    color: #797a7a; 
+    color: #797a7a;
+    font-size: 16px;
 }
 
-.search-text {
-    font-family: Inter, sans-serif;
+.search-input {
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    font-weight: 400;
     color: #797a7a;
-    white-space: nowrap; 
+    width: 100%;
+    background: transparent;
 }
 .table-footer {
     display: flex;
