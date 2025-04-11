@@ -112,14 +112,38 @@
                                 </div>
 
                                 <!-- Edit Popup -->
-                                <input type="checkbox" id="editPopup" class="modal-toggle">
-                                <div class="modal">
-                                    <div class="modal-content">
-                                        <h3>Edit Book</h3>
-                            
-                                        <label for="editPopup" class="btn close-btn">Close</label>
-                                    </div>
-                                </div>
+                                <input type="checkbox" id="editPopup" class="edit-modal-toggle">
+                                <div class="modal-edit">
+                                    <div class="modal-edit-content">
+                                        <input type = "text" id="book-name" placeholder = "Book name">
+                                        <input type = "text" id="author-name" placeholder = "Author name">
+                                        <textarea id ="description" placeholder = "Description"></textarea>
+                                        <div class="dropmenu">
+                                            <select name = "category" id="category" aria-placeholder="Category">
+                                                <option value="" selected="selected">Category</option>
+                                                <option value="1">Sci-Fi</option>
+                                                <option value ="2">Psychology</option>
+                                                <option value ="3">Fantasy</option>
+                                                <option value="4">Romance</option>
+                                                <option value="5">Novel</option>
+                                            </select>
+                                        
+                                            <select name ="lang" id="lang" aria-placeholder="Lang">
+                                                <option value="" selected="selected">lang</option>
+                                                <option value="1">English</option>
+                                                <option value="2">Arabic</option>
+                                            </select>
+                                        </div>
+                                        <label for="file-upload" class="upload-box">
+                                            <input type="file" id="file-upload" accept="image/*">
+                                            <span>Upload image here</span>
+                                        </label>
+                                        <label for="editPopup" class="btn upload-btn">Upload new photo</label>
+                                        <label for="editPopup" class="btn save-btn">Save Changes</label>
+                                        <label for="editPopup" class="btn close-btn">Cancel</label>
+                                    </div>  
+                                    
+                                </div> 
 
                                 <!-- Delete Confirmation -->
                                 <input type="checkbox" id="deletePopup" class="modal-toggle">

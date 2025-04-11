@@ -302,7 +302,7 @@ tbody td {
 }
 
 /* Modal Styles */
-.modal {
+.modal, .modal-edit {
     display: none;
     position: fixed;
     top: 0;
@@ -386,12 +386,149 @@ tbody td {
     transform: scale(1.05);
 }
 
-.close-btn {
-    background-color: #ccc;
-    color: #000;
-    /* padding: 10px 20px; */
+.modal-edit-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    font-family: "Nunito Sans", sans-serif;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#book-name{
     border-radius: 8px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    height:25px;
+    padding:10px;
+    width:90%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#author-name{
+    border-radius: 8px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    height:25px;
+    padding:10px;
+    width:90%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#description{
+    border-radius: 8px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    max-height:75px;
+    min-height: 75px;
+    padding:10px;
+    max-width:361px;
+    min-width: 361px;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.dropmenu{
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    width:20%;
+}
+
+#category, #lang {
+    width: 220%;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid #D6D6D6;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 8px 12px;
+    flex-shrink: 0;
     font-size: 14px;
+    font-family: Inter;
+    font-style: normal;
+    appearance: none;
+    background-image: url('assets/Polygon 1.png'); 
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 11px;
+    margin-top:10px;
+    margin-left:10px;
+}
+
+.upload-box {
+    width: 160px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #D6D6D6;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 120px;
+    margin-top:20px;
+}
+
+.upload-box input {
+    display: none; /* Hide default file input */
+}
+
+.upload-btn{
+    background-color: #214539;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 150px;
+    height: 30px;
+    padding: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+.save-btn{
+    background-color: #5d1b21;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    width:200px;
+    height:30px;
+    margin-left: 95px;
+
+}
+
+.close-btn {
+    background-color:white;
+    color: #000;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right:20px;
+}
+
+.edit-modal-toggle{
+    display: none;
+}
+
+.edit-modal-toggle:checked+.modal-edit{
+    display: flex;
 }
 
 .modal-toggle {
@@ -401,3 +538,9 @@ tbody td {
 .modal-toggle:checked+.modal {
     display: flex;
 }
+
+
+
+
+
+
