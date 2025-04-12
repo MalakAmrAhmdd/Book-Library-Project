@@ -260,3 +260,263 @@ body {
 .text-link{
     text-decoration: none;
 }
+
+.modal-profile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-profile-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    font-family: "Nunito Sans", sans-serif;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+.modal-profile-toggle {
+    display: none;
+}
+
+.modal-profile-toggle:checked+.modal-profile {
+    display: flex;
+}
+
+#user-name{
+    border-radius: 8px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    height:10%;
+    padding:10px;
+    width:70%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    outline: #D6D6D6;
+    /*margin-left: 10px; */
+}
+
+.profile-pop-text{
+    color: #45322E;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.profile-btn{
+    width: 40%;
+height: 15%;
+flex-shrink: 0;border-radius: 10px;
+background: #8C6051;
+color: #fff;
+display: flex;
+align-items: center;
+flex-direction: column;
+padding-top: 5%;
+cursor: pointer;
+}
+
+
+
+
+.modal-Book {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-Book-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    /* text-align: center; */
+    width: 450px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    font-family: "Nunito Sans", sans-serif;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    /* gap: 20px; */
+}
+
+.pop-up-book-image{
+    width: 30%;
+    height: 90%;
+    margin: 20px;
+}
+.pop-up-img{
+    height: 100%;
+    width: 100%;
+}
+.book-pop-up-details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.pop-up-book-title{
+    color: #4D4D4D;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 128.523%; /* 44.983px */
+}
+
+.pop-up-author{
+    color: #4D4D4D;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.borrows{
+    color: #333;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.pop-up-desc{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 5px;
+align-self: stretch;
+}
+
+.pop-up-description{
+    color: #4D4D4D;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 128.523%; /* 25.705px */
+}
+
+.pop-up-text{
+    color: #4D4D4D;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.pop-up-status{
+    color: #4D4D4D;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.status-btn{
+    width: 75px;
+height: 22px;
+flex-shrink: 0;
+border-radius: 5px;
+background: #214539;
+border: none;
+color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding-top: 5px;
+}
+
+.borrow-btn{
+    border-radius: 10px;
+background: #5D1B21;
+width: 150px;
+height: 30px;
+/* flex-shrink: 0; */
+color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 600;
+padding-top: 10px;
+cursor: pointer;
+}
+
+.modal-Book-toggle {
+    display: none;
+}
+
+.modal-Book-toggle:checked+.modal-Book {
+    display: flex;
+}
+
+#user-name{
+    border-radius: 8px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    height:10%;
+    padding:10px;
+    width:70%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    outline: #D6D6D6;
+    /*margin-left: 10px; */
+}
+
+.profile-pop-text{
+    color: #45322E;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.profile-btn{
+    width: 40%;
+height: 15%;
+flex-shrink: 0;border-radius: 10px;
+background: #8C6051;
+color: #fff;
+display: flex;
+align-items: center;
+flex-direction: column;
+padding-top: 5%;
+cursor: pointer;
+}
+
+.book-image, .book-title{
+    cursor: pointer;
+}

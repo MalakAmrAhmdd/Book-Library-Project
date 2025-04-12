@@ -10,6 +10,7 @@
 
     <title>Homepage</title>
     <link rel="stylesheet" href="User_Homepage.css">
+    <link rel="website icon" type="png" href="assets/logo.png">
 </head>
 <body>
     <div class="container">
@@ -51,6 +52,16 @@
         <div class="user-section">
             <!-- Profile -->
             <div class="sidebar-row profile">
+                <label for="profilePopUp" class="profile-icon">
+                <input type="checkbox" id="profilePopUp" class="modal-profile-toggle">
+                <div class="modal-profile">
+                    <div class="modal-profile-content">
+                        <input type = "text" id="user-name" placeholder = "Username">
+                        <span class="profile-pop-text">Borrowed Books: 20</span>
+                        <span class="profile-pop-text">Returned Books: 20</span>
+                        <label for="profilePopUp" class="profile-btn">Close</label>
+                    </div>
+                </div>
                 <img src="assets/profile.svg" alt="Profile Icon" class="icon">
                 <span class="text">Profile</span>
             </div>
@@ -86,14 +97,36 @@
                 </div>
                 <div class="table-row">
                     <div class="book-holder">
-                        <a href="path/to/book-details.html">
+                        <label for="BookPopUp" class="Book-icon">
+                        <input type="checkbox" id="BookPopUp" class="modal-Book-toggle">
+                        <div class="modal-Book">
+                            <div class="modal-Book-content">
+                                <div class="pop-up-book-image">
+                                    <img src="assets/Book details.png" alt="book" class="pop-up-img">
+                                </div>
+                                <div class="book-pop-up-details">
+                                    <span class="pop-up-book-title">Don't Make Me Think</span>
+                                    <span class="pop-up-author">By Steve Krug</span>
+                                    <span class="borrows">25 Borrows</span>
+                                    <div class="pop-up-desc">
+                                        <span class="pop-up-description">Description</span>
+                                        <span class="pop-up-text">A Common Sense approach to web usability</span>
+                                        
+                                    </div>
+                                    
+                                    <label for="BookPopUp" class="status-btn">Status</label>
+                                    <label for="BookPopUp" class="borrow-btn">Borrow</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <a href="path/to/book-details.html"> -->
                             <div class="book-image">
                                 <img src="Books/English/engBookCovers/don't make me think.jpg" alt="Book Cover" class="book-cover">
                             </div>
-                        </a>
-                        <a href="path/to/book-details.html" class="text-link">
+                        <!-- </a> -->
+                        <!-- <a href="path/to/book-details.html" class="text-link"> -->
                             <span class="book-title">Don't Make Me Think</span>
-                        </a>
+                        <!-- </a> -->
                            
                         <span class="book-author">Steve Krug, 2000</span>
                     </div>

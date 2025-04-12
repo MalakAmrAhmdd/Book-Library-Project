@@ -153,7 +153,7 @@ tbody td {
 .tab-button.active {
     background-color: #fafbfd;
     color: #8c6051;
-    border: 0.5px solid #8c6051;
+    /* border: 0.5px solid #8c6051; */
 }
 
 .tab-button:hover {
@@ -209,9 +209,9 @@ tbody td {
     font-weight: bold;
     color: #8c6051;
     border: none;
-    border-top: 1px solid #8c6051;
+    /* border-top: 1px solid #8c6051;
     border-right: 1px solid #8c6051;
-    border-bottom: 1px solid #8c6051;
+    border-bottom: 1px solid #8c6051; */
 }
 
 .toggle-button:not(:last-child) {
@@ -266,6 +266,7 @@ tbody td {
 .toggle-button.active {
     background-color: #fff;
     font-weight: bold;
+    
     color: #8c6051;
 }
 
@@ -301,6 +302,14 @@ tbody td {
     background: transparent;
 }
 
+.edit-icon{
+    cursor: pointer;
+}
+
+.delete-icon{
+    cursor: pointer;
+}
+
 /* Modal Styles */
 .modal, .modal-edit {
     display: none;
@@ -323,10 +332,10 @@ tbody td {
     width: 400px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     font-family: "Nunito Sans", sans-serif;
-    height: 150px;
+    height: 130px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* align-items: center; */
 }
 
 .modal-content h3 {
@@ -344,13 +353,13 @@ tbody td {
     color: #5f4e4b;
     font-family: Inter;
     
-    margin-bottom: 60px;
+    margin-bottom: 55px;
 }
 
 .modal-buttons {
     display: flex;
-    justify-content: end;
-
+    justify-content: flex-end;
+    margin-right: 22px;
 }
 
 .btn {
@@ -362,28 +371,30 @@ tbody td {
     font-weight: normal;
     font-family: Inter;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-right: 25px;
+    /* margin-right: 25px; */
     font-style: normal;
 }
 
 .no-btn {
     background-color: #5d1b21;
     color: #fff;
+    margin: 0px 10px 10px 10px;
 }
 
 .no-btn:hover {
     background-color: #5d1b21;
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
 }
 
 .yes-btn {
     background-color: #214539;
     color: #fff;
+    margin: 0px 10px 10px 10px;
 }
 
 .yes-btn:hover {
     background-color: #214539;
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
 }
 
 .modal-edit-content {
@@ -393,65 +404,76 @@ tbody td {
     text-align: center;
     width: 400px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    font-family: "Nunito Sans", sans-serif;
-    height: auto;
+    font-family: Inter;
+    height: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    /* justify-content: center; */
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.modal-edit-content::-webkit-scrollbar{
+    display: none;
 }
 
 #book-name{
     border-radius: 8px;
     border: 1px solid #D6D6D6;
     background: #FFF;
-    height:25px;
+    height:5%;
     padding:10px;
     width:90%;
     flex-shrink: 0;
     margin-top: 10px;
-    margin-left: 10px;
+    outline: #D6D6D6;
+    /*margin-left: 10px; */
 }
 #author-name{
     border-radius: 8px;
     border: 1px solid #D6D6D6;
     background: #FFF;
-    height:25px;
+    height:5%;
     padding:10px;
     width:90%;
     flex-shrink: 0;
     margin-top: 10px;
-    margin-left: 10px;
+    outline: #D6D6D6;
+    /*margin-left: 10px; */
 }
 
 #description{
     border-radius: 8px;
     border: 1px solid #D6D6D6;
     background: #FFF;
-    max-height:75px;
-    min-height: 75px;
+    max-height:15%;
+    min-height: 10%;
     padding:10px;
     max-width:361px;
     min-width: 361px;
     flex-shrink: 0;
     margin-top: 10px;
-    margin-left: 10px;
+    outline: #D6D6D6;
+    /*margin-left: 10px; */
 }
 
 .dropmenu{
     display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    width:20%;
+    justify-content: flex-start;
+    gap: 15px;
+    width:96%;
+    height: 10%;
 }
 
 #category, #lang {
-    width: 220%;
-    height: 40px;
-    border-radius: 15px;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
     border: 1px solid #D6D6D6;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); */
     padding: 8px 12px;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     font-size: 14px;
     font-family: Inter;
     font-style: normal;
@@ -460,41 +482,38 @@ tbody td {
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 11px;
-    margin-top:10px;
-    margin-left:10px;
+    outline: #D6D6D6;
+    margin: 10px 0px ;
+    cursor: pointer;
 }
 
+.upload-img{
+    min-width: 50%;
+    min-height: 70%;
+    
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 .upload-box {
-    width: 160px;
-    height: 220px;
+    width: 98%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #D6D6D6;
+    border: 1px solid #D6D6D6;
     border-radius: 10px;
     font-size: 14px;
     cursor: pointer;
-    margin-bottom: 10px;
+    font-family: Inter;
+    /* margin-bottom: 10px;
     margin-left: 120px;
-    margin-top:20px;
+    margin-top:20px; */
 }
 
 .upload-box input {
     display: none; /* Hide default file input */
 }
 
-.upload-btn{
-    background-color: #214539;
-    color: #fff;
-    border-radius: 8px;
-    font-size: 16px;
-    width: 150px;
-    height: 30px;
-    padding: 12px;
-    font-weight: 600;
-    margin-top: 10px;
-    margin-left: 120px;
-}
 
 .save-btn{
     background-color: #5d1b21;
@@ -507,7 +526,7 @@ tbody td {
     margin-top: 10px;
     width:200px;
     height:30px;
-    margin-left: 95px;
+    /* margin-left: 95px; */
 
 }
 
@@ -519,8 +538,8 @@ tbody td {
     width: 100%;
     padding: 12px;
     font-weight: 600;
-    margin-top: 10px;
-    margin-right:20px;
+    /* margin-top: 10px;
+    margin-right:20px; */
 }
 
 .edit-modal-toggle{

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="BorrowedBooks.css">
     <link rel="stylesheet" href="Dashboard.css">
     <link rel="stylesheet" href="Books.css">
+    <link rel="website icon" type="png" href="assets/logo.png">
 </head>
 
 <body>
@@ -106,8 +107,7 @@
                                     <label for="editPopup" class="edit-icon"><i class="fa-solid fa-pen"></i></label>
 
                                     <!-- Delete -->
-                                    <label for="deletePopup" class="delete-icon"><i
-                                            class="fa-solid fa-trash"></i></label>
+                                    <label for="deletePopup" class="delete-icon"><i class="fa-solid fa-trash"></i></label>
 
                                 </div>
 
@@ -134,11 +134,13 @@
                                                 <option value="2">Arabic</option>
                                             </select>
                                         </div>
-                                        <label for="file-upload" class="upload-box">
-                                            <input type="file" id="file-upload" accept="image/*">
-                                            <span>Upload image here</span>
-                                        </label>
-                                        <label for="editPopup" class="btn upload-btn">Upload new photo</label>
+                                        <div class="upload-img">
+                                            <label for="file-upload" class="upload-box">
+                                                <input type="file" id="file-upload" accept="image/*">
+                                                <span>Upload image here</span>
+                                            </label>
+                                        </div>
+                                        
                                         <label for="editPopup" class="btn save-btn">Save Changes</label>
                                         <label for="editPopup" class="btn close-btn">Cancel</label>
                                     </div>  
