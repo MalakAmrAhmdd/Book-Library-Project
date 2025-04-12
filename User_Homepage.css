@@ -382,96 +382,96 @@ cursor: pointer;
 
 .pop-up-book-title{
     color: #4D4D4D;
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 128.523%; /* 44.983px */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 128.523%; /* 44.983px */
 }
 
 .pop-up-author{
     color: #4D4D4D;
-font-family: Inter;
-font-size: 10px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .borrows{
     color: #333;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .pop-up-desc{
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 5px;
-align-self: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    align-self: stretch;
 }
 
 .pop-up-description{
     color: #4D4D4D;
-font-family: Inter;
-font-size: 15px;
-font-style: normal;
-font-weight: 400;
-line-height: 128.523%; /* 25.705px */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 128.523%; /* 25.705px */
 }
 
 .pop-up-text{
     color: #4D4D4D;
-font-family: Inter;
-font-size: 10px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .pop-up-status{
     color: #4D4D4D;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 .status-btn{
     width: 75px;
-height: 22px;
-flex-shrink: 0;
-border-radius: 5px;
-background: #214539;
-border: none;
-color: #FFF;
-text-align: center;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-padding-top: 5px;
+    height: 22px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #214539;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 5px;
 }
 
 .borrow-btn{
     border-radius: 10px;
-background: #5D1B21;
-width: 150px;
-height: 30px;
-/* flex-shrink: 0; */
-color: #FFF;
-text-align: center;
-font-family: Inter;
-font-size: 15px;
-font-style: normal;
-font-weight: 600;
-padding-top: 10px;
-cursor: pointer;
+    background: #5D1B21;
+    width: 150px;
+    height: 30px;
+    /* flex-shrink: 0; */
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    padding-top: 10px;
+    cursor: pointer;
 }
 
 .modal-Book-toggle {
@@ -497,24 +497,24 @@ cursor: pointer;
 
 .profile-pop-text{
     color: #45322E;
-font-family: Inter;
-font-size: 15px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .profile-btn{
     width: 40%;
-height: 15%;
-flex-shrink: 0;border-radius: 10px;
-background: #8C6051;
-color: #fff;
-display: flex;
-align-items: center;
-flex-direction: column;
-padding-top: 5%;
-cursor: pointer;
+    height: 15%;
+    flex-shrink: 0;border-radius: 10px;
+    background: #8C6051;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5%;
+    cursor: pointer;
 }
 
 .book-image, .book-title{
