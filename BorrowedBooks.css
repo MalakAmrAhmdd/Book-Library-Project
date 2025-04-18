@@ -5,13 +5,6 @@
     --text-color-hover: #4c4c4c;
     --separator-color: #dcdcdc;
 }
-
-.separator {
-    width: 1px; 
-    background: #dcdcdc;
-    height: 100%; 
-}
-
 .main-content {
     overflow: auto;
     overflow-x: hidden;

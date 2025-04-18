@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
 
     <title>Homepage</title>
     <link rel="stylesheet" href="User_Homepage.css">
+    <link rel="stylesheet" href="User_SideBar.css">
     <link rel="website icon" type="png" href="assets/logo.png">
 </head>
 <body>
@@ -20,28 +25,30 @@
                 <img src="assets/logo icon.svg" alt="Logo" class="icon">
                 <span class="logo-text">BiblioGate</span>
             </div>
-
+        
            
             <div class="nav-rows">
-                <div class="sidebar-row">
-                    <img src="assets/Home.svg" alt="Dashboard Icon" class="icon">
-                    <span class="text">Homepage</span>
-                </div>
+                <a href="User_Homepage.html" class="sidebar-link">
+                    <div class="sidebar-row">
+                        <i class="fa fa-home" class="icon"></i>
+                        <span class="text">Homepage</span>
+                    </div>
+                </a>
                 <a href="Favorite.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/fav icon.svg" alt="Add Book Icon" class="icon">
+                        <i class="fa fa-heart" class="icon"></i>
                         <span class="text">Favorites</span>
                     </div>
                 </a>
                 <a href="User search.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/search icon.svg" alt="Users Icon" class="icon">
+                        <i class="fa fa-search" class="icon"></i>
                         <span class="text">Search</span>
                     </div>
                 </a>
                 <a href="User Borrowings.html" class="sidebar-link">
                     <div class="sidebar-row">
-                        <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
+                        <i class="fa fa-book" class="icon"></i>
                         <span class="text">Borrowings</span>
                     </div>
                 </a>
@@ -52,18 +59,10 @@
         <div class="user-section">
             <!-- Profile -->
             <div class="sidebar-row profile">
-                <label for="profilePopUp" class="profile-icon">
-                <input type="checkbox" id="profilePopUp" class="modal-profile-toggle">
-                <div class="modal-profile">
-                    <div class="modal-profile-content">
-                        <input type = "text" id="user-name" placeholder = "Username">
-                        <span class="profile-pop-text">Borrowed Books: 20</span>
-                        <span class="profile-pop-text">Returned Books: 20</span>
-                        <label for="profilePopUp" class="profile-btn">Close</label>
-                    </div>
-                </div>
-                <img src="assets/profile.svg" alt="Profile Icon" class="icon">
-                <span class="text">Profile</span>
+                <a href="User_Profile.html" class="sidebar-link"></a>
+                <i class="fa fa-user" class="icon"></i>
+                    <span class="text">Profile</span>
+                </a>
             </div>
             
             <!-- Log Out -->
@@ -74,7 +73,7 @@
                 </a>
             </div>
         </div>
-
+        
         </nav>
 
 

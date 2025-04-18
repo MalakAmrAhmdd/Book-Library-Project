@@ -9,66 +9,70 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
 
-  <title>Sidebar</title>
+  <title>Show All</title>
   <link rel="stylesheet" href="Show_all page.css">
+  <link rel="stylesheet" href="User_SideBar.css">
   <link rel="website icon" type="png" href="assets/logo.png">
 </head>
+
 <body>
 <div class="container">
   <nav class="sidebar">
     <!-- Logo Row -->
     <div class="logo-row">
-      <img src="assets/logo icon.svg" alt="Logo" class="icon">
-      <span class="logo-text">BiblioGate</span>
+        <img src="assets/logo icon.svg" alt="Logo" class="icon">
+        <span class="logo-text">BiblioGate</span>
     </div>
 
-
+   
     <div class="nav-rows">
-      <a href="User_Homepage.html" class="sidebar-link">
-        <div class="sidebar-row">
-          <img src="assets/Home.svg" alt="Dashboard Icon" class="icon">
-          <span class="text">Homepage</span>
-        </div>
-      </a>
-      
-      <a href="Favorite.html" class="sidebar-link">
-        <div class="sidebar-row">
-            <img src="assets/fav icon.svg" alt="Add Book Icon" class="icon">
-            <span class="text">Favorites</span>
-        </div>
-    </a>
-    <a href="User search.html" class="sidebar-link">
-        <div class="sidebar-row">
-            <img src="assets/search icon.svg" alt="Users Icon" class="icon">
-            <span class="text">Search</span>
-        </div>
-    </a>
-    <a href="User Borrowings.html" class="sidebar-link">
-        <div class="sidebar-row">
-            <img src="assets/Borrowing icon.svg" alt="Books Icon" class="icon">
-            <span class="text">Borrowings</span>
-        </div>
-    </a>
+        <a href="User_Homepage.html" class="sidebar-link">
+            <div class="sidebar-row">
+                <i class="fa fa-home" class="icon"></i>
+                <span class="text">Homepage</span>
+            </div>
+        </a>
+        <a href="Favorite.html" class="sidebar-link">
+            <div class="sidebar-row">
+                <i class="fa fa-heart" class="icon"></i>
+                <span class="text">Favorites</span>
+            </div>
+        </a>
+        <a href="User search.html" class="sidebar-link">
+            <div class="sidebar-row">
+                <i class="fa fa-search" class="icon"></i>
+                <span class="text">Search</span>
+            </div>
+        </a>
+        <a href="User Borrowings.html" class="sidebar-link">
+            <div class="sidebar-row">
+                <i class="fa fa-book" class="icon"></i>
+                <span class="text">Borrowings</span>
+            </div>
+        </a>
+        
     </div>
-
-    <!-- User Section -->
-    <div class="user-section">
-      <!-- Profile -->
-      <div class="sidebar-row profile">
-        <img src="assets/profile.svg" alt="Profile Icon" class="icon">
-        <span class="text">Profile</span>
-      </div>
-
-      <!-- Log Out -->
-      <div class="sidebar-row log-out">
+    
+  <!-- User Section -->
+<div class="user-section">
+    <!-- Profile -->
+    <div class="sidebar-row profile">
+        <a href="User_Profile.html" class="sidebar-link"></a>
+        <i class="fa fa-user" class="icon"></i>
+            <span class="text">Profile</span>
+        </a>
+    </div>
+    
+    <!-- Log Out -->
+    <div class="sidebar-row log-out">
         <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
         <a href="Sign_in.html" class="sidebar-link">
             <span class="text">Log Out</span>
         </a>
     </div>
-    </div>
+</div>
 
-  </nav>
+</nav>
 
 
   <div class="separator"></div>

@@ -1,9 +1,3 @@
-.separator {
-    width: 1px;
-    background: #dcdcdc;
-    height: 100%;
-}
-
 .main-content {
     overflow: scroll;
     overflow-x: hidden;
