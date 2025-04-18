@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Sign-up.css">
     <link rel="website icon" type="png" href="assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
     <title>Sign-up</title>
+    <link rel="stylesheet" href="Sign-up.css">
 </head>
 
 <body>
@@ -29,23 +29,36 @@
             <form>
                 <label for="username" class="userLabel">Username:</label><br>
                 <input type="text" id="username" name="username" placeholder="Enter your username">
-                <label for="pass"  class="passlabel">Password:</label><br>
-                <input type="text" id="pass" name="pass" placeholder="Enter your password">
-                <label for="pass"  class="passlabel">Confirm Password:</label><br>
-                <input type="text" id="pass" name="pass" placeholder="Confirm your password">
-                <div class="role-choice">
-                        <a href="Dashboard.html" class="role-link"> 
-                            <input type="radio" id="role" name="admin" checked><br>
-                            <label for="admin"  class="role-name">Admin</label><br>
-                        </a>
-                        
-                        <a href="User_Homepage.html" class="role-link">
-                            <input type="radio" id="role" name="user"><br>
-                            <label for="user"  class="role-name">User</label><br>
-                        </a>
+            
+                <label for="Sign-up-pass" class="passlabel">Password:</label><br>
+                <div style="position: relative;">
+                    <input type="password" id="Sign-up-pass" name="Sign-up-pass" placeholder="Enter your password">
+                    <button type="button" class="togglePassword-sign-up">
+                        <i class="fa fa-eye" id="toggleIcon-sign-up"></i>
+                    </button>
                 </div>
-
-                <input type="submit" id="submit" value="Register">
+            
+                <label for="Sign-up-confirmPass" class="passlabel">Confirm Password:</label><br>
+                <div style="position: relative;">
+                    <input type="password" id="Sign-up-confirmPass" name="Sign-up-confirmPass" placeholder="Confirm your password">
+                    <button type="button" class="togglePassword-sign-up">
+                        <i class="fa fa-eye" id="toggleIcon-sign-up"></i>
+                    </button>
+                </div>
+            
+                <div class="role-choice">
+                    <div class="role-link">
+                        <input type="radio" id="admin" name="role" value="admin">
+                        <label for="admin" class="role-name">Admin</label>
+                    </div>
+                    
+                    <div class="role-link">
+                        <input type="radio" id="user" name="role" value="user">
+                        <label for="user" class="role-name">User</label>
+                    </div>
+                </div>
+            
+                <input type="submit" id="submit-sign-up" value="Register">
             </form>
             <div class="new">
                 <p>Already have an account?</p>
@@ -53,5 +66,6 @@
             </div>
         </div>
     </div>
+    <script src="JS Files/auth.js"></script>
 </body>
 </html>

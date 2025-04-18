@@ -1,10 +1,10 @@
-body{
+body {
     background-image: url(assets/Background.png);
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
-.form{
+.form {
     width: 400px;
     height: 420px;
     border-radius: 20px;
@@ -18,19 +18,19 @@ body{
     flex-direction: column;
 }
 
-.layout{
+.layout {
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     gap: 5px;
     max-height: 40px;
     justify-content: center;
- 
 }
 
 .logo img {
@@ -41,24 +41,22 @@ body{
 
 .logo p {
     color: #8C6051;
-font-family: Roboto;
-font-size: 30px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
-
-.welcome{
+.welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1px; /* Reduce gap for less space */
+    gap: 1px;
     justify-content: center;
-
 }
 
-.text1{
+.text1 {
     color: #4D4D4D;
     text-align: center;
     font-family: Inter;
@@ -66,10 +64,9 @@ line-height: normal;
     font-style: normal;
     font-weight: 400;
     max-height: 10px;
-
 }
 
-.text2{
+.text2 {
     color: #ABABAB;
     text-align: center;
     font-family: Inter;
@@ -80,22 +77,16 @@ line-height: normal;
     margin-top: -3px;
 }
 
-.new{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.userLabel, .passlabel{
+.userLabel, .passlabel {
     color: #4D4D4D;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
-    line-height: 100%; 
+    line-height: 100%;
 }
 
-#username, #pass{
+#username, #Sign-up-pass, #Sign-up-confirmPass {
     border-radius: 5px;
     border: 1px solid #DCD9D9;
     background: #fff;
@@ -103,38 +94,38 @@ line-height: normal;
     display: flex;
     align-items: center;
     gap: 8px;
-    align-self: stretch; 
-    height: 30px; 
-    width:200px;
+    align-self: stretch;
+    height: 30px;
+    width: 200px;
     margin-top: 5px;
     margin-bottom: 10px;
     padding-left: 10px;
     outline: #8C6051;
 }
 
-::placeholder{
+::placeholder {
     color: #4D4D4D;
     font-family: Inter;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; 
+    line-height: 24px;
 }
 
-#submit{
+#submit-sign-up {
     border-radius: 5px;
-    background-color: #45322E; 
+    background-color: #45322E;
     display: flex;
     width: 215px;
     height: 35px;
     justify-content: center;
     align-items: center;
-    color: white; 
-    border: none; 
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
-.new{
+.new {
     display: flex;
     gap: 0px;
     align-items: center;
@@ -149,10 +140,10 @@ line-height: normal;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
-    line-height: 100%; 
+    line-height: 100%;
 }
 
-.new a{
+.new a {
     color: #4D4D4D;
     font-family: Inter;
     font-size: 10px;
@@ -167,7 +158,7 @@ line-height: normal;
     text-underline-position: from-font;
 }
 
-.role-choice{
+.role-choice {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -176,8 +167,7 @@ line-height: normal;
     margin-bottom: 10px;
 }
 
-
-.role-name{
+.role-name {
     color: #4D4D4D;
     font-family: Inter;
     font-size: 12px;
@@ -186,13 +176,32 @@ line-height: normal;
     padding-top: 2px;
 }
 
-.role-link{
+.role-link {
     text-decoration: none;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-#role{
+input[type="radio"] {
     accent-color: #45322e;
+    cursor: pointer;
+}
+
+input[type="radio"]:hover {
+    accent-color: #231a18;
+}
+
+.togglePassword-sign-up {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#toggleIcon-sign-up {
+    font-size: 14px;
+    color: #4D4D4D;
 }

@@ -118,7 +118,7 @@ line-height: normal;
     line-height: 24px; 
 }
 
-#submit{
+#submit-sign-in{
     border-radius: 5px;
     background-color: #45322E; 
     display: flex;
@@ -164,3 +164,19 @@ line-height: normal;
     text-underline-position: from-font;
 }
 
+
+.togglePassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#toggleIcon {
+    font-size: 16px;
+    color: #4D4D4D;
+}
