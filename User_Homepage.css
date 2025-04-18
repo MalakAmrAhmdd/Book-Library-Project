@@ -99,6 +99,15 @@
     margin-bottom: 10px;
     min-height: 250px;
     text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    max-width: 130px;
+    max-height: 250px;
+}
+
+.book-holder:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .book-image{
@@ -405,4 +414,29 @@ cursor: pointer;
 
 .book-image, .book-title{
     cursor: pointer;
+}
+
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--text-color-primary);
+    border-radius: 10px;
+    border: 3px solid transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color-hover);
 }
