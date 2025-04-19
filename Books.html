@@ -111,53 +111,9 @@
 
                                 </div>
 
-                                <!-- Edit Popup -->
-                                <input type="checkbox" id="editPopup" class="edit-modal-toggle">
-                                <div class="modal-edit">
-                                    <div class="modal-edit-content">
-                                        <input type="text" id="book-name" placeholder="Book name">
-                                        <input type="text" id="author-name" placeholder="Author name">
-                                        <textarea id="description" placeholder="Description"></textarea>
-                                        <div class="dropmenu">
-                                            <select name="category" id="category" aria-placeholder="Category">
-                                                <option value="" selected="selected">Category</option>
-                                                <option value="1">Sci-Fi</option>
-                                                <option value="2">Psychology</option>
-                                                <option value="3">Fantasy</option>
-                                                <option value="4">Romance</option>
-                                                <option value="5">Novel</option>
-                                            </select>
+                                <!--edit used to be here-->
 
-                                            <select name="lang" id="lang" aria-placeholder="Lang">
-                                                <option value="" selected="selected">lang</option>
-                                                <option value="1">English</option>
-                                                <option value="2">Arabic</option>
-                                            </select>
-                                        </div>
-                                        <div class="upload-img">
-                                            <label for="file-upload" class="upload-box">
-                                                <input type="file" id="file-upload" accept="image/*">
-                                                <span>Upload image here</span>
-                                            </label>
-                                        </div>
-
-                                        <label for="editPopup" class="btn save-btn">Save Changes</label>
-                                        <label for="editPopup" class="btn close-btn">Cancel</label>
-                                    </div>
-
-                                </div>
-
-                                <!-- Delete Confirmation -->
-                                <input type="checkbox" id="deletePopup" class="modal-toggle">
-                                <div class="modal">
-                                    <div class="modal-content">
-                                        <p>Are you sure you want to delete this book?</p>
-                                        <div class="modal-buttons">
-                                            <label for="deletePopup" class="btn no-btn">No</label>
-                                            <label for="deletePopup" class="btn yes-btn">Yes</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--delete used to be here-->
 
                             </td>
                         </tr>
@@ -185,8 +141,8 @@
                         </tr>
                         <tr>
                             <td>00004</td>
-                            <td>Rosie Pearson</td>
-                            <td>979 Immanuel Ferry Suite 526</td>
+                            <td>frankenstein</td>
+                            <td>Sci-Fi</td>
                             <td>
                                 <div class="action-icons">
                                     <a href="#" class="edit-icon"><i class="fa-solid fa-pen"></i></a>
@@ -196,8 +152,8 @@
                         </tr>
                         <tr>
                             <td>00005</td>
-                            <td>Rosie Pearson</td>
-                            <td>979 Immanuel Ferry Suite 526</td>
+                            <td>pride and prejudice</td>
+                            <td>Romance</td>
                             <td>
                                 <div class="action-icons">
                                     <a href="#" class="edit-icon"><i class="fa-solid fa-pen"></i></a>
@@ -209,6 +165,55 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Edit Popup -->
+            <input type="checkbox" id="editPopup" class="edit-modal-toggle">
+            <div class="modal-edit">
+                <div class="modal-edit-content">
+                    <input type="text" id="book-name" placeholder="Book name">
+                    <input type="text" id="author-name" placeholder="Author name">
+                    <textarea id="description" placeholder="Description"></textarea>
+                    <div class="dropmenu">
+                        <select name="category" id="category" aria-placeholder="Category">
+                            <option value="" selected="selected">Category</option>
+                            <option value="1">Sci-Fi</option>
+                            <option value="2">Psychology</option>
+                            <option value="3">Fantasy</option>
+                            <option value="4">Romance</option>
+                            <option value="5">Novel</option>
+                        </select>
+
+                        <select name="lang" id="lang" aria-placeholder="Lang">
+                            <option value="" selected="selected">lang</option>
+                            <option value="1">English</option>
+                            <option value="2">Arabic</option>
+                        </select>
+                    </div>
+                    <div class="upload-img">
+                        <label for="file-upload" class="upload-box">
+                            <input type="file" id="file-upload" accept="image/*">
+                            <span>Upload image here</span>
+                        </label>
+                    </div>
+
+                    <label for="editPopup" class="btn save-btn">Save Changes</label>
+                    <label for="editPopup" class="btn close-btn">Cancel</label>
+                </div>
+
+            </div>
+
+
+            <!-- Delete Confirmation -->
+            <input type="checkbox" id="deletePopup" class="modal-toggle">
+            <div class="modal">
+                <div class="modal-content">
+                    <p>Are you sure you want to delete this book?</p>
+                    <div class="modal-buttons">
+                        <label for="deletePopup" class="btn no-btn">No</label>
+                        <label for="deletePopup" class="btn yes-btn">Yes</label>
+                    </div>
+                </div>
+            </div>
+
             <div class="table-footer">
                 <span class="table-info">Showing 1-08 of 78</span>
                 <div class="toggle-book-container">
@@ -220,6 +225,7 @@
 
         </div>
     </div>
+    <script src="adminPopups.js"></script>
 </body>
 
 </html>
