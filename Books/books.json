@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "title": "Don't Make Me Think",
+    "author": "Steve Krug, 2000",
+    "category": "Technology",
+    "description": "A practical guide to web usability, emphasizing intuitive design and user-friendly interfaces.",
+    "image": "Books/English/engBookCovers/don't make me think.jpg"
+  },
+  {
+    "id": 2,
+    "title": "The Design of Everyday Things",
+    "author": "Donald Norman, 1988",
+    "category": "Technology",
+    "description": "Explores human-centered design principles, focusing on intuitive interactions between users and objects.",
+    "image": "Books/English/engBookCovers/The design of everyday things.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Sprint",
+    "author": "Jake Knapp, 2016",
+    "category": "Technology",
+    "description": "A step-by-step method for solving problems and testing ideas in five days, developed at Google.",
+    "image": "Books/English/engBookCovers/Sprint.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Lean UX",
+    "author": "Jeff Gothelf, 2013",
+    "category": "Technology",
+    "description": "Integrates UX design with agile development, emphasizing collaboration and iterative feedback.",
+    "image": "Books/English/engBookCovers/Lean UX.png"
+  },
+  {
+    "id": 5,
+    "title": "The Road to React",
+    "author": "Robin Wieruch, 2017",
+    "category": "Technology",
+    "description": "A beginner-friendly guide to learning React.js for modern web development.",
+    "image": "Books/English/engBookCovers/the road to react.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert Kiyosaki, 1997",
+    "category": "Finance",
+    "description": "Advocates financial independence through asset-building, investing, and financial literacy.",
+    "image": "Books/English/engBookCovers/Rich dad poor dad.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling, 1997",
+    "category": "Fantasy",
+    "description": "A young wizard discovers his magical heritage and battles the dark wizard Voldemort at Hogwarts.",
+    "image": "Books/English/engBookCovers/Harry potter.jpg"
+  },
+  {
+    "id": 8,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald, 1925",
+    "category": "Fiction",
+    "description": "A critique of the American Dream through the tragic rise and fall of the enigmatic Jay Gatsby.",
+    "image": "Books/English/engBookCovers/the great gatsby.jpg"
+  },
+  {
+    "id": 9,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee, 1960",
+    "category": "Fiction",
+    "description": "A Southern Gothic novel addressing racial injustice through the eyes of a young girl, Scout Finch.",
+    "image": "Books/English/engBookCovers/to kill a mockingbird.jpg"
+  },
+  {
+    "id": 10,
+    "title": "1984",
+    "author": "George Orwell, 1949",
+    "category": "Science Fiction",
+    "description": "A dystopian classic warning against totalitarianism, surveillance, and thought control.",
+    "image": "Books/English/engBookCovers/1984.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen, 1813",
+    "category": "Romance",
+    "description": "A classic novel about the spirited Elizabeth Bennet and her relationship with the proud Mr. Darcy in Regency England.",
+    "image": "Books/English/engBookCovers/pride_and_prejudice.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Surrounded by Idiots",
+    "author": "Thomas Erikson, 2014",
+    "category": "Psychology",
+    "description": "Explores human behavior through the lens of four personality types and how to communicate effectively with each.",
+    "image": "Books/English/engBookCovers/surrounded_by_idiots.jpg"
+  },
+  {
+    "id": 13,
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger, 1951",
+    "category": "Fiction",
+    "description": "A coming-of-age story following teenager Holden Caulfield as he navigates alienation and identity in New York City.",
+    "image": "Books/English/engBookCovers/catcher_in_the_rye.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Brave New World",
+    "author": "Aldous Huxley, 1932",
+    "category": "Science Fiction",
+    "description": "A dystopian novel envisioning a future society where humans are genetically engineered and psychologically conditioned.",
+    "image": "Books/English/engBookCovers/brave_new_world.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Moby-Dick",
+    "author": "Herman Melville, 1851",
+    "category": "Adventure",
+    "description": "The epic tale of Captain Ahab's obsessive quest for revenge against the white whale that took his leg.",
+    "image": "Books/English/engBookCovers/moby_dick.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Sapiens: A Graphic History",
+    "author": "Yuval Noah Harari, 2020",
+    "category": "Non-Fiction",
+    "description": "A visual adaptation of Harari's exploration of human history, from evolution to technological revolutions.",
+    "image": "Books/English/engBookCovers/sapiens_graphic.jpg"
+  },
+  {
+    "id": 17,
+    "title": "The Picture of Dorian Gray",
+    "author": "Oscar Wilde, 1890",
+    "category": "Fiction",
+    "description": "A philosophical novel about a beautiful young man whose portrait ages while he remains youthful, despite his immoral life.",
+    "image": "Books/English/engBookCovers/picture_of_dorian_gray.jpg"
+  },
+  {
+    "id": 18,
+    "title": "The Road",
+    "author": "Cormac McCarthy, 2006",
+    "category": "Fiction",
+    "description": "A post-apocalyptic novel following a father and son's harrowing journey through a devastated America.",
+    "image": "Books/English/engBookCovers/the_road.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Where the Crawdads Sing",
+    "author": "Delia Owens, 2018",
+    "category": "Fiction",
+    "description": "A murder mystery and coming-of-age story about a girl who raises herself in the marshes of North Carolina.",
+    "image": "Books/English/engBookCovers/where_the_crawdads_sing.jpg"
+  },
+  {
+    "id": 20,
+    "title": "The subtle art of not giving a f*ck",
+    "author": "Mark Manson, 2016",
+    "category": "Self-Help",
+    "description": "A counterintuitive approach to living a good life by focusing on what truly matters and letting go of the rest.",
+    "image": "Books/English/engBookCovers/subtle_art.jpg"
+  },
+  {
+    "id": 21,
+    "title": "The Mortal Instruments: City of Bones",
+    "author": "Cassandra Clare, 2007",
+    "category": "Fantasy",
+    "description": "The first book in a series about Shadowhunters, warriors who protect the human world from demons.",
+    "image": "Books/English/engBookCovers/city_of_bones.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Frankenstein",
+    "author": "Mary Shelley, 1818",
+    "category": "Horror",
+    "description": "The classic Gothic novel about a scientist who creates a sentient creature in an unorthodox experiment.",
+    "image": "Books/English/engBookCovers/frankenstein.jpg"
+  },
+  {
+    "id": 23,
+    "title": "The dictionary of body language",
+    "author": "Joe Navarro, 2018",
+    "category": "Psychology",
+    "description": "A guide to understanding nonverbal communication and interpreting the hidden meanings behind gestures and expressions.",
+    "image": "Books/English/engBookCovers/body_language.jpg"
+  },
+  {
+    "id": 24,
+    "title": "The Buffalo Hunter Hunter",
+    "author": "Stephen Graham Jones, 2025",
+    "category": "Fiction",
+    "description": "A contemporary novel exploring themes of identity and cultural heritage through an unconventional narrative.",
+    "image": "Books/English/engBookCovers/buffalo_hunter_hunter.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Stag Dance",
+    "author": "Torrey Peters, 2025",
+    "category": "Fiction",
+    "description": "A literary work examining human relationships through metaphorical storytelling and poetic imagery.",
+    "image": "Books/English/engBookCovers/stag_dance.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Ultramarine",
+    "author": "Malcolm Lowry, 1933",
+    "category": "Fiction",
+    "description": "An experimental novel that blends reality and imagination through vivid descriptions of color and perception.",
+    "image": "Books/English/engBookCovers/ultramarine.jpg"
+  },
+  {
+    "id": 27,
+    "title": "The Unworthy",
+    "author": " Agustina Bazterrica, 2025",
+    "category": "Fiction",
+    "description": "A psychological exploration of self-worth and redemption through complex character development.",
+    "image": "Books/English/engBookCovers/the_unworthy.jpg"
+  },
+  {
+    "id": 28,
+    "title": "One Day, Everyone Will Have Always Been Against This",
+    "author": "Omar El Akkad, 2025",
+    "category": "Fiction",
+    "description": "A philosophical novel questioning societal norms and collective human behavior through speculative scenarios.",
+    "image": "Books/English/engBookCovers/one_day_against.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Immemorial",
+    "author": "Lauren Markham, 2025",
+    "category": "Fiction",
+    "description": "A meditation on memory and time through interconnected stories spanning generations.",
+    "image": "Books/English/engBookCovers/immemorial.jpg"
+  },
+  {
+    "id": 30,
+    "title": "Black in Blues: How a Color Tells the Story of My People",
+    "author": "Imani Perry, 2025",
+    "category": "Non-Fiction",
+    "description": "An exploration of cultural identity and history through the lens of color symbolism in African American experiences.",
+    "image": "Books/English/engBookCovers/black_in_blues.jpg"
+  },
+  {
+    "id": 31,
+    "title": "The Harder I Fight the More I Love You",
+    "author": "Neko Case, 2025",
+    "category": "Fiction",
+    "description": "A novel about complex relationships and the paradoxes of love and conflict in modern life.",
+    "image": "Books/English/engBookCovers/harder_i_fight.jpg"
+  },
+  {
+    "id": 32,
+    "title": "We Do Not Part",
+    "author": "Han Kang, 2021",
+    "category": "Fiction",
+    "description": "A story of enduring connections that transcend physical separation and time.",
+    "image": "Books/English/engBookCovers/we_do_not_part.jpg"
+  },
+  {
+    "id": 33,
+    "title": "Wake Up and Open Your Eyes",
+    "author": "Clay McLeod Chapman, 2025",
+    "category": "Self-Help",
+    "description": "A motivational guide encouraging mindfulness and conscious living in everyday experiences.",
+    "image": "Books/English/engBookCovers/wake_up_open_eyes.jpg"
+  },
+  {
+    "id": 34,
+    "title": "أولاد حارتنا",
+    "author": "نجيب محفوظ, 1959",
+    "category": "Fiction",
+    "description": "رواية رمزية تروي قصة البشرية من خلال شخصيات تمثل الأنبياء، وتعتبر من أكثر أعمال نجيب محفوظ إثارة للجدل.",
+    "image": "Books/Arabic/arBookCovers/اولاد_حارتنا.jpg"
+  },
+  {
+    "id": 35,
+    "title": "الفيل الأزرق",
+    "author": "أحمد مراد, 2012",
+    "category": "Thriller",
+    "description": "رواية تشويقية نفسية تدور حول طبيب نفسي يواجه ماضيه المظلم عندما يعود مريض غامض إلى حياته.",
+    "image": "Books/Arabic/arBookCovers/الفيل_الازرق.jpg"
+  },
+  {
+    "id": 36,
+    "title": "عائد إلى حيفا",
+    "author": "غسان كنفاني, 1969",
+    "category": "Historical",
+    "description": "رواية تحكي معاناة الفلسطينيين بعد النكبة من خلال قصة زوجين يعودان إلى منزلهما في حيفا بعد 20 عاماً من الاحتلال.",
+    "image": "Books/Arabic/arBookCovers/عائد_إلى_حيفا.jpg"
+  },
+  {
+    "id": 37,
+    "title": "الطنطورية",
+    "author": "رضوى عاشور, 2010",
+    "category": "Historical",
+    "description": "رواية تسرد تاريخ فلسطين من خلال سيرة عائلة فلسطينية على مدى أربعة أجيال، منذ النكبة حتى القرن الحادي والعشرين.",
+    "image": "Books/Arabic/arBookCovers/الطنطورية.jpg"
+  },
+  {
+    "id": 38,
+    "title": "ذاكرة الجسد",
+    "author": "أحلام مستغانمي, 1993",
+    "category": "Romance",
+    "description": "رواية تحكي قصة حب مستحيل بين فنانة تشكيلية وثوري جزائري، وتستكشف العلاقة بين الحب والوطن والذاكرة.",
+    "image": "Books/Arabic/arBookCovers/ذاكرة_الجسد.jpg"
+  },
+  {
+    "id": 39,
+    "title": "عمارة يعقوبيان",
+    "author": "علاء الأسواني, 2002",
+    "category": "Social",
+    "description": "رواية تقدم لوحة اجتماعية لمصر من خلال سكان عمارة واحدة، تعكس تناقضات المجتمع المصري في مطلع الألفية.",
+    "image": "Books/Arabic/arBookCovers/عمارة_يعقوبيان.jpg"
+  },
+  {
+    "id": 40,
+    "title": "النبي",
+    "author": "جبران خليل جبران, 1923",
+    "category": "Philosophy",
+    "description": "كتاب فلسفي شعري يضم حكم وأفكار حول الحب والزواج والأبناء والعمل وغيرها من مواضيع الحياة الأساسية.",
+    "image": "Books/Arabic/arBookCovers/النبي.jpg"
+  },
+  {
+    "id": 41,
+    "title": "ثلاثية القاهرة",
+    "author": "نجيب محفوظ, 1956-1957",
+    "category": "Social",
+    "description": "سلسلة روائية ثلاثية تتابع حياة أسرة مصرية عبر ثلاثة أجيال، وتصور التحولات الاجتماعية والسياسية في مصر.",
+    "image": "Books/Arabic/arBookCovers/ثلاثية_القاهرة.jpg"
+  },
+  {
+    "id": 42,
+    "title": "الرجال من المريخ والنساء من الزهرة",
+    "author": "جون جراي, 1992",
+    "category": "Self-Help",
+    "description": "كتاب في علم النفس الاجتماعي يشرح الفروقات بين الرجال والنساء ويقدم نصائح لتحسين العلاقات الزوجية.",
+    "image": "Books/Arabic/arBookCovers/الرجال_من_المريخ.jpg"
+  },
+  {
+    "id": 43,
+    "title": "قواعد العشق الأربعون",
+    "author": "أليف شافاك, 2010",
+    "category": "Romance",
+    "description": "رواية تدمج بين قصة حب معاصرة وقصة لقاء شمس التبريزي بجلال الدين الرومي، مستوحاة من تعاليم الصوفية.",
+    "image": "Books/Arabic/arBookCovers/قواعد_العشق.jpg"
+  },
+  {
+    "id": 44,
+    "title": "في قلبي أنثى عبرية",
+    "author": "خولة حمدي, 2012",
+    "category": "Social",
+    "description": "رواية تروي قصة فتاة مسلمة تتربى في عائلة يهودية وتكتشف هويتها الحقيقية، مستوحاة من أحداث حقيقية في تونس ولبنان.",
+    "image": "Books/Arabic/arBookCovers/في_قلبي_أنثى_عبرية.jpg"
+  },
+  {
+    "id": 45,
+    "title": "الشيطان يعظ",
+    "author": "أحمد خالد توفيق, 2010",
+    "category": "Horror",
+    "description": "رواية رعب تتناول موضوعات فلسفية ودينية من خلال قصة طبيب يتعامل مع حالات غريبة في مستشفى للأمراض النفسية.",
+    "image": "Books/Arabic/arBookCovers/الشيطان_يعظ.jpg"
+  },
+  {
+    "id": 46,
+    "title": "أرض زيكولا",
+    "author": "عمرو عبد الحميد, 2010",
+    "category": "Science Fiction",
+    "description": "رواية خيالية عن عالم يتعامل سكانه بوحدات الذكاء بدلاً من النقود، حيث يتم التضحية بأفقر شخص سنوياً في لعبة غريبة.",
+    "image": "Books/Arabic/arBookCovers/أرض_زيكولا.jpg"
+  },
+  {
+    "id": 47,
+    "title": "أرض السافلين",
+    "author": "أحمد خالد مصطفى, 2012",
+    "category": "Social",
+    "description": "رواية اجتماعية نقدية تعكس واقع المجتمع المصري من خلال شخصيات متناقضة تعيش في عالم مليء بالمفارقات.",
+    "image": "Books/Arabic/arBookCovers/أرض_السافلين.jpg"
+  },
+  {
+    "id": 48,
+    "title": "أوراق شمعون المصري",
+    "author": "عمرو عبد الحميد, 2013",
+    "category": "Historical",
+    "description": "رواية تاريخية تروي قصة كاتب مصري قديم يوثق أحداثاً غامضة في حياة المصريين القدماء.",
+    "image": "Books/Arabic/arBookCovers/أوراق_شمعون_المصري.jpg"
+  },
+  {
+    "id": 49,
+    "title": "موسم الهجرة إلى الشمال",
+    "author": "الطيب صالح, 1966",
+    "category": "Social",
+    "description": "رواية كلاسيكية تروي قصة شاب سوداني يعود إلى وطنه بعد دراسة في أوروبا، ويعاني من صراع الهوية الثقافية.",
+    "image": "Books/Arabic/arBookCovers/موسم_الهجرة_إلى_الشمال.jpg"
+  },
+  {
+    "id": 50,
+    "title": "سيدات القمر",
+    "author": "جواهر الحمود, 2010",
+    "category": "Social",
+    "description": "رواية سعودية تروي حياة أربع نساء في المجتمع الخليجي وتحدياتهن في مواجهة التقاليد الاجتماعية.",
+    "image": "Books/Arabic/arBookCovers/سيدات_القمر.jpg"
+  },
+  {
+    "id": 51,
+    "title": "فرانكشتاين في بغداد",
+    "author": "أحمد سعداوي, 2013",
+    "category": "Horror",
+    "description": "رواية فنتازيا سوداء تدور أحداثها في بغداد المحتلة، حيث يقوم رجل بجمع بقايا ضحايا التفجيرات لخلق كائن جديد.",
+    "image": "Books/Arabic/arBookCovers/فرانكشتاين_في_بغداد.jpg"
+  },
+  {
+    "id": 52,
+    "title": "الخروج عن النص",
+    "author": "أحمد مراد, 2018",
+    "category": "Thriller",
+    "description": "رواية تشويقية تدور حول صحفي يحقق في قضية غامضة تورط فيها شخصيات نافذة في الدولة.",
+    "image": "Books/Arabic/arBookCovers/الخروج_عن_النص.jpg"
+  },
+  {
+    "id": 53,
+    "title": "حكايات الغرفة 207",
+    "author": "أحمد خالد توفيق, 2007",
+    "category": "Horror",
+    "description": "مجموعة قصص رعب تدور أحداثها في غرفة مستشفى واحدة، حيث يروي المرضى حكاياتهم المرعبة.",
+    "image": "Books/Arabic/arBookCovers/حكايات_الغرفة_207.jpg"
+  },
+  {
+    "id": 54,
+    "title": "لا بطعم الفلامنكو",
+    "author": "أحمد خالد توفيق, 2011",
+    "category": "Social",
+    "description": "رواية تتناول قصة شاب مصري يعاني من متلازمة نادرة تجعله يرى العالم بطريقة مختلفة تماماً.",
+    "image": "Books/Arabic/arBookCovers/لا_بطعم_الفلامنكو.jpg"
+  },
+  {
+    "id": 55,
+    "title": "هيبتا",
+    "author": "محمد صادق, 2014",
+    "category": "Romance",
+    "description": "رواية تروي قصة سبعة أصدقاء في رحلة بحث عن الحقيقة، تختبر صداقتهم وقيمهم الإنسانية.",
+    "image": "Books/Arabic/arBookCovers/هيبتا.jpg"
+  },
+  {
+    "id": 56,
+    "title": "ايكادولي",
+    "author": "أحمد خالد توفيق, 2015",
+    "category": "Science Fiction",
+    "description": "رواية خيال علمي عن عالم موازٍ غريب يكتشفه بطل الرواية بالصدفة، في رحلة مليئة بالمفاجآت.",
+    "image": "Books/Arabic/arBookCovers/ايكادولي.jpg"
+  }
+]

@@ -1,70 +1,29 @@
-const books = [
-    // Array of book objects (title, author, image, etc.)
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-
-    { title: "Don't Make Me Think", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/don't make me think.jpg" },
-    { title: "The Design of Everyday Things", author: "Don Norman, 1988", image: "Books/English/engBookCovers/The design of everyday things.jpg" },
-    { title: "Sprint", author: "Jake Knapp, 2000", image: "Books/English/engBookCovers/Sprint.jpg" },
-    { title: "Lean UX", author: "Jeff Gothelf, 2016", image: "Books/English/engBookCovers/Lean UX.png" },
-    { title: "The Road to React", author: "Steve Krug, 2000", image: "Books/English/engBookCovers/the road to react.jpg" },
-    { title: "Rich Dad Poor Dad", author: "Robert T.Kiyosaki, 1997", image: "Books/English/engBookCovers/Rich dad poor dad.jpg" },
-    { title: "Harry Potter", author: "J.K. Rowling, 2002", image: "Books/English/engBookCovers/Harry potter.jpg" },
-    // Add more books as needed
-];
-
-const booksPerPage = 24;
 let currentPage = 1;
+let books = [];
+const booksPerPage = 24;
+function fetchBooks() {
+    fetch('Books/books.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch books data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            books = data;
+            localStorage.setItem('books', JSON.stringify(data));
+            renderBooks();
+        })
+        .catch(error => {
+            console.error('Error fetching books:', error);
+        });
+}
 
 function renderBooks() {
     const bookContainer = document.querySelector(".table-row");
     bookContainer.innerHTML = "";
 
+    const books = JSON.parse(localStorage.getItem('books'));
     const startIndex = (currentPage - 1) * booksPerPage;
     const endIndex = Math.min(startIndex + booksPerPage, books.length);
 
@@ -73,16 +32,16 @@ function renderBooks() {
         const bookElement = document.createElement("div");
         bookElement.classList.add("book-holder");
         bookElement.innerHTML = `
-      <a href="path/to/book-details.html">
-        <div class="book-image">
-          <img src="${book.image}" alt="Book Cover" class="book-cover">
-        </div>
-      </a>
-      <a href="path/to/book-details.html" class="text-link">
-        <span class="book-title">${book.title}</span>
-      </a>
-      <span class="book-author">${book.author}</span>
-    `;
+            <a href="path/to/book-details.html">
+                <div class="book-image">
+                    <img src="${book.image}" alt="Book Cover" class="book-cover">
+                </div>
+            </a>
+            <a href="path/to/book-details.html" class="text-link">
+                <span class="book-title">${book.title}</span>
+            </a>
+            <span class="book-author">${book.author}</span>
+        `;
         bookContainer.appendChild(bookElement);
     }
 
@@ -90,17 +49,26 @@ function renderBooks() {
     updatePaginationArrows();
 }
 
+    fetchBooks();
+
 function updateFooter() {
     const footerText = document.querySelector(".footer-text");
-    footerText.textContent = `Page ${currentPage} of ${Math.ceil(books.length / booksPerPage)}`;
+    const totalPages = Math.max(1, Math.ceil(books.length / booksPerPage));
+    footerText.textContent = `Page ${currentPage} of ${totalPages}`;
 }
 
 function updatePaginationArrows() {
     const leftArrow = document.querySelector(".footer-left-icon");
     const rightArrow = document.querySelector(".footer-right-icon");
+    const books = JSON.parse(localStorage.getItem('books')) || [];
     const totalPages = Math.ceil(books.length / booksPerPage);
 
-    if (currentPage === 1) {
+    if (totalPages === 1) {
+        leftArrow.style.color = "#8A8A8A";
+        rightArrow.style.color = "#8A8A8A";
+        leftArrow.style.cursor = "default";
+        rightArrow.style.cursor = "default";
+    } else if (currentPage === 1) {
         leftArrow.style.color = "#8A8A8A";
         rightArrow.style.color = "#5D1B21";
         leftArrow.style.cursor = "default";
@@ -131,6 +99,3 @@ document.querySelector(".footer-right-icon").addEventListener("click", () => {
         renderBooks();
     }
 });
-
-// Initial render
-renderBooks();
