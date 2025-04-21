@@ -480,10 +480,7 @@ tbody td {
     margin: 10px 0px ;
     cursor: pointer;
 }
-option:hover{
-    background-color:#8C6051;
 
-}
 .upload-img{
     min-width: 50%;
     min-height: 70%;
