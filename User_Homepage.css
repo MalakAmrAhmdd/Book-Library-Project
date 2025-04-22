@@ -38,11 +38,10 @@
 }
 
 .table-row {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
     width: 98%;
-    align-items: flex-start;
-    gap: 39px;
     margin-left: 23px;
     overflow-x: auto;
     scrollbar-width: none;
@@ -138,6 +137,7 @@
     text-overflow: ellipsis;
     text-align: center;
     text-decoration: none;
+    display: block;
 }
 
 .book-author {
