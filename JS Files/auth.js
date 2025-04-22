@@ -71,20 +71,31 @@ document.addEventListener("DOMContentLoaded", () => {
         registerButton.addEventListener("click", (event) => {
             event.preventDefault();
 
+            const username = document.getElementById("username")?.value.trim();
+            const password = document.getElementById("Sign-up-pass")?.value.trim();
+
+            const confirmPassword = document.getElementById("Sign-up-confirmPass")?.value.trim();
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+
             if (!validateSignUpForm()) {
-                return; 
+                return;
             }
 
-            const adminRadio = document.getElementById("admin");
-            const userRadio = document.getElementById("user");
-
-            if (adminRadio.checked) {
-                window.location.href = "Dashboard.html";
-            } else if (userRadio.checked) {
-                window.location.href = "User_Homepage.html";
-            } else {
-                alert("Please select a role before registering.");
+            // Check if username already exists in -> localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            if (users.some(user => user.username === username)) {
+                alert("Username already exists. Please choose a different username.");
+                return;
             }
+
+            // Save the new user to localStorage
+            const newUser = { id: users.length + 1, username, password, role };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Registration successful! You can now log in.");
+            window.location.href = "Sign_in.html";
+
         });
     }
 
@@ -94,12 +105,28 @@ document.addEventListener("DOMContentLoaded", () => {
         loginButton.addEventListener("click", (event) => {
             event.preventDefault();
 
+            const username = document.getElementById("username")?.value.trim();
+            const password = document.getElementById("pass")?.value.trim();
+
             if (!validateSignInForm()) {
-                return; 
+                return;
             }
 
-            // Hna hykon el login logic
-            alert("Login successful!"); // Da test
+            // Check if the username and password match any stored user
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                 // This says welcome for both admin or user
+                alert(`Login successful! Welcome, ${user.role === "admin" ? "Admin" : "User"}.`);
+                if (user.role === "admin") {
+                    window.location.href = "Dashboard.html";
+                } else {
+                    window.location.href = "User_Homepage.html";
+                }
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
         });
     }
 });
