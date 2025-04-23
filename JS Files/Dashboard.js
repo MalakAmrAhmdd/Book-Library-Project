@@ -88,3 +88,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Get the user ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get("id");
+
+    if (!userId) {
+        console.error("No user ID found in the URL.");
+        return;
+    }
+
+    // Fetch the user data from users.json
+    fetch("users.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to load user data.");
+            }
+            return response.json();
+        })
+        .then(users => {
+            const user = users[userId];
+            if (!user) {
+                console.error("User not found.");
+                return;
+            }
+
+            // Populate the username and password fields
+            document.getElementById("username").textContent = user.username;
+            document.getElementById("password").textContent = user.password;
+        })
+        .catch(error => {
+            console.error("Error fetching user data:", error);
+        });
+});
+
+
+
+

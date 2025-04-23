@@ -26,7 +26,8 @@
                 <p class="text1">Welcome!</p>
                 <p class="text2">Sign up to continue</p>
             </div>
-            <form>
+            <!-- Add id="signUpForm" to the form -->
+            <form id="signUpForm">
                 <label for="username" class="userLabel">Username:</label><br>
                 <input type="text" id="username" name="username" placeholder="Enter your username">
             
@@ -67,5 +68,9 @@
         </div>
     </div>
     <script src="JS Files/auth.js"></script>
+    <script>
+        // Attach the handleRegistration function to the form submission
+        document.getElementById("signUpForm").addEventListener("submit", handleRegistration);
+    </script>
 </body>
 </html>
