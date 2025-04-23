@@ -65,44 +65,10 @@ function validateSignInForm() {
 
 // Event listener for sign-up form submission
 document.addEventListener("DOMContentLoaded", () => {
-    const registerButton = document.getElementById("submit-sign-up");
-
-    if (registerButton) {
-        registerButton.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            const username = document.getElementById("username")?.value.trim();
-            const password = document.getElementById("Sign-up-pass")?.value.trim();
-
-            const confirmPassword = document.getElementById("Sign-up-confirmPass")?.value.trim();
-            const role = document.querySelector('input[name="role"]:checked')?.value;
-
-            if (!validateSignUpForm()) {
-                return;
-            }
-
-            // Check if username already exists in -> localStorage
-            const users = JSON.parse(localStorage.getItem("users")) || [];
-            if (users.some(user => user.username === username)) {
-                alert("Username already exists. Please choose a different username.");
-                return;
-            }
-
-            // Save the new user to localStorage
-            const newUser = { id: users.length + 1, username, password, role };
-            users.push(newUser);
-            localStorage.setItem("users", JSON.stringify(users));
-
-            alert("Registration successful! You can now log in.");
-            window.location.href = "Sign_in.html";
-
-        });
-    }
-
     const loginButton = document.getElementById("submit-sign-in");
 
     if (loginButton) {
-        loginButton.addEventListener("click", (event) => {
+        loginButton.addEventListener("click", async (event) => {
             event.preventDefault();
 
             const username = document.getElementById("username")?.value.trim();
@@ -112,13 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Check if the username and password match any stored user
-            const users = JSON.parse(localStorage.getItem("users")) || [];
-            const user = users.find(user => user.username === username && user.password === password);
+            const response = await fetch('Users.json');
+            
+            const users = await response.json();
+
+            const user = Object.values(users).find(
+                user => user.username === username && user.password === password
+            );
 
             if (user) {
-                 // This says welcome for both admin or user
-                alert(`Login successful! Welcome, ${user.role === "admin" ? "Admin" : "User"}.`);
                 if (user.role === "admin") {
                     window.location.href = "Dashboard.html";
                 } else {
