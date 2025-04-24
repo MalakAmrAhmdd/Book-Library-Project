@@ -330,3 +330,79 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-color-hover);
 }
+
+.modal-profile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-profile-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    /* text-align: center; */
+    width: 350px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    font-family: "Nunito Sans", sans-serif;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#45322E;
+    font-family: Inter;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* gap: 20px; */
+}
+
+.username-box{
+    width: 85%;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    color: #A9A9A9;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.close-profile-btn{
+    width: 37%;
+    height: 57px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #8C6051;
+    background: #8C6051;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px; /* 60% */
+}
+.modal-profile-toggle {
+    display: none;
+}
+.modal-profile-toggle:checked+.modal-profile {
+    display: flex;
+}
