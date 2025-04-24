@@ -16,54 +16,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// validation function for sign-up
+
 function validateSignUpForm() {
     const username = document.getElementById("username")?.value.trim();
     const password = document.getElementById("Sign-up-pass")?.value.trim();
     const confirmPassword = document.getElementById("Sign-up-confirmPass")?.value.trim();
 
-    // Check if all fields are filled
     if (!username || !password || !confirmPassword) {
         alert("All fields are required. Please fill them out.");
         return false;
     }
 
-    // Check if username is at least 5 characters
     if (username.length < 5) {
         alert("Username must be at least 5 characters long.");
         return false;
     }
 
-    // Check if passwords match
     if (password !== confirmPassword) {
         alert("Passwords do not match. Please try again.");
         return false;
     }
 
-    return true;
+    return true; // Validation passed
 }
 
-// validation function for sign-in
-function validateSignInForm() {
-    const username = document.getElementById("username")?.value.trim();
-    const password = document.getElementById("pass")?.value.trim();
 
-    // Check if all fields are filled
-    if (!username || !password) {
-        alert("Both username and password are required.");
-        return false;
-    }
-
-    // Check if username is at least 5 characters
-    if (username.length < 5) {
-        alert("Username must be at least 5 characters long.");
-        return false;
-    }
-
-    return true;
-}
-
-// Event listener for sign-up form submission
 document.addEventListener("DOMContentLoaded", () => {
     const registerButton = document.getElementById("submit-sign-up");
 
@@ -71,35 +48,85 @@ document.addEventListener("DOMContentLoaded", () => {
         registerButton.addEventListener("click", (event) => {
             event.preventDefault();
 
+            const username = document.getElementById("username")?.value.trim();
+            const password = document.getElementById("Sign-up-pass")?.value.trim();
+
+            const confirmPassword = document.getElementById("Sign-up-confirmPass")?.value.trim();
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+
             if (!validateSignUpForm()) {
-                return; 
+                return;
             }
 
-            const adminRadio = document.getElementById("admin");
-            const userRadio = document.getElementById("user");
-
-            if (adminRadio.checked) {
-                window.location.href = "Dashboard.html";
-            } else if (userRadio.checked) {
-                window.location.href = "User_Homepage.html";
-            } else {
-                alert("Please select a role before registering.");
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            if (users.some(user => user.username === username)) {
+                alert("Username already exists. Please choose a different username.");
+                return;
             }
+
+            const newUser = { id: users.length + 1, username, password, role };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Registration successful! You can now log in.");
+            window.location.href = "Sign_in.html";
+
         });
     }
 
+});
+
+
+function validateSignInForm() {
+    const username = document.getElementById("username")?.value.trim();
+    const password = document.getElementById("pass")?.value.trim();
+
+    if (!username || !password) {
+        alert("Both username and password are required.");
+        return false;
+    }
+
+
+    if (username.length < 5) {
+        alert("Username must be at least 5 characters long.");
+        return false;
+    }
+
+    return true;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("submit-sign-in");
 
     if (loginButton) {
-        loginButton.addEventListener("click", (event) => {
+        loginButton.addEventListener("click", async (event) => {
             event.preventDefault();
 
+            const username = document.getElementById("username")?.value.trim();
+            const password = document.getElementById("pass")?.value.trim();
+
             if (!validateSignInForm()) {
-                return; 
+                return;
             }
 
-            // Hna hykon el login logic
-            alert("Login successful!"); // Da test
+            const response = await fetch('Users.json');
+
+            const users = await response.json();
+
+            const user = Object.values(users).find(
+                user => user.username === username && user.password === password
+            );
+
+            if (user) {
+                if (user.role === "admin") {
+                    window.location.href = "Dashboard.html";
+                } else {
+                    window.location.href = "User_Homepage.html";
+                }
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
         });
     }
 });
+

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
-    
+
     <title>UserDetails</title>
     <link rel="stylesheet" href="UserDetails.css">
     <link rel="stylesheet" href="Admin_SideBar.css">
     <link rel="website icon" type="png" href="assets/logo.png">
 </head>
+
 <body>
     <div class="container">
         <nav class="sidebar">
@@ -40,7 +46,7 @@
                         <span class="text">Add Book</span>
                     </div>
                 </a>
-                
+
                 <a href="Users.html" class="sidebar-link">
                     <div class="sidebar-row">
                         <i class="fa fa-users" class="icon"></i>
@@ -48,22 +54,22 @@
                     </div>
                 </a>
                 <a href="Books.html" class="sidebar-link">
-                <div class="sidebar-row">
-                    <i class="fa fa-book" class="icon"></i>
-                    <span class="text">Books</span>
-                </div>
+                    <div class="sidebar-row">
+                        <i class="fa fa-book" class="icon"></i>
+                        <span class="text">Books</span>
+                    </div>
                 </a>
             </div>
 
             <!-- Log Out Row -->
             <div class="sidebar-row log-out">
                 <i class="fa fa-sign-out fa-rotate-180" class="icon"></i>
-                
+
                 <a href="Sign_in.html" class="sidebar-link">
                     <span class="text">Log Out</span>
                 </a>
             </div>
-            
+
         </nav>
         <div class="separator"></div>
         <div class="main-content">
@@ -74,16 +80,16 @@
             </div>
 
 
-         <!-- User Info Section -->
-        <div class="user-info">
-            <div class="info-box">
-                <input type="text" id="username" name="username" class="info-input" placeholder="Username">
+            <div class="user-info">
+                <div class="info-box">
+                    <label for="username" class="info-label">Username:</label>
+                    <div id="username" class="info-container"></div> <!-- Username will be dynamically populated -->
+                </div>
+                <div class="info-box">
+                    <label for="password" class="info-label">Password:</label>
+                    <div id="password" class="info-container"></div> <!-- Password will be dynamically populated -->
+                </div>
             </div>
-            <div class="info-box">
-                
-                <input type="password" id="password" name="password" class="info-input" placeholder="Password">
-            </div>
-        </div>
 
             <!-- Borrowed Books Section -->
             <div class="Borrowed-Books">
@@ -100,45 +106,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00002</td>
-                            <td>Rosie Pearson</td>
-                            <td>979 Immanuel Ferry Suite 526</td>
-                            <td>28 May 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00003</td>
-                            <td>Darrell Caldwell</td>
-                            <td>8587 Frida Ports</td>
-                            <td>23 Nov 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00004</td>
-                            <td>Gilbert Johnston</td>
-                            <td>768 Destiny Lake Suite 600</td>
-                            <td>05 Feb 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00005</td>
-                            <td>Alan Cain</td>
-                            <td>042 Mylene Throughway</td>
-                            <td>29 Jul 2019</td>
-                        </tr>
                     </tbody>
                 </table>
-                
             </div>
             <div class="table-footer">
-                <span class="table-info">Showing 1-08 of 78</span>
+                <span class="table-info">Showing 1-5 of 0</span>
                 <div class="toggle-container">
-                    <button class="toggle-button" onclick="toggleTab(this)"><i class='fas fa-angle-left'></i></button>
-                    <button class="toggle-button active" onclick="toggleTab(this)"><i class='fas fa-angle-right'></i></button>
+                    <button class="toggle-button" id="prevButton"><i class='fas fa-angle-left'></i></button>
+                    <button class="toggle-button" id="nextButton"><i class='fas fa-angle-right'></i></button>
                 </div>
             </div>
             <div class="Returned-Books">
@@ -155,47 +130,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00002</td>
-                            <td>Rosie Pearson</td>
-                            <td>979 Immanuel Ferry Suite 526</td>
-                            <td>28 May 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00003</td>
-                            <td>Darrell Caldwell</td>
-                            <td>8587 Frida Ports</td>
-                            <td>23 Nov 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00004</td>
-                            <td>Gilbert Johnston</td>
-                            <td>768 Destiny Lake Suite 600</td>
-                            <td>05 Feb 2019</td>
-                        </tr>
-                        <tr>
-                            <td>00005</td>
-                            <td>Alan Cain</td>
-                            <td>042 Mylene Throughway</td>
-                            <td>29 Jul 2019</td>
-                        </tr>
+                        <!-- Rows will be dynamically populated -->
                     </tbody>
                 </table>
             </div>
             <div class="table-footer">
-                <span class="table-info">Showing 1-08 of 78</span>
+                <span class="table-info" id="returnedTableInfo">Showing 1-5 of 0</span>
                 <div class="toggle-container">
-                    <button class="toggle-button" onclick="toggleTab(this)"><i class='fas fa-angle-left'></i></button>
-                    <button class="toggle-button active" onclick="toggleTab(this)"><i class='fas fa-angle-right'></i></button>
+                    <button class="toggle-button" id="returnedPrevButton"><i class='fas fa-angle-left'></i></button>
+                    <button class="toggle-button" id="returnedNextButton"><i class='fas fa-angle-right'></i></button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="JS Files/Dashboard.js"></script>
+    <script src="JS Files//AdminTables/userDetailsTable.js"></script>
 </body>
+
 </html>

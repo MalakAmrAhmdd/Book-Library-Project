@@ -27,9 +27,11 @@
     display: flex;
     gap: 20px;
     margin-bottom: 30px;
+    margin-left: 20px;
 }
 
 .info-box {
+    padding-left: 20px; 
     width: 300px; 
     height: 50px;
     border: 1px solid #dcdcdc;
@@ -42,24 +44,15 @@
 }
 
 .info-label {
-    margin-left: 10px;;
-    font-size: 12px;
-    font-weight: 400;
-    color: #797a7a;
-    
+    padding-right: 4px;
+    /* font-family: "Nunito Sans", sans-serif; */
+    font-size: 14px;
+    font-weight: 600;
+    color: #45322e;
+    /* display: block; */
 }
 
-.info-input {
-    border: none; /* Remove the border */
-    outline: none; /* Remove the focus outline */
-    width: 100%; /* Make the input take the full width of the container */
-    height: 100%; /* Match the height of the container */
-    padding-left: 10px; /* Add some padding for spacing */
-    font-size: 14px; /* Adjust font size */
-    font-family: "Nunito Sans", sans-serif; /* Match the font family */
-    color: #36383a; /* Text color */
-    background-color: transparent; /* Make the background transparent */
-}
+
 
 
 .back-to-home {
@@ -126,6 +119,10 @@ thead {
     font-weight: 700;
     color: #36383a;
     padding-left: 30px;
+}
+
+.table-heading th:last-child {
+    padding-left: 17px;
 }
 
 tbody tr {
