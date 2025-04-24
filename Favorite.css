@@ -476,3 +476,18 @@ line-height: 128.523%; /* 19.278px */
 .modal-profile-toggle:checked+.modal-profile {
     display: flex;
 }
+.empty-favorites {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color-secondary);
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    text-align: center;
+    padding: 20px;
+    color: #ff0000;
+    font-size: 16px;
+    margin-top: 20px;
+  }
