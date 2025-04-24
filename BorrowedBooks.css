@@ -59,7 +59,9 @@ thead {
     color: #36383a;
     padding-left: 30px;
 }
-
+.table-heading th:nth-last-child(-n+2) {
+    padding-left: 17px;
+}
 tbody tr {
     background-color: #ffffff; 
     height: 60px; 

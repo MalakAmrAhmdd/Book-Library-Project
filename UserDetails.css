@@ -44,11 +44,12 @@
 }
 
 .info-label {
-    margin-left: 10px;;
-    font-size: 12px;
-    font-weight: 400;
-    color: #797a7a;
-    
+    padding-right: 4px;
+    /* font-family: "Nunito Sans", sans-serif; */
+    font-size: 14px;
+    font-weight: 600;
+    color: #45322e;
+    /* display: block; */
 }
 
 
@@ -118,6 +119,10 @@ thead {
     font-weight: 700;
     color: #36383a;
     padding-left: 30px;
+}
+
+.table-heading th:last-child {
+    padding-left: 17px;
 }
 
 tbody tr {

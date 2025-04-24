@@ -124,5 +124,72 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const dashboardTableBody = document.querySelector(".borrows-table tbody");
+    const dashboardTableInfo = document.querySelector(".table-footer .table-info");
+    const prevButton = document.getElementById("dashboardPrevButton");
+    const nextButton = document.getElementById("dashboardNextButton");
 
+    let books = [];
+    let currentPage = 1;
+    const rowsPerPage = 8;
 
+    // Fetch books data
+    fetch("Books/books.json")
+        .then(response => {
+            console.log("Fetching books.json...");
+            if (!response.ok) {
+                throw new Error("Failed to load books data.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Books data loaded:", data);
+            books = data;
+            renderTable();
+        })
+        .catch(error => {
+            console.error("Error loading books:", error);
+        });
+
+    // Render table for dashboard
+    function renderTable() {
+        dashboardTableBody.innerHTML = ""; // Clear existing rows
+
+        const startIndex = (currentPage - 1) * rowsPerPage;
+        const endIndex = Math.min(startIndex + rowsPerPage, books.length);
+
+        for (let i = startIndex; i < endIndex; i++) {
+            const book = books[i];
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${book.id || "N/A"}</td>
+                <td>${book.title || "Untitled"}</td>
+                <td>${book.category || "Unknown"}</td>
+                <td>--</td> <!-- Placeholder for Date -->
+                <td>--</td> <!-- Placeholder for Borrowed By -->
+            `;
+            dashboardTableBody.appendChild(row);
+        }
+
+        dashboardTableInfo.textContent = `Showing ${startIndex + 1}-${endIndex} of ${books.length}`;
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === Math.ceil(books.length / rowsPerPage);
+    }
+
+    // Event listeners for pagination buttons
+    prevButton.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderTable();
+        }
+    });
+
+    nextButton.addEventListener("click", () => {
+        if (currentPage < Math.ceil(books.length / rowsPerPage)) {
+            currentPage++;
+            renderTable();
+        }
+    });
+});
