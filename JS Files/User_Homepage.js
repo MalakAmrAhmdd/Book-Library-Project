@@ -1,5 +1,5 @@
 function loadBooksIntoLocalStorage() {
-  fetch(`Books/books.json?timestamp=${new Date().getTime()}`)
+  fetch(`Books/books.json?timestamp=${new Date().getTime()}`) // Ensure this path matches the actual location of books.json
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
@@ -67,36 +67,48 @@ function renderBooks(books) {
 }
 
 function createBookCard(book) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const isFavorite = favorites.includes(book.id.toString());
+  
   return `
-        <div class="book-holder">
-            <label for="BookPopUp-${book.id}" class="Book-icon">
-                <div class="book-image">
-                    <img src="${book.image}" alt="${book.title}" class="book-cover">
-                </div>
-            </label>
-            <span class="book-title">${book.title}</span>
-            <span class="book-author">${book.author}</span>
+    <div class="book-holder">
+        <label for="BookPopUp-${book.id}" class="Book-icon">
+            <div class="book-image">
+                <img src="${book.image}" alt="${book.title}" class="book-cover">
+            </div>
+        </label>
+        <span class="book-title">${book.title}</span>
+        <span class="book-author">${book.author}</span>
+        <div class="favorite-container">
+            <button class="favorite-button" data-book-id="${book.id}">
+                <i class="${isFavorite ? 'fas' : 'far'} fa-heart" style="color: ${isFavorite ? '#5D1B21' : '#8A8A8A'}"></i>
+            </button>
         </div>
-        
-        <input type="checkbox" id="BookPopUp-${book.id}" class="modal-Book-toggle">
-        <div class="modal-Book">
-            <div class="modal-Book-content">
-                <div class="pop-up-book-image">
-                    <img src="${book.image}" alt="book" class="pop-up-img">
-                </div>
-                <div class="book-pop-up-details">
+    </div>
+    <input type="checkbox" id="BookPopUp-${book.id}" class="modal-Book-toggle">
+    <div class="modal-Book">
+        <div class="modal-Book-content">
+            <div class="pop-up-book-image">
+                <img src="${book.image}" alt="book" class="pop-up-img">
+            </div>
+            <div class="book-pop-up-details">
+                <div class="title-fav">
                     <span class="pop-up-book-title">${book.title}</span>
-                    <span class="pop-up-author">By ${book.author}</span>
-                    <div class="pop-up-desc">
-                        <span class="pop-up-description">Description</span>
-                        <span class="pop-up-text">${book.description}</span>
-                    </div>
-                    <label for="BookPopUp-${book.id}" class="status-btn">Available</label>
-                    <label for="BookPopUp-${book.id}" class="borrow-btn">Borrow</label>
+                    <button class="favorite-button" data-book-id="${book.id}">
+                        <i class="far fa-heart"></i>
+                    </button>
                 </div>
+                <span class="pop-up-author">By ${book.author}</span>
+                <div class="pop-up-desc">
+                    <span class="pop-up-description">Description</span>
+                    <span class="pop-up-text">${book.description}</span>
+                </div>
+                <label for="BookPopUp-${book.id}" class="status-btn">Available</label>
+                <label for="BookPopUp-${book.id}" class="borrow-btn">Borrow</label>
             </div>
         </div>
-    `;
+    </div>
+  `;
 }
 
 function createSectionRow(title, books, constraint) {
@@ -118,6 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cachedBooks = JSON.parse(localStorage.getItem("books")) || [];
   if (cachedBooks.length > 0) {
     renderBooks(cachedBooks);
+    // Add this line to update favorite buttons after rendering
+    if (window.updateFavoriteButtons) window.updateFavoriteButtons();
   }
 
   loadBooksIntoLocalStorage();
