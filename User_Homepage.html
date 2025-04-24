@@ -96,11 +96,23 @@
             </div>
 
             <!-- Dynamic blocks will be inserted here -->
-            <div class="blocks"></div>
+            <div class="blocks">
+                <div class="book-holder">
+                    <span class="book-title">Book Title</span> 
+                    <span class="book-author">Author Name</span>
+                    <div class="favorite-container">
+                        <button class="favorite-button" data-book-id="{{book.id}}">
+                            <i class="far fa-heart"></i> <!-- Empty heart by default -->
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
     </div>
+    <script src ="JS Files/User_Homepage.js"></script>
     <script src ="JS Files/profilePopup.js"></script>
+    <script src ="JS Files/favorites.js"></script>
 </body>
 </html>
