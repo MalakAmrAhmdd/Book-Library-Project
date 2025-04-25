@@ -142,5 +142,42 @@
         "numOfBorrowedBooks": 0,
         "numOfReturnedBooks": 0,
         "borrowedBooks": []
+    },
+    "17": {
+        "id": 17,
+        "username": "farida-admin",
+        "password": "farida@12345",
+        "role": "admin",
+        "numOfBorrowedBooks": 0,
+        "numOfReturnedBooks": 0,
+        "borrowedBooks": []
+    },
+    "18": {
+        "id": 18,
+        "username": "farida-user",
+        "password": "farida",
+        "role": "user",
+        "numOfBorrowedBooks": 0,
+        "numOfReturnedBooks": 0,
+        "borrowedBooks": []
+    },
+    "19": {
+        "id": 19,
+        "username": "hussein-admin",
+        "password": "hussein@12345",
+        "role": "admin",
+        "numOfBorrowedBooks": 0,
+        "numOfReturnedBooks": 0,
+        "borrowedBooks": []
+    },
+    "20": {
+        "id": 20,
+        "username": "hussein-user",
+        "password": "hussein",
+        "role": "user",
+        "numOfBorrowedBooks": 0,
+        "numOfReturnedBooks": 0,
+        "borrowedBooks": []
     }
+    
 }
