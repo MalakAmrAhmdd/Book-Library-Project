@@ -1,3 +1,9 @@
+.separator {
+    width: 1px;
+    background: #dcdcdc;
+    height: 100%;
+}
+
 .main-content {
     overflow: scroll;
     overflow-x: hidden;
@@ -346,7 +352,6 @@ tbody td {
     line-height: 12px;
     color: #5f4e4b;
     font-family: Inter;
-    
     margin-bottom: 55px;
 }
 
@@ -410,6 +415,7 @@ tbody td {
 
 .modal-edit-content::-webkit-scrollbar{
     display: none;
+
 }
 
 #book-name{
