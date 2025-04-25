@@ -114,6 +114,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     max-width: 130px;
+    margin-top: 20px;
 }
 
 .book-holder:hover {
