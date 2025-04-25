@@ -140,44 +140,7 @@
         "password": "pedro",
         "role": "user",
         "numOfBorrowedBooks": 0,
-<<<<<<< Updated upstream
         "numOfReturnedBooks": 0,
         "borrowedBooks": []
-=======
-        "numOfReturnedBooks": 0
-    },
-    "17": {
-        "id": 17,
-        "username": "farida-admin",
-        "password": "farida@12345",
-        "role": "admin",
-        "numOfBorrowedBooks": 0,
-        "numOfReturnedBooks": 0
-    },
-    "18": {
-        "id": 18,
-        "username": "farida-user",
-        "password": "farida",
-        "role": "user",
-        "numOfBorrowedBooks": 0,
-        "numOfReturnedBooks": 0
-    },
-    "19": {
-        "id": 19,
-        "username": "hussein-admin",
-        "password": "hussein@12345",
-        "role": "admin",
-        "numOfBorrowedBooks": 0,
-        "numOfReturnedBooks": 0
-    },
-    "20": {
-        "id": 20,
-        "username": "hussein-user",
-        "password": "hussein",
-        "role": "user",
-        "numOfBorrowedBooks": 0,
-        "numOfReturnedBooks": 0
->>>>>>> Stashed changes
     }
-    
 }
