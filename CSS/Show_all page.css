@@ -192,3 +192,22 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-color-hover);
 }
+.favorite-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.favorite-button:hover {
+    transform: scale(1.05);
+}
+
+.favorite-button i {
+    font-size: 16px;
+}
