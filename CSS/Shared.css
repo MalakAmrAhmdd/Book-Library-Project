@@ -1,0 +1,16 @@
+/* Shared CSS for all pages */
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.favorite-button i {
+  transition: transform 0.2s;
+}
+
+.favorite-button:hover i {
+  transform: scale(1.1);
+}
