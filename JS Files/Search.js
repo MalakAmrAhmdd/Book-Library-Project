@@ -7,6 +7,11 @@ export function displayBooks(filteredBooks, bookList) {
         </div>
     `;
     filteredBooks.forEach(book => {
+        // Retrieve the current borrowing status for this book (default "In-Shelf")
+        const bookStatus = localStorage.getItem(`status_${book.title}`) || "In-Shelf";
+        // Determine badge color based on status
+        const badgeColor = (bookStatus === "Borrowed") ? "#735E57" : "#214539";
+
         const row = document.createElement('div');
         row.className = 'table-row';
         row.innerHTML = `
@@ -22,7 +27,9 @@ export function displayBooks(filteredBooks, bookList) {
                 <span class="category-text">${book.category}</span>
             </div>
             <div class="column-status">
-                <span class="status-badge in-shelf">In-Shelf</span>
+                <span class="status-badge" style="background-color: ${badgeColor};">
+                  ${bookStatus}
+                </span>
                 <button class="favorite-button" data-book-id="${book.id}">
                     <i class="far fa-heart"></i>
                 </button>
@@ -63,4 +70,10 @@ export function initializeSearch(books, bookList, searchInput, searchCategory) {
 
     // Display all books initially
     displayBooks(books, bookList);
+
+    document.addEventListener('borrowingsUpdated', () => {
+        // Re-run the filter so that the displayBooks function refreshes each row.
+        filterBooks(books, bookList, searchInput, searchCategory);
+      });
+    
 }
