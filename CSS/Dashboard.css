@@ -74,7 +74,35 @@
     margin-bottom: 12px;
 }
 
-.number {
+#users-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #202224;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#admins-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #202224;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#books-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #202224;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#borrows-number{
+    font-size: 24px;
+    font-weight: 700;
+    color: #202224;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#returns-number{
     font-size: 24px;
     font-weight: 700;
     color: #202224;
