@@ -91,238 +91,48 @@
             <!-- Add "Back to home" link and "Your Favorites" header -->
             <a href="User_Homepage.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to home</a>
             <div class="search-bar">
-                <select class="categories">
+                <select class="categories" id="searchCategory">
                     <option value="All" selected>All</option>
                     <option value="Title">Title</option>
                     <option value="Author">Author</option>
                     <option value="Category">Category</option>
                 </select>
                 <div class="search-container">
-                    <span class="search-text">Search Users</span>
+                    <input type="text" id="searchInput" placeholder="Search books..." class="search-input">
                     <span style="color: #797a7a;">
                         <i class="fa fa-search"></i>
-                      </span>
+                    </span>
                 </div>
             </div>
             <!-- Main content here -->
-            <div class="book-list">
+            <div class="book-list" id="bookList">
                 <div class="table-header">
                     <span class="column-title">Title</span>
                     <span class="column-category">Category</span>
                     <span class="column-status">Status</span>
                 </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">The Picture of Dorian Gray</span>
-                            <span class="book-author">Oscar Wilde, 1890</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Gothic Fiction</span>
-                        <span class="subcategory-text">Classic Literature</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
-                        <button class="notfav-button">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">Becoming</span>
-                            <span class="book-author">Michelle Obama, 2018</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Biography</span>
-                        <span class="subcategory-text">Memoir</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
-                        <button class="favorite-button">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">To Kill a Mockingbird</span>
-                            <span class="book-author">Harper Lee, 1960</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Fiction</span>
-                        <span class="subcategory-text">Classic</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
-                        <button class="notfav-button">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">1984</span>
-                            <span class="book-author">George Orwell, 1949</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Dystopian</span>
-                        <span class="subcategory-text">Science Fiction</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
-                        <button class="notfav-button">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">The Great Gatsby</span>
-                            <span class="book-author">F. Scott Fitzgerald, 1925</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Fiction</span>
-                        <span class="subcategory-text">Classic</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
-                        <button class="notfav-button">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">Pride and Prejudice</span>
-                            <span class="book-author">Jane Austen, 1813</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Romance</span>
-                        <span class="subcategory-text">Classic Literature</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
-                        <button class="favorite-button">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">The Catcher in the Rye</span>
-                            <span class="book-author">J.D. Salinger, 1951</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Fiction</span>
-                        <span class="subcategory-text">Classic</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
-                        <button class="notfav-button">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">Moby-Dick</span>
-                            <span class="book-author">Herman Melville, 1851</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Adventure</span>
-                        <span class="subcategory-text">Classic Literature</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
-                        <button class="favorite-button">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">The Hobbit</span>
-                            <span class="book-author">J.R.R. Tolkien, 1937</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Fantasy</span>
-                        <span class="subcategory-text">Adventure</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge borrowed">Borrowed</span>
-                        <button class="notfav-button">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="column-title">
-                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="Book Cover" class="book-cover">
-                        <div class="book-info">
-                            <span class="book-title">War and Peace</span>
-                            <span class="book-author">Leo Tolstoy, 1869</span>
-                            <span class="book-edition">First Edition</span>
-                        </div>
-                    </div>
-                    <div class="column-category">
-                        <span class="category-text">Historical Fiction</span>
-                        <span class="subcategory-text">Classic</span>
-                    </div>
-                    <div class="column-status">
-                        <span class="status-badge in-shelf">In-Shelf</span>
-                        <button class="favorite-button">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="preview-button">Preview</button>
-                    </div>
-                </div>
-                <!-- Repeat .table-row for additional rows -->
+                <!-- Book rows will be dynamically added here -->
             </div>
+            <script type="module">
+                import { initializeSearch, displayBooks } from './JS Files/Search.js';
+
+                async function loadBooks() {
+                    const response = await fetch('Books/books.json');
+                    const books = await response.json();
+                    const bookList = document.getElementById('bookList');
+                    const searchInput = document.getElementById('searchInput');
+                    const searchCategory = document.getElementById('searchCategory');
+
+                    // Call the external search function
+                    initializeSearch(books, bookList, searchInput, searchCategory);
+
+                    // Display all books initially
+                    displayBooks(books, bookList);
+                }
+
+                // Load books on page load
+                document.addEventListener('DOMContentLoaded', loadBooks);
+            </script>
             <div>
                 <label for="BookPopUp" class="Book-icon">
                 <input type="checkbox" id="BookPopUp" class="modal-Book-toggle">
