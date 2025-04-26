@@ -534,11 +534,13 @@ line-height: 128.523%; /* 19.278px */
 
 .give-back-btn{
     padding: 5px 10px;
-    border-radius: 12px;
+    border-radius: 6px;
     min-width: 70px;
     font-size: 12px;
     font-weight: 600;
     color: #fff;
     text-align: center;
     background-color: #214539;
+    border: 1px solid #214539; 
+    cursor: pointer;
 }

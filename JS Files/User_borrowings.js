@@ -40,9 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
         borrowedBooksIDs.forEach(bookId => {
           const book = books.find(b => b.id.toString() === bookId.toString());
           if (book) {
-            // Here you can customize the structure as needed.
-            // Get the current status of this book, defaulting to "Borrowed".
-          const status = localStorage.getItem(`status_${book.title}`) || "Borrowed";
+            
+          //const status = localStorage.getItem(`status_${book.title}`) || "Borrowed";
           // Check if this book is in the favorites list.
           const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
           const isFavorite = favorites.includes(book.id.toString());
