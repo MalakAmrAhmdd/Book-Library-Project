@@ -83,10 +83,7 @@ body {
     text-decoration: none; 
     color: inherit; 
 }
-.sidebar-link.active .sidebar-row{
-    color: #000000; 
-   
-}
+
 .sidebar-row:hover {
     color: #4c4c4c; 
 }
