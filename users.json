@@ -13,8 +13,8 @@
         "username": "hazem-user",
         "password": "hazem",
         "role": "user",
-        "numOfBorrowedBooks": 0,
-        "numOfReturnedBooks": 0,
+        "numOfBorrowedBooks": 3,
+        "numOfReturnedBooks": 1,
         "borrowedBooks": []
     },
     "3": {
@@ -31,8 +31,8 @@
         "username": "malak-user",
         "password": "malouk",
         "role": "user",
-        "numOfBorrowedBooks": 0,
-        "numOfReturnedBooks": 0,
+        "numOfBorrowedBooks": 5,
+        "numOfReturnedBooks": 3,
         "borrowedBooks": []
     },
     "5": {

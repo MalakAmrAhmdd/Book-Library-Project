@@ -523,3 +523,22 @@ line-height: 128.523%; /* 19.278px */
 .modal-profile-toggle:checked+.modal-profile {
     display: flex;
 }
+
+.no-borrowings {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color-secondary);
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+.give-back-btn{
+    padding: 5px 10px;
+    border-radius: 12px;
+    min-width: 70px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    background-color: #214539;
+}
