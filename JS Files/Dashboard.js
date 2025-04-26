@@ -122,6 +122,28 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error loading books:", error);
         });
 
+    // Fetch books data
+    fetch("users.json")
+    .then(response => {
+        console.log("Fetching users.json...");
+        if (!response.ok) {
+            throw new Error("Failed to load users data.");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("users data loaded:", data);
+        users = data.users;
+        if (usersNum) {
+            usersNum.textContent = users.length.toLocaleString(); // makes 40689 look like 40,689
+        } else {
+            console.error("users-number element not found!");
+        }
+    })
+    .catch(error => {
+        console.error("Error loading users:", error);
+    });
+
     // Render table for dashboard
     function renderTable() {
         dashboardTableBody.innerHTML = ""; // Clear existing rows
