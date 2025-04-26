@@ -1,54 +1,53 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.querySelector('.search-input');
-    const usersTableBody = document.getElementById('usersTableBody');
+    const availableBooks = document.getElementById('availableBooksTableBody');
 
     // Fetch users data from users.json
-    let users = [];
+    let books = [];
     let currentPage = 1;
     const rowsPerPage = 10;
 
-    fetch("users.json")
+    fetch("Books/books.json")
         .then(response => {
             if (!response.ok) {
-                throw new Error("Failed to load users data.");
+                throw new Error("Failed to load books data.");
             }
             return response.json();
         })
         .then(data => {
-            users = Object.values(data);
+            books = Object.values(data);
             renderTable();
         })
         .catch(error => {
-            console.error("Error loading users:", error);
+            console.error("Error loading books:", error);
         });
 
     const displayUsers = (filteredUsers) => {
-        usersTableBody.innerHTML = '';
-        filteredUsers.forEach(user => {
+        availableBooks.innerHTML = '';
+        filteredUsers.forEach(book => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${user.id}</td>
-                <td>${user.username}</td>
-                <td>${user.numOfBorrowedBooks}</td>
-                <td>${user.numOfReturnedBooks}</td>
+                <td>${book.id}</td>
+                <td>${book.title}</td>
+                <td>${book.category}</td>
                 <td></td>
             `;
-            usersTableBody.appendChild(row);
+            availableBooks.appendChild(row);
         });
     };
 
-    const filterUsers = (users) => {
+    const filterBooks = (books) => {
         const filter = searchInput.value.toLowerCase();
-        return users.filter(user => user.username.toLowerCase().includes(filter));
+        return books.filter(book => book.title.toLowerCase().includes(filter));
     };
 
     searchInput.addEventListener('input', () => {
-        const filteredUsers = filterUsers(users);
-        displayUsers(filteredUsers);
+        const filteredBooks = filterBooks(books);
+        displayUsers(filteredBooks);
     });
 
     // Display all users initially
-    displayUsers(users);
+    displayUsers(books);
 // Ensure all rows are displayed by setting a larger limit or removing any restrictions
 // (This function is no longer needed as all users are displayed initially)
 });

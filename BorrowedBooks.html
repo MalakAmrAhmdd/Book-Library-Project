@@ -72,10 +72,8 @@
             <div class="header">
                 <span class="Header-text">Books List</span>
                 <div class="search-container">
-                    <span style="color: #797a7a;">
-                        <i class="fa fa-search"></i>
-                      </span>
-                    <span class="search-text">Search Books</span>
+                    <i class="fa fa-search search-icon"></i>
+                    <input type="text" id="searchBar" class="search-input" placeholder="Search Users">
                 </div>
             </div>
             
@@ -95,7 +93,7 @@
                             <th>Borrowed By</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="borrowedBooksTableBody">
                         <!-- Rows will be dynamically populated -->
                     </tbody>
                 </table>
@@ -112,6 +110,7 @@
     </div>
     <script src="JS Files//AdminTables/borrowedBooksTable.js"></script>
     <script src="JS Files/SideBarMethods.js"></script>
+    <script src="JS Files/borrowedBooksSearch.js"></script>
     <!-- comment -->
 </body>
 </html>
