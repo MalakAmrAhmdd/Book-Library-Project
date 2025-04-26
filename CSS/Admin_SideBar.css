@@ -38,6 +38,9 @@ body {
     overflow: hidden;
     
 }
+.sidebar-link.active {
+    color: #4c4c4c; 
+}
 .logo-row {
     display: flex;
     align-items: center; 
@@ -58,6 +61,12 @@ body {
     width: 100%;
     padding-left: 5px; 
 }
+
+.nav-rows a.active{
+    color: #4c4c4c; 
+    /* background-color: #000000; */
+}
+
 .sidebar-row {
     display: flex;
     align-items: center; 
@@ -74,6 +83,10 @@ body {
     text-decoration: none; 
     color: inherit; 
 }
+.sidebar-link.active .sidebar-row{
+    color: #000000; 
+   
+}
 .sidebar-row:hover {
     color: #4c4c4c; 
 }
@@ -81,6 +94,12 @@ body {
 .sidebar-row.active {
     color: #4c4c4c; 
 }
+/* .sidebar-row.active {
+    color: #4c4c4c; 
+}
+.sidebar-row.active .icon {
+    color: #4c4c4c; 
+} */
 .log-out {
     margin-top: auto; 
     color: #4c4c4c; 
