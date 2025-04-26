@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Borrowed Books Table in User Details
     const borrowedBooksTableBody = document.querySelector(".Borrowed-Books + .Books table tbody");
-    const borrowedBooksTableInfo = document.querySelector(".Borrowed-Books + .table-footer .table-info");
+    const borrowedBooksTableInfo = document.querySelector(".Books + .table-footer .table-info");
     const borrowedPrevButton = document.getElementById("prevButton");
     const borrowedNextButton = document.getElementById("nextButton");
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            borrowedBooks = data; // Assuming the same data is used for borrowed books
+            borrowedBooks = data;
             renderBorrowedBooksTable();
         })
         .catch(error => {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td>${book.id || "N/A"}</td>
                 <td>${book.title || "Untitled"}</td>
                 <td>${book.category || "Unknown"}</td>
-                <td>--</td> <!-- Placeholder for date -->
+                <td>${book.date || "--"}</td>
             `;
             borrowedBooksTableBody.appendChild(row);
         }
@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Returned Books Table in User Details
-    const returnedBooksTableBody = document.querySelector(".Returned-Books + .Books table tbody");
-    const returnedBooksTableInfo = document.querySelector(".Returned-Books + .table-footer .table-info");
+    const returnedBooksTableBody = document.querySelector(".Returned-Books + .Returned table tbody");
+    const returnedBooksTableInfo = document.querySelector(".Returned + .table-footer .table-info");
     const returnedPrevButton = document.getElementById("returnedPrevButton");
     const returnedNextButton = document.getElementById("returnedNextButton");
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            returnedBooks = data; // Assuming the same data is used for returned books
+            returnedBooks = data;
             renderReturnedBooksTable();
         })
         .catch(error => {
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td>${book.id || "N/A"}</td>
                 <td>${book.title || "Untitled"}</td>
                 <td>${book.category || "Unknown"}</td>
-                <td>--</td> <!-- Placeholder for date -->
+                <td>${book.date || "--"}</td>
             `;
             returnedBooksTableBody.appendChild(row);
         }

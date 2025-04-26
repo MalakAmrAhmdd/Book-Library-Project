@@ -77,6 +77,10 @@ body {
 .sidebar-row:hover {
     color: #4c4c4c; 
 }
+
+.sidebar-row.active {
+    color: #4c4c4c; 
+}
 .log-out {
     margin-top: auto; 
     color: #4c4c4c; 

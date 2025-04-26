@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const booksTableBody = document.querySelector(".books-table tbody");
-    const booksTableInfo = document.querySelector(".books-table .table-info");
+    const booksTableInfo = document.querySelector(".table-footer .table-info");
     const prevButton = document.getElementById("booksPrevButton");
     const nextButton = document.getElementById("booksNextButton");
 

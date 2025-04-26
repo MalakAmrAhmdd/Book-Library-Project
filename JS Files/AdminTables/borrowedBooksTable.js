@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const borrowedTableBody = document.querySelector(".borrowed-books-table tbody");
-    const borrowedTableInfo = document.querySelector(".borrowed-books-table .table-info");
+    const borrowedTableInfo = document.querySelector(".table-footer .table-info");
     const prevButton = document.getElementById("borrowedPrevButton");
     const nextButton = document.getElementById("borrowedNextButton");
 
