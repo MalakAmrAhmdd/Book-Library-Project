@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (currentPage > 1) {
                     currentPage--;
                     renderTable();
+                    
                 }
             } else {
                 // Next page
@@ -99,10 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const dashboardTableInfo = document.querySelector(".table-footer .table-info");
     const prevButton = document.getElementById("dashboardPrevButton");
     const nextButton = document.getElementById("dashboardNextButton");
+   
 
     let books = [];
     let currentPage = 1;
-    const rowsPerPage = 8;
+    const rowsPerPage = 10;
 
     // Fetch books data
     fetch("Books/books.json")
@@ -164,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             dashboardTableBody.appendChild(row);
         }
-
+        
         dashboardTableInfo.textContent = `Showing ${startIndex + 1}-${endIndex} of ${books.length}`;
         prevButton.disabled = currentPage === 1;
         nextButton.disabled = currentPage === Math.ceil(books.length / rowsPerPage);
@@ -174,14 +176,18 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton.addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
+            // const totalPages = Math.ceil(books.length / booksPerPage);
             renderTable();
+            // updatePaginationArrows(currentPage,totalPages, prevButton, nextButton); // Update the pagination arrows
         }
     });
 
     nextButton.addEventListener("click", () => {
         if (currentPage < Math.ceil(books.length / rowsPerPage)) {
             currentPage++;
+            // const totalPages = Math.ceil(books.length / booksPerPage);
             renderTable();
+            // updatePaginationArrows(currentPage, totalPages, prevButton, nextButton); // Update the pagination arrows
         }
     });
 });
@@ -263,3 +269,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 3mlt push
+

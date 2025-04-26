@@ -212,6 +212,28 @@ tbody td:nth-child(4) {
     color:#8c6051;
   }
 
+  /* .toggle-left-button {
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color:#8a8a8a; 
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.toggle-right-button {
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color:#8c6051; 
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex: 1;
+} */
+
   .toggle-button:not(:last-child) {
     border-right: 1px solid #ddd;
   }

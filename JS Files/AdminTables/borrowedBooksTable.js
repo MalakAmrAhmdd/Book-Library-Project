@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentPage > 1) {
             currentPage--;
             renderTable();
+            updatePaginationArrows(currentPage, Math.ceil(books.length / rowsPerPage), prevButton, nextButton);
         }
     });
 
@@ -59,6 +60,42 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentPage < Math.ceil(books.length / rowsPerPage)) {
             currentPage++;
             renderTable();
+            updatePaginationArrows(currentPage, Math.ceil(books.length / rowsPerPage), prevButton, nextButton);
         }
     });
 });
+
+function updatePaginationArrows(currentPage, totalPages, prevButton, nextButton) {
+    const leftButton = document.querySelector(".toggle-left-button");
+    const rightButton = document.querySelector(".toggle-right-button");
+
+    if (totalPages === 1) {
+        prevButton.style.color = "#8A8A8A";
+        nextButton.style.color = "#8A8A8A";
+        prevButton.style.cursor = "default";
+        nextButton.style.cursor = "default";
+        leftButton.style.background = "#f9f9f9";
+        rightButton.style.background = "#f9f9f9";
+    } else if (currentPage === 1) {
+        prevButton.style.color = "#8A8A8A";
+        nextButton.style.color = "#8c6051";
+        prevButton.style.cursor = "default";
+        nextButton.style.cursor = "pointer";
+        leftButton.style.background = "#f9f9f9";
+        rightButton.style.background = "#fff";
+    } else if (currentPage === totalPages) {
+        prevButton.style.color = "#8c6051";
+        nextButton.style.color = "#8A8A8A";
+        prevButton.style.cursor = "pointer";
+        nextButton.style.cursor = "default";
+        leftButton.style.background = "#fff";
+        rightButton.style.background = "#f9f9f9";
+    } else {
+        prevButton.style.color = "#8c6051";
+        nextButton.style.color = "#8c6051";
+        prevButton.style.cursor = "pointer";
+        nextButton.style.cursor = "pointer";
+        leftButton.style.background = "#fff";
+        rightButton.style.background = "#fff";
+    }
+}
