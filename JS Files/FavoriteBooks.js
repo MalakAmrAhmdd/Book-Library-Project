@@ -78,6 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
     renderFavorites();
   });
 
+  // Listen for favorites updates
+  document.addEventListener('favoritesUpdated', function() {
+    renderFavorites();
+  });
+
   // Handle removing a favorite from the favorites page
   bookList.addEventListener('click', function(e) {
     const button = e.target.closest('.favorite-button');
