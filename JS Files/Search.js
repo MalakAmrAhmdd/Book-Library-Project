@@ -23,7 +23,7 @@ export function displayBooks(filteredBooks, bookList) {
             </div>
             <div class="column-status">
                 <span class="status-badge in-shelf">In-Shelf</span>
-                <button class="notfav-button">
+                <button class="favorite-button" data-book-id="${book.id}">
                     <i class="far fa-heart"></i>
                 </button>
                 <button class="preview-button">Preview</button>
@@ -31,6 +31,9 @@ export function displayBooks(filteredBooks, bookList) {
         `;
         bookList.appendChild(row);
     });
+
+    // Call updateFavoriteButtons after rendering books
+    if (window.updateFavoriteButtons) window.updateFavoriteButtons();
 }
 
 function filterBooks(books, bookList, searchInput, searchCategory) {
