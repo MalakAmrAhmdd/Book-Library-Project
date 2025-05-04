@@ -85,31 +85,7 @@ function createBookCard(book) {
             </button>
         </div>
     </div>
-    <input type="checkbox" id="BookPopUp-${book.id}" class="modal-Book-toggle">
-
     
-    <div class="modal-Book">
-        <div class="modal-Book-content">
-            <div class="pop-up-book-image">
-                <img src="${book.image}" alt="book" class="pop-up-img">
-            </div>
-            <div class="book-pop-up-details">
-                <div class="title-fav">
-                    <span class="pop-up-book-title">${book.title}</span>
-                    <button class="favorite-button" data-book-id="${book.id}">
-                        <i class="far fa-heart"></i>
-                    </button>
-                </div>
-                <span class="pop-up-author">By ${book.author}</span>
-                <div class="pop-up-desc">
-                    <span class="pop-up-description">Description</span>
-                    <span class="pop-up-text">${book.description}</span>
-                </div>
-                <label for="BookPopUp-${book.id}" class="status-btn">Available</label>
-                <label for="BookPopUp-${book.id}" class="borrow-btn">Borrow</label>
-            </div>
-        </div>
-    </div>
   `;
 }
 

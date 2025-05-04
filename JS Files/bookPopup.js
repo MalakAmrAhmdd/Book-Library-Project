@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupDescription = document.querySelector(".pop-up-text");
   const popupStatus = document.querySelector(".status-btn");
   const borrowBtn = document.querySelector(".borrow-btn");
-  const favButton = document.querySelector(".favorite-button");
+  
 
   // Fetch books data from JSON
   fetch("Books/books.json")
@@ -18,12 +18,23 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(books => {
           document.addEventListener("click", function (event) {
               const previewButton = event.target.closest(".preview-button");
-              if (!previewButton) return;
+              const bookIcon = event.target.closest(".book-image");
+              if (!previewButton && !bookIcon) return;
 
               event.preventDefault();
-              const bookRow = previewButton.closest(".table-row");
-              const bookTitle = bookRow.querySelector(".book-title").textContent.trim();
+              let bookTitle;
+
+              if (previewButton) {
+                  const bookRow = previewButton.closest(".table-row");
+                  bookTitle = bookRow.querySelector(".book-title").textContent.trim();
+              } else if (bookIcon) {
+                  const bookHolder = bookIcon.closest(".book-holder");
+                  bookTitle = bookHolder.querySelector(".book-title").textContent.trim();
+                  
+              }
+
               activeBook = books.find(book => book.title === bookTitle);
+              
 
               if (!activeBook) return;
 
@@ -87,8 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
               
 
               document.dispatchEvent(new Event("borrowingsUpdated"));
-      
-          
               setTimeout(() => {
                 modalBook.style.display = "none";
               }, 400);

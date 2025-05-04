@@ -12,7 +12,7 @@ window.renderBorrowingsPage = function () {
     borrowedBooksIDs = [];
   }
 
-  // Retrieve full books list from localStorage (populated earlier via your books loader)
+
   let books = [];
   const storedBooks = localStorage.getItem("books");
   if (storedBooks) {
@@ -77,7 +77,7 @@ window.renderBorrowingsPage = function () {
   // Initial render of borrowings on page load
   window.renderBorrowingsPage();
 
-  //  custom event in the popup to update the list when give back inside it is clicked
+  //  custom event in the popup to update the list when give back inside it is clicked (ba3mlo dispatch kol ma a7b a render el page)
   document.addEventListener("borrowingsUpdated", function () {
       if (typeof window.renderBorrowingsPage === "function") {
         window.renderBorrowingsPage();
