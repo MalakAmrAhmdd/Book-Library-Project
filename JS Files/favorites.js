@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize favorites from localStorage
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   
-  // Function to update all favorite buttons
+  // Function to update => all favorite buttons
   function updateAllFavoriteButtons() {
     document.querySelectorAll('.favorite-button').forEach(button => {
       const bookId = button.getAttribute('data-book-id');

@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
-    
+
     <title>Users</title>
     <link rel="stylesheet" href="CSS/Users.css">
     <link rel="stylesheet" href="CSS/Admin_SideBar.css">
     <link rel="stylesheet" href="CSS/ScrollBar.css">
     <link rel="website icon" type="png" href="assets/logo.png">
 </head>
+
 <body>
     <div class="container">
         <nav class="sidebar">
@@ -48,10 +54,10 @@
                     </div>
                 </a>
                 <a href="Books.html" class="sidebar-link">
-                <div class="sidebar-row">
-                    <i class="fa fa-book" class="icon"></i>
-                    <span class="text">Books</span>
-                </div>
+                    <div class="sidebar-row">
+                        <i class="fa fa-book" class="icon"></i>
+                        <span class="text">Books</span>
+                    </div>
                 </a>
             </div>
 
@@ -70,8 +76,8 @@
             <div class="header">
                 <span class="Header-text">Users List</span>
                 <div class="search-container">
-                    
-<i class="fa fa-search search-icon"></i>
+
+                    <i class="fa fa-search search-icon"></i>
                     <input type="text" class="search-input" placeholder="Search Users">
                 </div>
             </div>
@@ -90,7 +96,7 @@
                 </table>
             </div>
             <div class="table-footer">
-                <span class="table-info">Showing 1-10 of </span>
+                <span class="table-info"></span>
                 <div class="toggle-container">
                     <button class="toggle-button"><i class='fas fa-angle-left'></i></button>
                     <button class="toggle-button"><i class='fas fa-angle-right'></i></button>
@@ -103,46 +109,7 @@
     <script src="JS Files/AdminTables/usersTable.js"></script>
     <script src="JS Files/SideBarMethods.js"></script>
     <script src="JS Files/adminUserSearch.js"></script>
-    <!-- <script>
-        // Fetch data from users.json and populate the table
-        fetch('users.json')
-            .then(response => response.json())
-            .then(users => {
-                const tableBody = document.getElementById('usersTableBody');
-                tableBody.innerHTML = ''; // Clear existing rows
 
-                const limitedUsers = users.slice(0, 10); // Limit to 10 users
-                limitedUsers.forEach(user => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${user.id}</td>
-                        <td>${user.username}</td>
-                        <td>${user.borrowedBooks}</td>
-                        <td>${user.returnedBooks}</td>
-                        <td>
-                            <button class="action-button">View</button>
-                            <button class="action-button">Edit</button>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(error => console.error('Error fetching users:', error));
-
-        // Search functionality
-        document.querySelector('.search-input').addEventListener('input', function(event) {
-            const searchTerm = event.target.value.toLowerCase();
-            const tableRows = document.querySelectorAll('#usersTableBody tr');
-
-            tableRows.forEach(row => {
-                const username = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
-                if (username.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-    </script> -->
 </body>
+
 </html>

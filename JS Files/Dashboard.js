@@ -5,20 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleButtons = document.querySelectorAll(".toggle-button");
 
     let users = [];
-    let currentPage = 1; 
-    const rowsPerPage = 10; 
+    let currentPage = 1;
+    const rowsPerPage = 10;
 
     fetch("users.json")
         .then(response => {
             return response.json();
         })
         .then(data => {
-            users = Object.values(data); 
-            renderTable(); 
+            users = Object.values(data);
+            renderTable();
         });
 
     function renderTable() {
-        tableBody.innerHTML = ""; 
+        tableBody.innerHTML = "";
 
         const startIndex = (currentPage - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, users.length);
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (currentPage > 1) {
                     currentPage--;
                     renderTable();
-                    
+
                 }
             } else {
                 // Next page
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dashboardTableInfo = document.querySelector(".table-footer .table-info");
     const prevButton = document.getElementById("dashboardPrevButton");
     const nextButton = document.getElementById("dashboardNextButton");
-   
+
 
     let books = [];
     let currentPage = 1;
@@ -126,25 +126,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fetch books data
     fetch("users.json")
-    .then(response => {
-        console.log("Fetching users.json...");
-        if (!response.ok) {
-            throw new Error("Failed to load users data.");
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("users data loaded:", data);
-        users = data.users;
-        if (usersNum) {
-            usersNum.textContent = users.length.toLocaleString(); // makes 40689 look like 40,689
-        } else {
-            console.error("users-number element not found!");
-        }
-    })
-    .catch(error => {
-        console.error("Error loading users:", error);
-    });
+        .then(response => {
+            console.log("Fetching users.json...");
+            if (!response.ok) {
+                throw new Error("Failed to load users data.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("users data loaded:", data);
+            users = data.users;
+            if (usersNum) {
+                usersNum.textContent = users.length.toLocaleString(); // makes 40689 look like 40,689
+            } else {
+                console.error("users-number element not found!");
+            }
+        })
+        .catch(error => {
+            console.error("Error loading users:", error);
+        });
 
     // Render table for dashboard
     function renderTable() {
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             dashboardTableBody.appendChild(row);
         }
-        
+
         dashboardTableInfo.textContent = `Showing ${startIndex + 1}-${endIndex} of ${books.length}`;
         prevButton.disabled = currentPage === 1;
         nextButton.disabled = currentPage === Math.ceil(books.length / rowsPerPage);
@@ -241,24 +241,28 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            const books = data;
-            
-            const totalBooks = books.length;
+  
+
+            const localStorageBooks = JSON.parse(localStorage.getItem("books")) || [];
+
+      
+
+            const totalBooks = localStorageBooks.length;
 
             if (booksNum) {
-                booksNum.textContent = totalBooks;
+                booksNum.textContent = totalBooks; // Update the displayed total books count
             } else {
                 console.error("Element with id 'books-number' not found!");
             }
 
             if (borrowsNum) {
-                borrowsNum.textContent = 0; 
+                borrowsNum.textContent = 0;
             } else {
                 console.error("Element with id 'borrows-number' not found!");
             }
 
             if (returnsNum) {
-                returnsNum.textContent = 0; 
+                returnsNum.textContent = 0;
             } else {
                 console.error("Element with id 'returns-number' not found!");
             }
@@ -268,5 +272,74 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-// 3mlt push
+document.addEventListener("DOMContentLoaded", () => {
+    const submitButton = document.getElementById("submit_button");
 
+    if (submitButton) {
+        submitButton.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            // Get form values
+            const bookName = document.getElementById("book-name").value.trim();
+            const authorName = document.getElementById("author-name").value.trim();
+            const description = document.getElementById("description").value.trim();
+            const categorySelect = document.getElementById("category");
+            const category = categorySelect.options[categorySelect.selectedIndex].text; // Get category name
+            const languageSelect = document.getElementById("lang");
+            const language = languageSelect.options[languageSelect.selectedIndex].text; // Get language name
+            const fileInput = document.getElementById("file-upload");
+            const image = fileInput.files[0] ? URL.createObjectURL(fileInput.files[0]) : "";
+
+            // Validate required fields
+            if (!bookName || !authorName || !category || !language) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            // Get existing books from local storage or initialize an empty array
+            const books = JSON.parse(localStorage.getItem("books")) || [];
+
+            // Generate a new ID based on the existing books
+            const newId = books.length > 0 ? books[books.length - 1].id + 1 : 1;
+
+            // Create a new book object
+            const newBook = {
+                id: newId,
+                title: bookName,
+                author: authorName,
+                category,
+                description,
+                language,
+                image,
+            };
+
+            // Add the new book to the array
+            books.push(newBook);
+
+            // Save the updated array back to local storage
+            localStorage.setItem("books", JSON.stringify(books));
+
+            // Update the total books count dynamically
+            const booksNum = document.getElementById("books-number");
+            if (booksNum) {
+                booksNum.textContent = books.length; // Update the displayed total books count from local storage
+            } else {
+                console.error("Element with id 'books-number' not found!");
+            }
+
+            alert("Book added successfully!");
+
+            // Clear the form
+            document.querySelector("form.book").reset();
+        });
+    }
+
+    // Update the total books count on page load
+    const booksNum = document.getElementById("books-number");
+    if (booksNum) {
+        const books = JSON.parse(localStorage.getItem("books")) || [];
+        booksNum.textContent = books.length;
+    } else {
+        console.error("Element with id 'books-number' not found!");
+    }
+});

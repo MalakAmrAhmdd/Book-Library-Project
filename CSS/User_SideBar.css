@@ -74,7 +74,9 @@ body {
 .sidebar-row:hover {
     color: #4c4c4c;
 }
-
+.sidebar-row.active {
+    color: #4c4c4c;
+}
 .icon {
     width: 20px; 
     height: 20px;

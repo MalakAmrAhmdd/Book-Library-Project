@@ -143,7 +143,6 @@
     display: block;
     /* Add these to handle multi-line text */
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 

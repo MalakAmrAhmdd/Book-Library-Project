@@ -109,13 +109,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const response = await fetch('Users.json');
-
-            const users = await response.json();
-
-            const user = Object.values(users).find(
+            const localUsers = JSON.parse(localStorage.getItem("users")) || [];
+            let user = localUsers.find(
                 user => user.username === username && user.password === password
             );
+
+            if (!user) {
+                try {
+                    const response = await fetch('Users.json');
+                    const users = await response.json();
+
+                    user = Object.values(users).find(
+                        user => user.username === username && user.password === password
+                    );
+                } catch (error) {
+                    console.error("Error fetching users from Users.json:", error);
+                    alert("An error occurred while logging in. Please try again later.");
+                    return;
+                }
+            }
 
             if (user) {
                 if (user.role === "admin") {

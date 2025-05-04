@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
 
     <title>Homepage</title>
@@ -19,6 +24,7 @@
     <link rel="stylesheet" href="CSS/Shared.css">
     <link rel="website icon" type="png" href="assets/logo.png">
 </head>
+
 <body>
     <div class="container">
         <nav class="sidebar">
@@ -27,8 +33,8 @@
                 <img src="assets/logo icon.svg" alt="Logo" class="icon">
                 <span class="logo-text">BiblioGate</span>
             </div>
-        
-           
+
+
             <div class="nav-rows">
                 <a href="User_Homepage.html" class="sidebar-link">
                     <div class="sidebar-row">
@@ -42,41 +48,41 @@
                         <span class="text">Favorites</span>
                     </div>
                 </a>
-                <a href="User search.html" class="sidebar-link">
+                <a href="User_search.html" class="sidebar-link">
                     <div class="sidebar-row">
                         <i class="fa fa-search" class="icon"></i>
                         <span class="text">Search</span>
                     </div>
                 </a>
-                <a href="User Borrowings.html" class="sidebar-link">
+                <a href="User_Borrowings.html" class="sidebar-link">
                     <div class="sidebar-row">
                         <i class="fa fa-book" class="icon"></i>
                         <span class="text">Borrowings</span>
                     </div>
                 </a>
-                
-            </div>
-            
-          <!-- User Section -->
-        <div class="user-section">
-            <!-- Profile -->
-            <div class="sidebar-row profile">
-                <a href="User_Profile.html" class="sidebar-link"></a>
-                <i class="fa fa-user" class="icon"></i>
-                    <span class="text">Profile</span>
-                </a>
-            </div>
-            
-            <!-- Log Out -->
-            <div class="sidebar-row log-out">
-                <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
-                <a href="Sign_in.html" class="sidebar-link">
-                    <span class="text">Log Out</span>
-                </a>
-            </div>
-        </div>
 
-        <input type="checkbox" id="profilePopup" class="modal-profile-toggle">
+            </div>
+
+            <!-- User Section -->
+            <div class="user-section">
+                <!-- Profile -->
+                <div class="sidebar-row profile">
+                    <a href="User_Profile.html" class="sidebar-link"></a>
+                    <i class="fa fa-user" class="icon"></i>
+                    <span class="text">Profile</span>
+                    </a>
+                </div>
+
+                <!-- Log Out -->
+                <div class="sidebar-row log-out">
+                    <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
+                    <a href="Sign_in.html" class="sidebar-link">
+                        <span class="text">Log Out</span>
+                    </a>
+                </div>
+            </div>
+
+            <input type="checkbox" id="profilePopup" class="modal-profile-toggle">
             <div class="modal-profile">
                 <div class="modal-profile-content">
                     <p id="username" class="username-box">Username</p>
@@ -85,7 +91,7 @@
                     <button id="close-profile" class="close-profile-btn">Close</button>
                 </div>
             </div>
-        
+
         </nav>
 
 
@@ -100,7 +106,7 @@
             <!-- Dynamic blocks will be inserted here -->
             <div class="blocks">
                 <div class="book-holder">
-                    <span class="book-title">Book Title</span> 
+                    <span class="book-title">Book Title</span>
                     <span class="book-author">Author Name</span>
                     <div class="favorite-container">
                         <button class="favorite-button" data-book-id="{{book.id}}">
@@ -113,10 +119,11 @@
 
 
     </div>
-    <script src="JS Files/SideBarMethods.js" ></script>
-    <script src ="JS Files/User_Homepage.js"></script>
-    <script src ="JS Files/profilePopup.js"></script>
-    <script src ="JS Files/favorites.js"></script>
+    <script src="JS Files/SideBarMethods.js"></script>
+    <script src="JS Files/User_Homepage.js"></script>
+    <script src="JS Files/profilePopup.js"></script>
+    <script src="JS Files/favorites.js"></script>
     <script src="JS Files/SideBarMethods.js"></script>
 </body>
+
 </html>

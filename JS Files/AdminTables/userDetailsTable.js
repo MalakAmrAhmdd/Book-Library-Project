@@ -1,31 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Borrowed Books Table in User Details
+  
     const borrowedBooksTableBody = document.querySelector(".Borrowed-Books + .Books table tbody");
     const borrowedBooksTableInfo = document.querySelector(".Books + .table-footer .table-info");
     const borrowedPrevButton = document.getElementById("prevButton");
     const borrowedNextButton = document.getElementById("nextButton");
 
-    let borrowedBooks = [];
+    let borrowedBooks = JSON.parse(localStorage.getItem("books")) || [];
     let borrowedCurrentPage = 1;
     const rowsPerPage = 5;
 
-    fetch("Books/books.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load borrowed books data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            borrowedBooks = data;
-            renderBorrowedBooksTable();
-        })
-        .catch(error => {
-            console.error("Error loading borrowed books:", error);
-        });
-
     function renderBorrowedBooksTable() {
-        borrowedBooksTableBody.innerHTML = ""; // Clear existing rows
+        borrowedBooksTableBody.innerHTML = ""; 
 
         const startIndex = (borrowedCurrentPage - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, borrowedBooks.length);
@@ -62,32 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Returned Books Table in User Details
+    renderBorrowedBooksTable();
+
     const returnedBooksTableBody = document.querySelector(".Returned-Books + .Returned table tbody");
     const returnedBooksTableInfo = document.querySelector(".Returned + .table-footer .table-info");
     const returnedPrevButton = document.getElementById("returnedPrevButton");
     const returnedNextButton = document.getElementById("returnedNextButton");
 
-    let returnedBooks = [];
+    let returnedBooks = JSON.parse(localStorage.getItem("books")) || [];
     let returnedCurrentPage = 1;
 
-    fetch("Books/books.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load returned books data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            returnedBooks = data;
-            renderReturnedBooksTable();
-        })
-        .catch(error => {
-            console.error("Error loading returned books:", error);
-        });
-
     function renderReturnedBooksTable() {
-        returnedBooksTableBody.innerHTML = ""; // Clear existing rows
+        returnedBooksTableBody.innerHTML = ""; 
 
         const startIndex = (returnedCurrentPage - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, returnedBooks.length);
@@ -123,4 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
             renderReturnedBooksTable();
         }
     });
+
+    renderReturnedBooksTable();
 });

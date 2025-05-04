@@ -3,26 +3,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const booksTableInfo = document.querySelector(".table-footer .table-info");
     const prevButton = document.getElementById("booksPrevButton");
     const nextButton = document.getElementById("booksNextButton");
-    
 
     let books = [];
     let currentPage = 1;
     const rowsPerPage = 10;
 
-    fetch("Books/books.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load books data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            books = data;
-            renderTable();
-        })
-        .catch(error => {
-            console.error("Error loading books:", error);
-        });
+    function loadBooks() {
+        const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
+    
+        if (addedBooks.length > 0) {
+            books = addedBooks;
+            setTimeout(() => renderTable(), 0);
+        } else {
+            fetch("books.json")
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Failed to load static books data");
+                    }
+                    return response.json();
+                })
+                .then((staticBooks) => {
+                    books = staticBooks;
+                    renderTable();
+                })
+                .catch((error) => {
+                    console.error(error);
+                    booksTableBody.innerHTML = `<tr><td colspan="4">Error loading books</td></tr>`;
+                    booksTableInfo.textContent = "Error loading books";
+                });
+        }
+    }
 
     function renderTable() {
         booksTableBody.innerHTML = "";
@@ -65,9 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentPage < Math.ceil(books.length / rowsPerPage)) {
             currentPage++;
             renderTable();
-            updatePaginationArrows(currentPage, Math.ceil(books.length / rowsPerPage), prevButton, nextButton); 
+            updatePaginationArrows(currentPage, Math.ceil(books.length / rowsPerPage), prevButton, nextButton);
         }
     });
+
+    loadBooks(); 
 });
 
 function updatePaginationArrows(currentPage, totalPages, prevButton, nextButton) {
@@ -104,3 +116,4 @@ function updatePaginationArrows(currentPage, totalPages, prevButton, nextButton)
         rightButton.style.background = "#fff";
     }
 }
+

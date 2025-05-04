@@ -4,24 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.getElementById("borrowedPrevButton");
     const nextButton = document.getElementById("borrowedNextButton");
 
-    let books = [];
+    let books = JSON.parse(localStorage.getItem("books")) || [];
     let currentPage = 1;
     const rowsPerPage = 8;
-
-    fetch("Books/books.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load books data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            books = data;
-            renderTable();
-        })
-        .catch(error => {
-            console.error("Error loading books:", error);
-        });
 
     function renderTable() {
         borrowedTableBody.innerHTML = "";
@@ -63,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
             updatePaginationArrows(currentPage, Math.ceil(books.length / rowsPerPage), prevButton, nextButton);
         }
     });
+
+    renderTable();
 });
 
 function updatePaginationArrows(currentPage, totalPages, prevButton, nextButton) {

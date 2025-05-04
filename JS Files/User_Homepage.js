@@ -86,6 +86,8 @@ function createBookCard(book) {
         </div>
     </div>
     <input type="checkbox" id="BookPopUp-${book.id}" class="modal-Book-toggle">
+
+    
     <div class="modal-Book">
         <div class="modal-Book-content">
             <div class="pop-up-book-image">

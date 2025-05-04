@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
-    <title>Borrowings</title>
-    <link rel="stylesheet" href="CSS/User Borrowings.css">
+
+    <title>Search</title>
+    <link rel="stylesheet" href="CSS/User search.css">
     <link rel="stylesheet" href="CSS/User_SideBar.css">
+    <link rel="stylesheet" href="CSS/ScrollBar.css">
+    <link rel="stylesheet" href="CSS/Shared.css">
     <link rel="website icon" type="png" href="assets/logo.png">
 </head>
 <body>
@@ -36,13 +42,13 @@
                         <span class="text">Favorites</span>
                     </div>
                 </a>
-                <a href="User search.html" class="sidebar-link">
+                <a href="User_search.html" class="sidebar-link">
                     <div class="sidebar-row">
                         <i class="fa fa-search" class="icon"></i>
                         <span class="text">Search</span>
                     </div>
                 </a>
-                <a href="User Borrowings.html" class="sidebar-link">
+                <a href="User_Borrowings.html" class="sidebar-link">
                     <div class="sidebar-row">
                         <i class="fa fa-book" class="icon"></i>
                         <span class="text">Borrowings</span>
@@ -85,17 +91,49 @@
         <div class="main-content">
             <!-- Add "Back to home" link and "Your Favorites" header -->
             <a href="User_Homepage.html" class="back-to-home"><i class='fas fa-angle-left'></i> Back to home</a>
-            <h1 class="borrowings-header">Your Borrowings</h1>
+            <div class="search-bar">
+                <select class="categories" id="searchCategory">
+                    <option value="All" selected>All</option>
+                    <option value="Title">Title</option>
+                    <option value="Author">Author</option>
+                    <option value="Category">Category</option>
+                </select>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search books..." class="search-input">
+                    <span style="color: #797a7a;">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </div>
             <!-- Main content here -->
-            <div class="book-list">
+            <div class="book-list" id="bookList">
                 <div class="table-header">
                     <span class="column-title">Title</span>
                     <span class="column-category">Category</span>
-                    <span class="column-status">Actions</span>
+                    <span class="column-status">Status</span>
                 </div>
-                
-                <!-- table rows will be dynamically inserted -->
+                <!-- Book rows will be dynamically added here -->
             </div>
+            <script type="module">
+                import { initializeSearch, displayBooks } from './JS Files/Search.js';
+
+                async function loadBooks() {
+                    const response = await fetch('Books/books.json');
+                    const books = await response.json();
+                    const bookList = document.getElementById('bookList');
+                    const searchInput = document.getElementById('searchInput');
+                    const searchCategory = document.getElementById('searchCategory');
+
+                    // Call the external search function
+                    initializeSearch(books, bookList, searchInput, searchCategory);
+
+                    // Display all books initially
+                    displayBooks(books, bookList);
+                }
+
+                // Load books on page load
+                document.addEventListener('DOMContentLoaded', loadBooks);
+            </script>
             <div>
                 <label for="BookPopUp" class="Book-icon">
                 <input type="checkbox" id="BookPopUp" class="modal-Book-toggle">
@@ -143,9 +181,9 @@
     </div>
     <script src="JS Files/FavouriteButton.js"></script>
     <script src="JS Files/bookPopup.js"></script>
+    <script src="JS Files/favorites.js"></script>
     <script src="JS Files/profilePopup.js"></script>
     <script src="JS Files/favorites.js"></script>
-    <script src="JS Files/User_borrowings.js"></script>
     <script src="JS Files/SideBarMethods.js"></script>
 </body>
 </html>
