@@ -4,9 +4,19 @@ function loadBooksIntoLocalStorage() {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
       })
-      .then(data => {
-        localStorage.setItem('books', JSON.stringify(data));
-        renderBooks(data);
+      .then(fetchedBooks => {
+        const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
+
+        // Merge fetched books with existing books, avoiding duplicates
+        const mergedBooks = [
+          ...existingBooks,
+          ...fetchedBooks.filter(fetchedBook =>
+              !existingBooks.some(existingBook => existingBook.id === fetchedBook.id)
+          )
+        ];
+
+        localStorage.setItem('books', JSON.stringify(mergedBooks));
+        renderBooks(mergedBooks);
       })
       .catch(error => {
         console.error('Error loading books:', error);
