@@ -1,4 +1,12 @@
+let filteredBooks = []
+let currentPage = 1;
+const booksPerPage = 10;
+
 export function displayBooks(filteredBooks, bookList) {
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+    const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
+
     bookList.innerHTML = `
         <div class="table-header">
             <span class="column-title">Title</span>
@@ -6,10 +14,8 @@ export function displayBooks(filteredBooks, bookList) {
             <span class="column-status">Status</span>
         </div>
     `;
-    filteredBooks.forEach(book => {
-        // Retrieve the current borrowing status for this book (default "In-Shelf")
+    paginatedBooks.forEach(book => {
         const bookStatus = localStorage.getItem(`status_${book.title}`) || "In-Shelf";
-        // Determine badge color based on status
         const badgeColor = (bookStatus === "Borrowed") ? "#735E57" : "#214539";
 
         const row = document.createElement('div');
@@ -38,15 +44,15 @@ export function displayBooks(filteredBooks, bookList) {
         `;
         bookList.appendChild(row);
     });
-
-    // Call updateFavoriteButtons after rendering books
-    if (window.updateFavoriteButtons) window.updateFavoriteButtons();
+    updateSearchFooter();
+    updateSearchPaginationArrows();
 }
 
 function filterBooks(books, bookList, searchInput, searchCategory) {
     const filter = searchInput.value.toLowerCase();
     const category = searchCategory.value;
-    const filteredBooks = books.filter(book => {
+
+    filteredBooks = books.filter(book => {
         if (category === 'All') {
             return (
                 book.title.toLowerCase().includes(filter) ||
@@ -61,19 +67,48 @@ function filterBooks(books, bookList, searchInput, searchCategory) {
             return book.category.toLowerCase().includes(filter);
         }
     });
+
+    currentPage = 1; // Reset to the first page
     displayBooks(filteredBooks, bookList);
 }
 
+function updateSearchFooter() {
+    const footerText = document.querySelector(".search-footer-text");
+    const totalPages = Math.max(1, Math.ceil(filteredBooks.length / booksPerPage));
+    footerText.textContent = `Page ${currentPage} of ${totalPages}`;
+}
+
+function updateSearchPaginationArrows() {
+    const leftArrow = document.querySelector(".search-footer-left-icon");
+    const rightArrow = document.querySelector(".search-footer-right-icon");
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+    leftArrow.style.color = currentPage === 1 ? "#8A8A8A" : "#5D1B21";
+    leftArrow.style.cursor = currentPage === 1 ? "default" : "pointer";
+
+    rightArrow.style.color = currentPage === totalPages ? "#8A8A8A" : "#5D1B21";
+    rightArrow.style.cursor = currentPage === totalPages ? "default" : "pointer";
+}
+
 export function initializeSearch(books, bookList, searchInput, searchCategory) {
+    filteredBooks = books; // Initially display all books
+    displayBooks(filteredBooks, bookList);
+
     searchInput.addEventListener('input', () => filterBooks(books, bookList, searchInput, searchCategory));
     searchCategory.addEventListener('change', () => filterBooks(books, bookList, searchInput, searchCategory));
 
-    // Display all books initially
-    displayBooks(books, bookList);
+    document.querySelector(".search-footer-left-icon").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayBooks(filteredBooks, bookList);
+        }
+    });
 
-    document.addEventListener('borrowingsUpdated', () => {
-        // Re-run the filter so that the displayBooks function refreshes each row.
-        filterBooks(books, bookList, searchInput, searchCategory);
-      });
-    
+    document.querySelector(".search-footer-right-icon").addEventListener("click", () => {
+        const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayBooks(filteredBooks, bookList);
+        }
+    });
 }

@@ -101,18 +101,20 @@
                 <div class="search-container">
                     <input type="text" id="searchInput" placeholder="Search books..." class="search-input">
                     <span style="color: #797a7a;">
-                        <i class="fa fa-search"></i>
-                    </span>
+            <i class="fa fa-search"></i>
+        </span>
                 </div>
             </div>
             <!-- Main content here -->
-            <div class="book-list" id="bookList">
-                <div class="table-header">
-                    <span class="column-title">Title</span>
-                    <span class="column-category">Category</span>
-                    <span class="column-status">Status</span>
-                </div>
-                <!-- Book rows will be dynamically added here -->
+            <div class="book-list" id="bookList"></div>
+            <div class="footer">
+    <span class="search-footer-left-icon" style="color: #8A8A8A; cursor: default;">
+        <i class="fas fa-angle-left"></i>
+    </span>
+                <span class="search-footer-text">Page 1 of 1</span>
+                <span class="search-footer-right-icon" style="color: #8A8A8A; cursor: default;">
+        <i class="fas fa-angle-right"></i>
+    </span>
             </div>
             <script type="module">
                 import { initializeSearch, displayBooks } from './JS Files/Search.js';
@@ -165,18 +167,6 @@
                 
 
             </div>
-            <div class="footer">
-                <span style=" color: #8a8a8a">
-                    <i class="fas fa-angle-left"  color: 5D1B21;></i>
-                </span>
-                
-                <span class="footer-text">Page 1 of 2</span>
-                <span style="color: #5D1B21;">
-                    <i class="fas fa-angle-right" class="footer-right-icon"></i>
-                </span>
-                
-            </div>
-        </div>
     
     </div>
     <script src="JS Files/FavouriteButton.js"></script>
