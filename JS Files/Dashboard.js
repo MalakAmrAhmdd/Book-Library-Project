@@ -70,28 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Fetch the user data from users.json
-    fetch("users.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load user data.");
-            }
-            return response.json();
-        })
-        .then(users => {
-            const user = users[userId];
-            if (!user) {
-                console.error("User not found.");
-                return;
-            }
+    // Fetch the user data from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(user => user.id === parseInt(userId));
 
-            // Populate the username and password fields
-            document.getElementById("username").textContent = user.username;
-            document.getElementById("password").textContent = user.password;
-        })
-        .catch(error => {
-            console.error("Error fetching user data:", error);
-        });
+    if (!user) {
+        console.error("User not found.");
+        return;
+    }
+
+    // Populate the username and password fields
+    document.getElementById("username").textContent = user.username;
+    document.getElementById("password").textContent = user.password;
 });
 
 
@@ -200,76 +190,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const borrowsNum = document.getElementById("borrows-number");
     const returnsNum = document.getElementById("returns-number");
 
-    // Fetch users data
-    fetch("users.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load users data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            const users = Object.values(data);
+    // Fetch users data from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-            // Count Admins and Users
-            const adminCount = users.filter(user => user.role.toLowerCase() === "admin").length;
-            const userCount = users.filter(user => user.role.toLowerCase() === "user").length;
+    // Count Admins and Users
+    const adminCount = users.filter(user => user.role.toLowerCase() === "admin").length;
+    const userCount = users.filter(user => user.role.toLowerCase() === "user").length;
 
-            // Update the containers
-            if (adminsNum) {
-                adminsNum.textContent = adminCount;
-            } else {
-                console.error("Element with id 'admins-number' not found!");
-            }
+    // Update the containers
+    if (adminsNum) {
+        adminsNum.textContent = adminCount;
+    } else {
+        console.error("Element with id 'admins-number' not found!");
+    }
 
-            if (usersNum) {
-                usersNum.textContent = userCount;
-            } else {
-                console.error("Element with id 'users-number' not found!");
-            }
-        })
-        .catch(error => {
-            console.error("Error loading users:", error);
-        });
+    if (usersNum) {
+        usersNum.textContent = userCount;
+    } else {
+        console.error("Element with id 'users-number' not found!");
+    }
 
-    // Fetch books data
-    fetch("Books/books.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load books data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-  
+    // Fetch books data from localStorage
+    const localStorageBooks = JSON.parse(localStorage.getItem("books")) || [];
+    const totalBooks = localStorageBooks.length;
 
-            const localStorageBooks = JSON.parse(localStorage.getItem("books")) || [];
+    if (booksNum) {
+        booksNum.textContent = totalBooks; // Update the displayed total books count
+    } else {
+        console.error("Element with id 'books-number' not found!");
+    }
 
-      
+    // Placeholder values for borrows and returns (update logic as needed)
+    if (borrowsNum) {
+        borrowsNum.textContent = 0; // Update this logic if you track borrows in localStorage
+    } else {
+        console.error("Element with id 'borrows-number' not found!");
+    }
 
-            const totalBooks = localStorageBooks.length;
-
-            if (booksNum) {
-                booksNum.textContent = totalBooks; // Update the displayed total books count
-            } else {
-                console.error("Element with id 'books-number' not found!");
-            }
-
-            if (borrowsNum) {
-                borrowsNum.textContent = 0;
-            } else {
-                console.error("Element with id 'borrows-number' not found!");
-            }
-
-            if (returnsNum) {
-                returnsNum.textContent = 0;
-            } else {
-                console.error("Element with id 'returns-number' not found!");
-            }
-        })
-        .catch(error => {
-            console.error("Error loading books:", error);
-        });
+    if (returnsNum) {
+        returnsNum.textContent = 0; // Update this logic if you track returns in localStorage
+    } else {
+        console.error("Element with id 'returns-number' not found!");
+    }
 });
 
 document.addEventListener("DOMContentLoaded", () => {

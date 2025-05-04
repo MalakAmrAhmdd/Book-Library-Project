@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const tableBody = document.getElementById("usersTableBody");
-    const tableInfo = document.querySelector(".users-table .table-info");
+    const tableInfo = document.querySelector(".user-table-info");
     const prevButton = document.getElementById("usersPrevButton");
     const nextButton = document.getElementById("usersNextButton");
 
@@ -8,20 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPage = 1;
     const rowsPerPage = 10;
 
-    fetch("users.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load users data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            users = Object.values(data);
-            renderTable();
-        })
-        .catch(error => {
-            console.error("Error loading users:", error);
-        });
+    function loadUsers() {
+      
+        const localStorageUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+        fetch("users.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to load users data.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                const jsonUsers = Object.values(data);
+
+                users = [...localStorageUsers];
+                renderTable();
+            })
+            .catch(error => {
+                console.error("Error loading users:", error);
+            });
+    }
 
     function renderTable() {
         tableBody.innerHTML = "";
@@ -61,4 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderTable();
         }
     });
+
+    // Load users on page load
+    loadUsers();
 });
