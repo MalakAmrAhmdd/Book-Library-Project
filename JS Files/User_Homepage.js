@@ -1,5 +1,5 @@
 function loadBooksIntoLocalStorage() {
-  fetch(`Books/books.json?timestamp=${new Date().getTime()}`) // Ensure this path matches the actual location of books.json
+  fetch(`Books/books.json?timestamp=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
@@ -7,7 +7,6 @@ function loadBooksIntoLocalStorage() {
       .then(fetchedBooks => {
         const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
 
-        // Merge fetched books with existing books, avoiding duplicates
         const mergedBooks = [
           ...existingBooks,
           ...fetchedBooks.filter(fetchedBook =>
