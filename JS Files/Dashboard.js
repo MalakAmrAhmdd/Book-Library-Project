@@ -177,70 +177,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitButton = document.getElementById("submit_button");
 
     if (submitButton) {
-        submitButton.addEventListener("click", (event) => {
+        submitButton.addEventListener("click", function (event) {
             event.preventDefault();
 
-            // Get form values
             const bookName = document.getElementById("book-name").value.trim();
             const authorName = document.getElementById("author-name").value.trim();
             const description = document.getElementById("description").value.trim();
             const categorySelect = document.getElementById("category");
-            const category = categorySelect.options[categorySelect.selectedIndex].text; // Get category name
+            const category = categorySelect.options[categorySelect.selectedIndex].text;
             const languageSelect = document.getElementById("lang");
-            const language = languageSelect.options[languageSelect.selectedIndex].text; // Get language name
-            const fileInput = document.getElementById("file-upload");
-            const image = fileInput.files[0] ? URL.createObjectURL(fileInput.files[0]) : "";
+            const language = languageSelect.options[languageSelect.selectedIndex].text;
+            const imageUrl = document.getElementById("image-url").value.trim();
 
-            // Validate required fields
             if (!bookName || !authorName || !category || !language) {
                 alert("Please fill in all required fields.");
                 return;
             }
 
-            // Get existing books from local storage or initialize an empty array
-            const books = JSON.parse(localStorage.getItem("books")) || [];
-
-            // Generate a new ID based on the existing books
-            const newId = books.length > 0 ? books[books.length - 1].id + 1 : 1;
-
-            // Create a new book object
-            const newBook = {
-                id: newId,
-                title: bookName,
-                author: authorName,
-                category,
-                description,
-                language,
-                image,
-            };
-
-            // Add the new book to the array
-            books.push(newBook);
-
-            // Save the updated array back to local storage
-            localStorage.setItem("books", JSON.stringify(books));
-
-            // Update the total books count dynamically
-            const booksNum = document.getElementById("books-number");
-            if (booksNum) {
-                booksNum.textContent = books.length; // Update the displayed total books count from local storage
-            } else {
-                console.error("Element with id 'books-number' not found!");
+            const formData = new FormData();
+            formData.append("title", bookName);
+            formData.append("author", authorName);
+            formData.append("category", category);
+            formData.append("description", description);
+            formData.append("language", language);
+            if (imageUrl) {
+                formData.append("cover_image", imageUrl);
             }
 
-            alert("Book added successfully!");
-
-            // Clear the form
-            document.querySelector("form.book").reset();
+            $.ajax({
+                url: "http://127.0.0.1:8000/books/addbook/",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    alert("Book added successfully!");
+                    document.querySelector("form.book").reset();
+                },
+                error: function (xhr) {
+                    let msg = "Failed to add book.";
+                    if (xhr.responseJSON && xhr.responseJSON.detail) {
+                        msg = xhr.responseJSON.detail;
+                    }
+                    alert(msg);
+                    console.error("Error adding book:", xhr);
+                }
+            });
         });
     }
-
-    // Update the total books count on page load
-    const booksNum = document.getElementById("books-number");
-    if (booksNum) {
-        const books = JSON.parse(localStorage.getItem("books")) || [];
-        booksNum.textContent = books.length;
-    } else {
-        console.error("Element with id 'books-number' not found!");
-    }
 });
+

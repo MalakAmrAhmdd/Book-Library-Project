@@ -79,21 +79,10 @@
                     <span class="header-text">Fill up Book Details</span>
                 </div>
                 <form class="book">
-                    <div class="book_form">
-                        <div class="book-details">
-                            <input type="text" id="book-name" placeholder="Enter Book name">
-                            <input type="text" id="author-name" placeholder="Author-name">
-                            <textarea id="description" placeholder="Description"></textarea>
-                        </div>
-
-                        <div class="upload-container">
-                            <label for="file-upload" class="upload-box">
-                                <input type="file" id="file-upload" accept="image/*">
-                                <span>Upload image here</span>
-                            </label>
-                        </div>
-                        
-                    </div>
+                    <input type="text" id="book-name" placeholder="Enter Book name">
+                    <input type="text" id="author-name" placeholder="Author-name">
+                    <textarea id="description" placeholder="Description"></textarea>
+                    <input type="imageUrl" id="image-url" placeholder="Enter image-url">
                     <div class="dropmenu">
                         <select name="category" id="category">
                             <option value="" selected="selected">Category</option>
@@ -126,9 +115,11 @@
             </div>
         </div>
     </div>
-    <script src="JS Files/SideBarMethods.js"></script>
-    <script src="JS Files/Dashboard.js"></script>
+
     <!-- comment -->
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="JS Files/Dashboard.js"></script>
+<script src="JS Files/SideBarMethods.js"></script>
 
 </html>

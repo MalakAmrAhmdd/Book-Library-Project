@@ -66,6 +66,10 @@
 
 }
 .book{
+    margin-left: 35px;
+    gap: 20px;
+    width: 50%;
+    max-width: 60%;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -80,7 +84,16 @@
     /* height: 70%; */
 }
 
-
+#image-url {
+    border-radius: 10px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    height: 20px;
+    padding: 15px 0px 15px 15px;
+    outline: #D6D6D6;
+    width: 100%;
+    max-width: 97%;
+}
 #book-name{
     border-radius: 10px;
     border: 1px solid #D6D6D6;
@@ -109,8 +122,8 @@
     max-height: 130px;
     /* margin-bottom: 20px; */
     outline: #D6D6D6;
-    max-width: 93%;
-    min-width: 93%;
+     width: 100%;
+    max-width: 95%;
 }
 
 .upload-container {
@@ -145,9 +158,9 @@
 .dropmenu{
     display: flex;
     justify-content: flex-start;
-    gap: 25px;
+    gap: 20px;
     width:40%;
-    padding-left: 40px;
+   
     margin-top: 20px;
 }
 
@@ -156,7 +169,6 @@
     height: 45px;
     border-radius: 15px;
     background: #FFF;
-    /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); */
     padding-left: 20px;
     flex-shrink: 0;
     appearance: none;
@@ -164,12 +176,12 @@
     background-repeat: no-repeat;
     background-position: right 20px center;
     background-size: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 1px solid #D6D6D6;
     outline: #D6D6D6;
 }
 .submit{
-    padding-left: 40px;
+    
     margin-bottom: 20px;
     width: 20%;
 }
