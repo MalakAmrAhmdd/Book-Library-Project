@@ -1,33 +1,18 @@
-function loadBooksIntoLocalStorage() {
-  fetch(`Books/books.json?timestamp=${new Date().getTime()}`)
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
-      })
-      .then(fetchedBooks => {
-        const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
-
-        const mergedBooks = [
-          ...existingBooks,
-          ...fetchedBooks.filter(fetchedBook =>
-              !existingBooks.some(existingBook => existingBook.id === fetchedBook.id)
-          )
-        ];
-
-        localStorage.setItem('books', JSON.stringify(mergedBooks));
-        renderBooks(mergedBooks);
-      })
-      .catch(error => {
-        console.error('Error loading books:', error);
-        const cachedBooks = JSON.parse(localStorage.getItem("books")) || [];
-        if (cachedBooks.length > 0) {
-          renderBooks(cachedBooks);
-        } else {
-          console.error("No books data available");
-          document.querySelector(".blocks").innerHTML =
-              "<div class='error-message'>No books data available. Please try again later.</div>";
-        }
-      });
+function loadBooksFromBackend() {
+  $.ajax({
+    url: 'http://127.0.0.1:8000/books/getbook/',
+    method: 'GET',
+    contentType: 'application/json',
+    success: function (data) {
+      const books = Array.isArray(data) ? data : Object.values(data);
+      renderBooks(books);
+    },
+    error: function (xhr) {
+      console.error('Error fetching books:', xhr);
+      document.querySelector(".blocks").innerHTML =
+          "<div class='error-message'>Failed to load books. Please try again later.</div>";
+    }
+  });
 }
 
 function renderBooks(books) {
@@ -78,7 +63,7 @@ function renderBooks(books) {
 function createBookCard(book) {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   const isFavorite = favorites.includes(book.id.toString());
-  
+
   return `
     <div class="book-holder">
         <label for="BookPopUp-${book.id}" class="Book-icon">
@@ -113,13 +98,5 @@ function createSectionRow(title, books, constraint) {
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
-
-  const cachedBooks = JSON.parse(localStorage.getItem("books")) || [];
-  if (cachedBooks.length > 0) {
-    renderBooks(cachedBooks);
-    // Add this line to update favorite buttons after rendering
-    if (window.updateFavoriteButtons) window.updateFavoriteButtons();
-  }
-
-  loadBooksIntoLocalStorage();
+  loadBooksFromBackend();
 });

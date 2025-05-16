@@ -8,10 +8,10 @@ function handleFavoriteButtonClick(e) {
         const button = e.target.closest('.favorite-button');
         const bookId = button.getAttribute('data-book-id');
         const icon = button.querySelector('i');
-        
+
         // Get current favorites from localStorage
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        
+
         // Toggle favorite status
         const index = favorites.indexOf(bookId);
         if (index === -1) {
@@ -25,7 +25,7 @@ function handleFavoriteButtonClick(e) {
             icon.classList.add('far');
             icon.style.color = '#8A8A8A';
         }
-        
+
         // Save to localStorage
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
@@ -38,19 +38,31 @@ function fetchBooks() {
 
     document.querySelector('.homepage-text').textContent = title;
 
-    const books = JSON.parse(localStorage.getItem('books')) || [];
+    $.ajax({
+        url: 'http://127.0.0.1:8000/books/getbook/',
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            const books = Array.isArray(data) ? data : Object.values(data);
 
-    if(constraint === 'all') {
-        filteredBooks = books;
-    } else if(constraint.startsWith('category:')) {
-        const category = constraint.split(':')[1];
-        filteredBooks = books.filter(book => book.category === category);
-    } else if(constraint.startsWith('language:')) {
-        const language = constraint.split(':')[1];
-        filteredBooks = books.filter(book => book.language === language);
-    }
+            if (constraint === 'all') {
+                filteredBooks = books;
+            } else if (constraint.startsWith('category:')) {
+                const category = constraint.split(':')[1];
+                filteredBooks = books.filter(book => book.category === category);
+            } else if (constraint.startsWith('language:')) {
+                const language = constraint.split(':')[1];
+                filteredBooks = books.filter(book => book.language === language);
+            }
 
-    renderBooks();
+            renderBooks();
+        },
+        error: function (xhr) {
+            console.error('Error fetching books:', xhr);
+            document.querySelector(".table-row").innerHTML =
+                "<div class='error-message'>Failed to load books. Please try again later.</div>";
+        }
+    });
 }
 
 function renderBooks() {
@@ -61,11 +73,7 @@ function renderBooks() {
     const endIndex = startIndex + booksPerPage;
     const currentBooks = filteredBooks.slice(startIndex, endIndex);
 
-    // Get current favorites
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
     currentBooks.forEach(book => {
-        const isFavorite = favorites.includes(book.id.toString());
         const bookElement = document.createElement("div");
         bookElement.classList.add("book-holder");
         bookElement.innerHTML = `
@@ -76,7 +84,7 @@ function renderBooks() {
             <span class="book-author">${book.author}</span>
             <div class="favorite-container">
                 <button class="favorite-button" data-book-id="${book.id}">
-                    <i class="${isFavorite ? 'fas' : 'far'} fa-heart" style="color: ${isFavorite ? '#5D1B21' : '#8A8A8A'}; font-size: 18px; padding: 5px;"></i>
+                    <i class="far fa-heart" style="color: #8A8A8A; font-size: 18px; padding: 5px;"></i>
                 </button>
             </div>
         `;
@@ -86,12 +94,6 @@ function renderBooks() {
     updateFooter();
     updatePaginationArrows();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    fetchBooks();
-    // Add event listener for favorite button clicks
-    document.addEventListener('click', handleFavoriteButtonClick);
-});
 
 function updateFooter() {
     const footerText = document.querySelector(".footer-text");
@@ -104,39 +106,27 @@ function updatePaginationArrows() {
     const rightArrow = document.querySelector(".footer-right-icon");
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
-    if (totalPages === 1) {
-        leftArrow.style.color = "#8A8A8A";
-        rightArrow.style.color = "#8A8A8A";
-        leftArrow.style.cursor = "default";
-        rightArrow.style.cursor = "default";
-    } else if (currentPage === 1) {
-        leftArrow.style.color = "#8A8A8A";
-        rightArrow.style.color = "#5D1B21";
-        leftArrow.style.cursor = "default";
-        rightArrow.style.cursor = "pointer";
-    } else if (currentPage === totalPages) {
-        leftArrow.style.color = "#5D1B21";
-        rightArrow.style.color = "#8A8A8A";
-        leftArrow.style.cursor = "pointer";
-        rightArrow.style.cursor = "default";
-    } else {
-        leftArrow.style.color = "#5D1B21";
-        rightArrow.style.color = "#5D1B21";
-        leftArrow.style.cursor = "pointer";
-        rightArrow.style.cursor = "pointer";
-    }
+    leftArrow.style.color = currentPage === 1 ? "#8A8A8A" : "#5D1B21";
+    rightArrow.style.color = currentPage === totalPages ? "#8A8A8A" : "#5D1B21";
+
+    leftArrow.style.cursor = currentPage === 1 ? "default" : "pointer";
+    rightArrow.style.cursor = currentPage === totalPages ? "default" : "pointer";
 }
 
-document.querySelector(".footer-left-icon").addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        renderBooks();
-    }
-});
+document.addEventListener("DOMContentLoaded", () => {
+    fetchBooks();
 
-document.querySelector(".footer-right-icon").addEventListener("click", () => {
-    if (currentPage * booksPerPage < filteredBooks.length) {
-        currentPage++;
-        renderBooks();
-    }
+    document.querySelector(".footer-left-icon").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderBooks();
+        }
+    });
+
+    document.querySelector(".footer-right-icon").addEventListener("click", () => {
+        if (currentPage * booksPerPage < filteredBooks.length) {
+            currentPage++;
+            renderBooks();
+        }
+    });
 });
