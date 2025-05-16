@@ -95,6 +95,12 @@ function renderBooks() {
     updatePaginationArrows();
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    fetchBooks();
+    // Add event listener for favorite button clicks
+    document.addEventListener('click', handleFavoriteButtonClick);
+});
+
 function updateFooter() {
     const footerText = document.querySelector(".footer-text");
     const totalPages = Math.max(1, Math.ceil(filteredBooks.length / booksPerPage));
