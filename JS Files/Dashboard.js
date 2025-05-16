@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Get the user ID from the URL
+    // Get ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get("id");
 
@@ -9,20 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Fetch the user data from localStorage
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find(user => user.id === parseInt(userId));
-
-    if (!user) {
-        console.error("User not found.");
-        return;
-    }
-
-    // Populate the username and password fields
-    document.getElementById("username").textContent = user.username;
-    document.getElementById("password").textContent = user.password;
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/usersTable/',
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            const users = Array.isArray(data) ? data : Object.values(data);
+            const user = users.find(user => String(user.id) === String(userId));
+            if (!user) {
+                console.error("User not found.");
+                return;
+            }
+            document.getElementById("username").textContent = user.username;
+            document.getElementById("email").textContent = user.email;
+        },
+        error: function (xhr) {
+            alert("Failed to load user data.");
+            console.error("Error loading user:", xhr);
+        }
+    });
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const dashboardTableBody = document.querySelector(".borrows-table tbody");
@@ -53,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error loading books:", error);
         });
 
-    // Fetch books data
+
     fetch("users.json")
         .then(response => {
             console.log("Fetching users.json...");
@@ -129,47 +135,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const borrowsNum = document.getElementById("borrows-number");
     const returnsNum = document.getElementById("returns-number");
 
-    // Fetch users data from localStorage
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/usersTable/',
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            const users = Array.isArray(data) ? data : Object.values(data);
 
-    // Count Admins and Users
-    const adminCount = users.filter(user => user.role.toLowerCase() === "admin").length;
-    const userCount = users.filter(user => user.role.toLowerCase() === "user").length;
+            const adminCount = users.filter(user => user.is_staff === 1 || user.is_staff === true).length;
+            const userCount = users.filter(user => user.is_staff === 0 || user.is_staff === false).length;
 
-    // Update the containers
-    if (adminsNum) {
-        adminsNum.textContent = adminCount;
-    } else {
-        console.error("Element with id 'admins-number' not found!");
-    }
+            const totalBorrows = users.reduce((sum, user) => sum + (user.total_borrowings || 0), 0);
+            const totalReturns = users.reduce((sum, user) => sum + (user.total_returns || 0), 0);
 
-    if (usersNum) {
-        usersNum.textContent = userCount;
-    } else {
-        console.error("Element with id 'users-number' not found!");
-    }
+            if (adminsNum) {
+                adminsNum.textContent = adminCount;
+            } else {
+                console.error("Element with id 'admins-number' not found!");
+            }
 
-    // Fetch books data from localStorage
+            if (usersNum) {
+                usersNum.textContent = userCount;
+            } else {
+                console.error("Element with id 'users-number' not found!");
+            }
+
+            if (borrowsNum) {
+                borrowsNum.textContent = totalBorrows;
+            } else {
+                console.error("Element with id 'borrows-number' not found!");
+            }
+
+            if (returnsNum) {
+                returnsNum.textContent = totalReturns;
+            } else {
+                console.error("Element with id 'returns-number' not found!");
+            }
+        },
+        error: function (xhr) {
+            alert("Failed to load users for counting.");
+            console.error("Error loading users:", xhr);
+        }
+    });
+
     const localStorageBooks = JSON.parse(localStorage.getItem("books")) || [];
     const totalBooks = localStorageBooks.length;
 
     if (booksNum) {
-        booksNum.textContent = totalBooks; // Update the displayed total books count
+        booksNum.textContent = totalBooks;
     } else {
         console.error("Element with id 'books-number' not found!");
-    }
-
-    // Placeholder values for borrows and returns (update logic as needed)
-    if (borrowsNum) {
-        borrowsNum.textContent = 0; // Update this logic if you track borrows in localStorage
-    } else {
-        console.error("Element with id 'borrows-number' not found!");
-    }
-
-    if (returnsNum) {
-        returnsNum.textContent = 0; // Update this logic if you track returns in localStorage
-    } else {
-        console.error("Element with id 'returns-number' not found!");
     }
 });
 

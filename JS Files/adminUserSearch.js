@@ -1,26 +1,21 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.search-input');
     const usersTableBody = document.getElementById('usersTableBody');
 
-    // Fetch users data from users.json
     let users = [];
-    let currentPage = 1;
-    const rowsPerPage = 10;
 
-    fetch("users.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load users data.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            users = Object.values(data);
-            renderTable();
-        })
-        .catch(error => {
-            console.error("Error loading users:", error);
-        });
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/usersTable/',
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            users = Array.isArray(data) ? data : Object.values(data);
+            displayUsers(users);
+        },
+        error: function (xhr) {
+            console.error("Error loading users:", xhr);
+        }
+    });
 
     const displayUsers = (filteredUsers) => {
         usersTableBody.innerHTML = '';
@@ -29,26 +24,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             row.innerHTML = `
                 <td>${user.id}</td>
                 <td>${user.username}</td>
-                <td>${user.numOfBorrowedBooks}</td>
-                <td>${user.numOfReturnedBooks}</td>
-                <td></td>
-            `;
+                <td>${user.total_borrowings ?? 0}</td>
+                <td>${user.total_returns ?? 0}</td>
+                <td><a href="UserDetails.html?id=${user.id}" class="viewLink">View Details</a></td>
+`;
             usersTableBody.appendChild(row);
         });
     };
 
     const filterUsers = (users) => {
         const filter = searchInput.value.toLowerCase();
-        return users.filter(user => user.username.toLowerCase().includes(filter));
+        return users.filter(user =>
+            user.username.toLowerCase().includes(filter) ||
+            String(user.id).includes(filter)
+        );
     };
 
     searchInput.addEventListener('input', () => {
         const filteredUsers = filterUsers(users);
         displayUsers(filteredUsers);
     });
-
-    // Display all users initially
-    displayUsers(users);
-// Ensure all rows are displayed by setting a larger limit or removing any restrictions
-// (This function is no longer needed as all users are displayed initially)
 });
