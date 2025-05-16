@@ -9,26 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const rowsPerPage = 10;
 
     function loadUsers() {
-      
-        const localStorageUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-        fetch("users.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Failed to load users data.");
-                }
-                return response.json();
-            })
-            .then(data => {
-                const jsonUsers = Object.values(data);
-
-                users = [...localStorageUsers];
-                renderTable();
-            })
-            .catch(error => {
-                console.error("Error loading users:", error);
-            });
-    }
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/usersTable/',
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            users = Array.isArray(data) ? data : Object.values(data);
+            renderTable();
+        },
+        error: function (xhr) {
+            let msg = "Failed to load users.";
+            if (xhr.responseJSON && xhr.responseJSON.detail) {
+                msg = xhr.responseJSON.detail;
+            }
+            alert(msg);
+            console.error("Error loading users:", xhr);
+        }
+    });
+}
 
     function renderTable() {
         tableBody.innerHTML = "";
@@ -43,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
             row.innerHTML = `
                 <td>${user.id}</td>
                 <td>${user.username}</td>
-                <td>${user.numOfBorrowedBooks}</td>
-                <td>${user.numOfReturnedBooks}</td>
+                <td>${user.total_borrowings}</td>
+                <td>${user.total_returns}</td>
                 <td><a href="UserDetails.html?id=${user.id}" class="viewLink">View Details</a></td>
             `;
             tableBody.appendChild(row);
@@ -69,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Load users on page load
+
     loadUsers();
+    console.log("Ana t3bt");
 });

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
 
     <title>Sign-up</title>
@@ -30,10 +35,16 @@
                 <p class="text2">Sign up to continue</p>
             </div>
             <!-- Add id="signUpForm" to the form -->
+
             <form id="signUpForm">
                 <label for="username" class="userLabel">Username:</label><br>
                 <input type="text" id="username" name="username" placeholder="Enter your username">
-            
+
+                <!-- Email  -->
+                <label for="email" class="userLabel">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <!-- Email  -->
+
                 <label for="Sign-up-pass" class="passlabel">Password:</label><br>
                 <div style="position: relative;">
                     <input type="password" id="Sign-up-pass" name="Sign-up-pass" placeholder="Enter your password">
@@ -41,27 +52,28 @@
                         <i class="fa fa-eye-slash" id="toggleIcon-sign-up"></i>
                     </button>
                 </div>
-            
+
                 <label for="Sign-up-confirmPass" class="passlabel">Confirm Password:</label><br>
                 <div style="position: relative;">
-                    <input type="password" id="Sign-up-confirmPass" name="Sign-up-confirmPass" placeholder="Confirm your password">
+                    <input type="password" id="Sign-up-confirmPass" name="Sign-up-confirmPass"
+                        placeholder="Confirm your password">
                     <button type="button" class="togglePassword-sign-up">
                         <i class="fa fa-eye-slash" id="toggleIcon-sign-up"></i>
                     </button>
                 </div>
-            
+
                 <div class="role-choice">
                     <div class="role-link">
                         <input type="radio" id="admin" name="role" value="admin">
                         <label for="admin" class="role-name">Admin</label>
                     </div>
-                    
+
                     <div class="role-link">
                         <input type="radio" id="user" name="role" value="user">
                         <label for="user" class="role-name">User</label>
                     </div>
                 </div>
-            
+
                 <input type="submit" id="submit-sign-up" value="Register">
             </form>
             <div class="new">
@@ -70,10 +82,13 @@
             </div>
         </div>
     </div>
-    <script src="JS Files/auth.js"></script>
-    <script>
-        // Attach the handleRegistration function to the form submission
-        document.getElementById("signUpForm").addEventListener("submit", handleRegistration);
-    </script>
+
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<script src="JS Files/auth.js"></script>
+<script>
+    // Attach the handleRegistration function to the form submission
+    document.getElementById("signUpForm").addEventListener("submit", handleRegistration);
+</script>
+
 </html>
