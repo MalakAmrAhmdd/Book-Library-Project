@@ -6,7 +6,7 @@
     "category": "Technology",
     "description": "A practical guide to web usability, emphasizing intuitive design and user-friendly interfaces.",
     "language": "English",
-    "image": "Books/English/engBookCovers/don't make me think.jpg"
+    "image": "https://m.media-amazon.com/images/I/617rPny7-LL._SY385_.jpg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "category": "Technology",
     "description": "Explores human-centered design principles, focusing on intuitive interactions between users and objects.",
     "language": "English",
-    "image": "Books/English/engBookCovers/The design of everyday things.jpg"
+    "image": "https://m.media-amazon.com/images/I/619ncDeLijL._SY466_.jpg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "category": "Technology",
     "description": "A step-by-step method for solving problems and testing ideas in five days, developed at Google.",
     "language": "English",
-    "image": "Books/English/engBookCovers/Sprint.jpg"
+    "image": "https://m.media-amazon.com/images/I/41-j4var1ML._SY445_SX342_.jpg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "category": "Technology",
     "description": "Integrates UX design with agile development, emphasizing collaboration and iterative feedback.",
     "language": "English",
-    "image": "Books/English/engBookCovers/Lean UX.png"
+    "image": "https://m.media-amazon.com/images/I/41JWTd4PCWL._SY445_SX342_.jpg"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "category": "Technology",
     "description": "A beginner-friendly guide to learning React.js for modern web development.",
     "language": "English",
-    "image": "Books/English/engBookCovers/the road to react.jpg"
+    "image": "https://m.media-amazon.com/images/I/41Vv6hJcxNL._SY445_SX342_.jpg"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "category": "Finance",
     "description": "Advocates financial independence through asset-building, investing, and financial literacy.",
     "language": "English",
-    "image": "Books/English/engBookCovers/Rich dad poor dad.jpg"
+    "image": "https://diwanegypt.com/wp-content/uploads/2023/06/9781612681139.jpg"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "category": "Fantasy",
     "description": "A young wizard discovers his magical heritage and battles the dark wizard Voldemort at Hogwarts.",
     "language": "English",
-    "image": "Books/English/engBookCovers/Harry potter.jpg"
+    "image": "https://m.media-amazon.com/images/I/51dOacmuzvL._SY445_SX342_.jpg"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "category": "Fiction",
     "description": "A critique of the American Dream through the tragic rise and fall of the enigmatic Jay Gatsby.",
     "language": "English",
-    "image": "Books/English/engBookCovers/the great gatsby.jpg"
+    "image": "https://m.media-amazon.com/images/I/61OTNorhqVS._AC_SY679_.jpg"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "category": "Fiction",
     "description": "A Southern Gothic novel addressing racial injustice through the eyes of a young girl, Scout Finch.",
     "language": "English",
-    "image": "Books/English/engBookCovers/to kill a mockingbird.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_(first_edition_cover).jpg/500px-To_Kill_a_Mockingbird_(first_edition_cover).jpg"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "category": "Science Fiction",
     "description": "A dystopian classic warning against totalitarianism, surveillance, and thought control.",
     "language": "English",
-    "image": "Books/English/engBookCovers/1984.jpg"
+    "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b468d093312907.5e6139cf2ab03.png"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "category": "Romance",
     "description": "A classic novel about the spirited Elizabeth Bennet and her relationship with the proud Mr. Darcy in Regency England.",
     "language": "English",
-    "image": "Books/English/engBookCovers/pride_and_prejudice.jpg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1681804503i/129915654.jpg"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "category": "Psychology",
     "description": "Explores human behavior through the lens of four personality types and how to communicate effectively with each.",
     "language": "English",
-    "image": "Books/English/engBookCovers/surrounded_by_idiots.jpeg"
+    "image": "https://m.media-amazon.com/images/I/41rWzmdpuiL._SY445_SX342_.jpg"
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "category": "Fiction",
     "description": "A coming-of-age story following teenager Holden Caulfield as he navigates alienation and identity in New York City.",
     "language": "English",
-    "image": "Books/English/engBookCovers/catcher_in_the_rye.webp"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/The_Catcher_in_the_Rye_(1951%2C_first_edition_cover).jpg/500px-The_Catcher_in_the_Rye_(1951%2C_first_edition_cover).jpg"
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "category": "Science Fiction",
     "description": "A dystopian novel envisioning a future society where humans are genetically engineered and psychologically conditioned.",
     "language": "English",
-    "image": "Books/English/engBookCovers/brave_new_world.jpeg"
+    "image": "https://m.media-amazon.com/images/I/416FntWyJQL._SY445_SX342_.jpg"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "category": "Adventure",
     "description": "The epic tale of Captain Ahab's obsessive quest for revenge against the white whale that took his leg.",
     "language": "English",
-    "image": "Books/English/engBookCovers/moby_dick.jpeg"
+    "image": "https://m.media-amazon.com/images/I/51aV053NRjL._SY445_SX342_.jpg"
   },
   {
     "id": 16,
@@ -141,7 +141,7 @@
     "category": "Non-Fiction",
     "description": "A visual adaptation of Harari's exploration of human history, from evolution to technological revolutions.",
     "language": "English",
-    "image": "Books/English/engBookCovers/sapiens_graphic.jpg"
+    "image": "https://diwanegypt.com/wp-content/uploads/2022/02/9781787332812.jpg"
   },
   {
     "id": 17,
@@ -150,7 +150,7 @@
     "category": "Fiction",
     "description": "A philosophical novel about a beautiful young man whose portrait ages while he remains youthful, despite his immoral life.",
     "language": "English",
-    "image": "Books/English/engBookCovers/picture_of_dorian_gray.jpg"
+    "image": "https://m.media-amazon.com/images/I/41Vsw10wmKL._SY445_SX342_.jpg"
   },
   {
     "id": 18,
@@ -159,7 +159,7 @@
     "category": "Fiction",
     "description": "A post-apocalyptic novel following a father and son's harrowing journey through a devastated America.",
     "language": "English",
-    "image": "Books/English/engBookCovers/the_road.jpeg"
+    "image": "https://m.media-amazon.com/images/I/41GuWgTvzoL._SY445_SX342_.jpg"
   },
   {
     "id": 19,
@@ -168,7 +168,7 @@
     "category": "Fiction",
     "description": "A murder mystery and coming-of-age story about a girl who raises herself in the marshes of North Carolina.",
     "language": "English",
-    "image": "Books/English/engBookCovers/where_the_crawdads_sing.jpg"
+    "image": "https://m.media-amazon.com/images/I/81F0NTrPdCL._SY342_.jpg"
   },
   {
     "id": 20,
@@ -177,7 +177,7 @@
     "category": "Self-Help",
     "description": "A counterintuitive approach to living a good life by focusing on what truly matters and letting go of the rest.",
     "language": "English",
-    "image": "Books/English/engBookCovers/subtle_art.jpg"
+    "image": "https://m.media-amazon.com/images/I/51mN3bY0JjL._SY445_SX342_.jpg"
   },
   {
     "id": 21,
@@ -186,7 +186,7 @@
     "category": "Fantasy",
     "description": "The first book in a series about Shadowhunters, warriors who protect the human world from demons.",
     "language": "English",
-    "image": "Books/English/engBookCovers/city of bones.jpeg"
+    "image": "https://m.media-amazon.com/images/I/81PglyEXJzL._SY466_.jpg"
   },
   {
     "id": 22,
@@ -195,7 +195,7 @@
     "category": "Horror",
     "description": "The classic Gothic novel about a scientist who creates a sentient creature in an unorthodox experiment.",
     "language": "English",
-    "image": "Books/English/engBookCovers/frank.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1669159060i/63631742.jpg"
   },
   {
     "id": 23,
@@ -204,7 +204,7 @@
     "category": "Psychology",
     "description": "A guide to understanding nonverbal communication and interpreting the hidden meanings behind gestures and expressions.",
     "language": "English",
-    "image": "Books/English/engBookCovers/body language.jpeg"
+    "image": "https://m.media-amazon.com/images/I/81ebnAXqecL._SY466_.jpg"
   },
   {
     "id": 24,
@@ -213,7 +213,7 @@
     "category": "Fiction",
     "description": "A contemporary novel exploring themes of identity and cultural heritage through an unconventional narrative.",
     "language": "English",
-    "image": "Books/English/engBookCovers/buffalo_hunter_hunter.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1719446747i/214565614.jpg"
   },
   {
     "id": 25,
@@ -222,7 +222,7 @@
     "category": "Fiction",
     "description": "A literary work examining human relationships through metaphorical storytelling and poetic imagery.",
     "language": "English",
-    "image": "Books/English/engBookCovers/stag_dance.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1723042164i/215362032.jpg"
   },
   {
     "id": 26,
@@ -231,7 +231,7 @@
     "category": "Fiction",
     "description": "An experimental novel that blends reality and imagination through vivid descriptions of color and perception.",
     "language": "English",
-    "image": "Books/English/engBookCovers/ultramarine.jpeg"
+    "image": "https://m.media-amazon.com/images/I/81KE4CaUisL._SY425_.jpg"
   },
   {
     "id": 27,
@@ -240,7 +240,7 @@
     "category": "Fiction",
     "description": "A psychological exploration of self-worth and redemption through complex character development.",
     "language": "English",
-    "image": "Books/English/engBookCovers/the_unworthy.jpg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1722354275i/214151601.jpg"
   },
   {
     "id": 28,
@@ -249,7 +249,7 @@
     "category": "Fiction",
     "description": "A philosophical novel questioning societal norms and collective human behavior through speculative scenarios.",
     "language": "English",
-    "image": "Books/English/engBookCovers/one_day_against.jpeg"
+    "image": "https://m.media-amazon.com/images/I/31+cC+2G7ML._SY445_SX342_.jpg"
   },
   {
     "id": 29,
@@ -258,7 +258,7 @@
     "category": "Fiction",
     "description": "A meditation on memory and time through interconnected stories spanning generations.",
     "language": "English",
-    "image": "Books/English/engBookCovers/immemorial.jpeg"
+    "image": "https://cdn1.bookmanager.com/i/n?b=EKOgAN1NFwj_N9MOAUhNcQ&cb=1712261226"
   },
   {
     "id": 30,
@@ -267,7 +267,7 @@
     "category": "Non-Fiction",
     "description": "An exploration of cultural identity and history through the lens of color symbolism in African American experiences.",
     "language": "English",
-    "image": "Books/English/engBookCovers/black_in_blues.jpeg"
+    "image": "https://th.bing.com/th/id/OIP.T5w-G9AfmVjMsryfdN_z-AAAAA?r=0&cb=iwc2&rs=1&pid=ImgDetMain"
   },
   {
     "id": 31,
@@ -276,7 +276,7 @@
     "category": "Romance",
     "description": "A novel about complex relationships and the paradoxes of love and conflict in modern life.",
     "language": "English",
-    "image": "Books/English/engBookCovers/harder_i_fight.jpeg"
+    "image": "https://th.bing.com/th/id/OIP.ibGzaExpbucJpYNmXA9k4AHaKq?r=0&cb=iwc2&rs=1&pid=ImgDetMain"
   },
   {
     "id": 32,
@@ -285,7 +285,7 @@
     "category": "Fiction",
     "description": "A story of enduring connections that transcend physical separation and time.",
     "language": "English",
-    "image": "Books/English/engBookCovers/we_do_not_part.jpeg"
+    "image": "https://th.bing.com/th/id/OIP.-e3Dsn9S5WBWGjRKvNyqogAAAA?r=0&cb=iwc2&rs=1&pid=ImgDetMain"
   },
   {
     "id": 33,
@@ -294,7 +294,7 @@
     "category": "Self-Help",
     "description": "A motivational guide encouraging mindfulness and conscious living in everyday experiences.",
     "language": "English",
-    "image": "Books/English/engBookCovers/wake_up_open_eyes.jpg"
+    "image": "https://booksbonesbuffy.com/wp-content/uploads/2024/06/Wake-Up-and-Open-Your-Eyes.jpg"
   },
   {
     "id": 34,
@@ -303,7 +303,7 @@
     "category": "Fiction",
     "description": "رواية رمزية تروي قصة البشرية من خلال شخصيات تمثل الأنبياء، وتعتبر من أكثر أعمال نجيب محفوظ إثارة للجدل.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/اولاد_حارتنا.webp"
+    "image": "https://1.bp.blogspot.com/-lcUbiOPZb_w/YGNdQd_csNI/AAAAAAAAGA0/WI9tjVshRfoJKjBspbWCOyaZf6OuhP_uQCLcBGAsYHQ/s666/poli6.jpg"
   },
   {
     "id": 35,
@@ -312,7 +312,7 @@
     "category": "Thriller",
     "description": "رواية تشويقية نفسية تدور حول طبيب نفسي يواجه ماضيه المظلم عندما يعود مريض غامض إلى حياته.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/الفيل_الازرق.jpg"
+    "image": "https://www.shoroukbookstores.com/images/Books/original/9789770932278.jpg"
   },
   {
     "id": 36,
@@ -321,7 +321,7 @@
     "category": "History",
     "description": "رواية تحكي معاناة الفلسطينيين بعد النكبة من خلال قصة زوجين يعودان إلى منزلهما في حيفا بعد 20 عاماً من الاحتلال.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/عائد_إلى_حيفا.jpg"
+    "image": "https://th.bing.com/th/id/OIP._SwGuPXWZlqsz5mr0MXLBwHaMB?rs=1&pid=ImgDetMain"
   },
   {
     "id": 37,
@@ -330,7 +330,7 @@
     "category": "History",
     "description": "رواية تسرد تاريخ فلسطين من خلال سيرة عائلة فلسطينية على مدى أربعة أجيال، منذ النكبة حتى القرن الحادي والعشرين.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/الطنطورية.jpeg"
+    "image": "https://th.bing.com/th/id/OIP.DrV7pjH7gHeCqsZmL2SzaAHaKt?rs=1&pid=ImgDetMain"
   },
   {
     "id": 38,
@@ -339,7 +339,7 @@
     "category": "Romance",
     "description": "رواية تحكي قصة حب مستحيل بين فنانة تشكيلية وثوري جزائري، وتستكشف العلاقة بين الحب والوطن والذاكرة.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/ذاكرة_الجسد.jpeg"
+    "image": "https://th.bing.com/th/id/R.013d1afbb1f04a241b28ce1898934820?rik=sTUHdkYuTFxy%2Fw&pid=ImgRaw&r=0"
   },
   {
     "id": 39,
@@ -348,7 +348,7 @@
     "category": "Social",
     "description": "رواية تقدم لوحة اجتماعية لمصر من خلال سكان عمارة واحدة، تعكس تناقضات المجتمع المصري في مطلع الألفية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/عمارة_يعقوبيان.jpeg"
+    "image": "https://ketabpedia.com/wp-content/uploads/2019/02/bka802.jpg"
   },
   {
     "id": 40,
@@ -357,7 +357,7 @@
     "category": "Philosophy",
     "description": "كتاب فلسفي شعري يضم حكم وأفكار حول الحب والزواج والأبناء والعمل وغيرها من مواضيع الحياة الأساسية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/النبي.png"
+    "image": "https://th.bing.com/th/id/OIP.k8LUmRXhdXWzuezKwofi5gAAAA?rs=1&pid=ImgDetMain"
   },
   {
     "id": 41,
@@ -366,7 +366,7 @@
     "category": "Social",
     "description": "سلسلة روائية ثلاثية تتابع حياة أسرة مصرية عبر ثلاثة أجيال، وتصور التحولات الاجتماعية والسياسية في مصر.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/ثلاثية_القاهرة.jpg"
+    "image": "https://th.bing.com/th/id/OIP.BEexhfv86ax1BVnSPZWRSAHaDw?rs=1&pid=ImgDetMain"
   },
   {
     "id": 42,
@@ -375,7 +375,7 @@
     "category": "Self-Help",
     "description": "كتاب في علم النفس الاجتماعي يشرح الفروقات بين الرجال والنساء ويقدم نصائح لتحسين العلاقات الزوجية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/الرجال_من_المريخ.jpeg"
+    "image": "https://ak-asset.jarir.com/akeneo-prod/asset/m1images/1/3/130610.jpg"
   },
   {
     "id": 43,
@@ -384,7 +384,7 @@
     "category": "Romance",
     "description": "رواية تدمج بين قصة حب معاصرة وقصة لقاء شمس التبريزي بجلال الدين الرومي، مستوحاة من تعاليم الصوفية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/قواعد_العشق.jpeg"
+    "image": "https://1.bp.blogspot.com/-PntUqZZrwZg/VpOf_T3r7WI/AAAAAAAACxE/j2wvVa2_0d4/s1600/%D9%82%D9%88%D8%A7%D8%B9%D8%AF%2B%D8%A7%D9%84%D8%B9%D8%B4%D9%82%2B%D8%A7%D9%84%D8%A7%D8%B1%D8%A8%D8%B9%D9%88%D9%86.jpg"
   },
   {
     "id": 44,
@@ -393,7 +393,7 @@
     "category": "Social",
     "description": "رواية تروي قصة فتاة مسلمة تتربى في عائلة يهودية وتكتشف هويتها الحقيقية، مستوحاة من أحداث حقيقية في تونس ولبنان.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/في_قلبي_أنثى_عبرية.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1596236670i/23962807.jpg"
   },
   {
     "id": 45,
@@ -402,7 +402,7 @@
     "category": "Horror",
     "description": "رواية رعب تتناول موضوعات فلسفية ودينية من خلال قصة طبيب يتعامل مع حالات غريبة في مستشفى للأمراض النفسية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/الشيطان_يعظ.jpg"
+    "image": "https://www.noor-book.com/publice/covers_cache_webp/6/6/9/1/4c9aa3a1d469178a1f9bccb518e9e02a.png.webp"
   },
   {
     "id": 46,
@@ -411,7 +411,7 @@
     "category": "Science Fiction",
     "description": "رواية خيالية عن عالم يتعامل سكانه بوحدات الذكاء بدلاً من النقود، حيث يتم التضحية بأفقر شخص سنوياً في لعبة غريبة.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/أرض_زيكولا.jpg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1441287700i/9753375.jpg"
   },
   {
     "id": 47,
@@ -420,7 +420,7 @@
     "category": "Social",
     "description": "رواية اجتماعية نقدية تعكس واقع المجتمع المصري من خلال شخصيات متناقضة تعيش في عالم مليء بالمفارقات.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/أرض_السافلين.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1524639533i/39939062.jpg"
   },
   {
     "id": 48,
@@ -429,7 +429,7 @@
     "category": "History",
     "description": "رواية تاريخية تروي قصة كاتب مصري قديم يوثق أحداثاً غامضة في حياة المصريين القدماء.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/أوراق_شمعون_المصري.jpg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1617297686i/57599734.jpg"
   },
   {
     "id": 49,
@@ -438,7 +438,7 @@
     "category": "Social",
     "description": "رواية كلاسيكية تروي قصة شاب سوداني يعود إلى وطنه بعد دراسة في أوروبا، ويعاني من صراع الهوية الثقافية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/موسم_الهجرة_إلى_الشمال.jpeg"
+    "image": "https://upload.wikimedia.org/wikipedia/ar/c/ce/موسم_الهجرة_إلى_الشمال.jpg"
   },
   {
     "id": 50,
@@ -447,7 +447,7 @@
     "category": "Social",
     "description": "رواية سعودية تروي حياة أربع نساء في المجتمع الخليجي وتحدياتهن في مواجهة التقاليد الاجتماعية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/سيدات_القمر.jpeg"
+    "image": "https://upload.wikimedia.org/wikipedia/ar/b/b7/سيدات_القمر_رواية.jpg"
   },
   {
     "id": 51,
@@ -456,7 +456,7 @@
     "category": "Horror",
     "description": "رواية فنتازيا سوداء تدور أحداثها في بغداد المحتلة، حيث يقوم رجل بجمع بقايا ضحايا التفجيرات لخلق كائن جديد.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/فرانكشتاين_في_بغداد.jpeg"
+    "image": "https://tse4.mm.bing.net/th?id=OIP.PWYGwERz85ZQ_Ll-tIyLsQHaLW&pid=Api"
   },
   {
     "id": 52,
@@ -465,7 +465,7 @@
     "category": "Thriller",
     "description": "رواية تشويقية تدور حول صحفي يحقق في قضية غامضة تورط فيها شخصيات نافذة في الدولة.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/الخروج عن النص.jpeg"
+    "image": "https://diwanegypt.com/wp-content/uploads/2022/01/9789770937396.jpg"
   },
   {
     "id": 53,
@@ -474,7 +474,7 @@
     "category": "Horror",
     "description": "مجموعة قصص رعب تدور أحداثها في غرفة مستشفى واحدة، حيث يروي المرضى حكاياتهم المرعبة.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/207.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1667439931i/63209920.jpg"
   },
   {
     "id": 54,
@@ -483,7 +483,7 @@
     "category": "Social",
     "description": "رواية تتناول قصة شاب مصري يعاني من متلازمة نادرة تجعله يرى العالم بطريقة مختلفة تماماً.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/فلامنكو.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1547415363i/43444947.jpg"
   },
   {
     "id": 55,
@@ -492,7 +492,7 @@
     "category": "Romance",
     "description": "رواية تروي قصة سبعة أصدقاء في رحلة بحث عن الحقيقة، تختبر صداقتهم وقيمهم الإنسانية.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/hepta.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1403045796i/20317106.jpg"
   },
   {
     "id": 56,
@@ -501,6 +501,6 @@
     "category": "Science Fiction",
     "description": "رواية خيال علمي عن عالم موازٍ غريب يكتشفه بطل الرواية بالصدفة، في رحلة مليئة بالمفاجآت.",
     "language": "Arabic",
-    "image": "Books/Arabic/arBookCovers/icadolie.jpeg"
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1485793018i/34068331.jpg"
   }
 ]
