@@ -1,89 +1,49 @@
-// favorites.js - Centralized favorite functionality
-(function() {
-  window.FavoritesModule = {
-    getFavorites: function() {
-      return JSON.parse(localStorage.getItem('favorites')) || [];
-    },
-
-    isFavorite: function(bookId) {
-      return this.getFavorites().includes(bookId.toString());
-    },
-
-    toggleFavorite: function(bookId) {
-      const favorites = this.getFavorites();
-      const stringId = bookId.toString();
-      const index = favorites.indexOf(stringId);
+// favorites.js - Shared favorite functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize favorites from localStorage
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  
+  // Function to update => all favorite buttons
+  function updateAllFavoriteButtons() {
+    document.querySelectorAll('.favorite-button').forEach(button => {
+      const bookId = button.getAttribute('data-book-id');
+      const icon = button.querySelector('i');
       
-      if (index === -1) {
-        favorites.push(stringId);
+      if (favorites.includes(bookId)) {
+        icon.classList.replace('far', 'fas');
+        icon.style.color = '#5D1B21'; // Filled heart color
       } else {
-        favorites.splice(index, 1);
+        icon.classList.replace('fas', 'far');
+        icon.style.color = '#8A8A8A'; // Empty heart color
       }
-      
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-      this.updateAllButtons();
-      
-      // Notify other components
-      document.dispatchEvent(new CustomEvent('favoritesUpdated', {
-        detail: { 
-          bookId: bookId, 
-          isFavorite: index === -1 
-        }
-      }));
-      
-      // Try to sync with backend when it's available
-      this.syncWithBackend(stringId, index === -1);
-      
-      return index === -1;
-    },
-    
-    syncWithBackend: function(bookId, isAdding) {
-      if (!bookId) return; // Just sync all if no specific book
-      
-      const url = isAdding ? 
-        'http://127.0.0.1:8000/favorites/addfavorites/' :
-        'http://127.0.0.1:8000/favorites/deletefavorites/';
-        
-      fetch(url, {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ book_id: bookId })
-      }).catch(err => {
-        console.log('Working in offline mode');
-      });
-    },
+    });
+  }
+  
+  // Update buttons on initial load
+  document.addEventListener('DOMContentLoaded', updateAllFavoriteButtons);
+  
+  // Handle favorite button clicks
+  document.addEventListener('click', function(e) {
+    const button = e.target.closest('.favorite-button');
+    if (!button) return;
 
-    updateAllButtons: function() {
-      const favorites = this.getFavorites();
-      document.querySelectorAll('.favorite-button').forEach(button => {
-        if (!button) return;
-        
-        const bookId = button.getAttribute('data-book-id');
-        const icon = button.querySelector('i');
-        if (!icon) return;
-        
-        const isFav = favorites.includes(bookId);
-        
-        icon.className = isFav ? 'fas fa-heart' : 'far fa-heart';
-        icon.style.color = isFav ? '#5D1B21' : '#8A8A8A';
-      });
-    },
+    const bookId = button.getAttribute('data-book-id');
+    const index = favorites.indexOf(bookId);
 
-    init: function() {
-      document.addEventListener('click', (e) => {
-        const button = e.target.closest('.favorite-button');
-        if (button) {
-          const bookId = button.getAttribute('data-book-id');
-          this.toggleFavorite(bookId);
-        }
-      });
-      
-      this.updateAllButtons();
+    if (index === -1) {
+      favorites.push(bookId);
+    } else {
+      favorites.splice(index, 1);
     }
-  };
 
-  document.addEventListener('DOMContentLoaded', () => {
-    window.FavoritesModule.init();
+    // Save updated favorites to localStorage
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateAllFavoriteButtons();
+    
+    // Notify other components
+    document.dispatchEvent(new CustomEvent('favoritesUpdated'));
   });
-})();
+  
+  // Make function available globally
+  window.updateFavoriteButtons = updateAllFavoriteButtons;
+});
