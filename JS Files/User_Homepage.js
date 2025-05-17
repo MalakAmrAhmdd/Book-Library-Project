@@ -15,6 +15,46 @@ function loadBooksFromBackend() {
   });
 }
 
+function fetchBooks() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const constraint = decodeURIComponent(urlParams.get('constraint') || 'all');
+    const title = decodeURIComponent(urlParams.get('title') || 'All Books');
+
+    const titleElement = document.querySelector('.homepage-text');
+    if (titleElement) {
+        titleElement.textContent = title;
+    }
+
+    // Fetch books from backend
+    $.ajax({
+        url: 'http://127.0.0.1:8000/books/getbook/',
+        method: 'GET',
+        contentType: 'application/json',
+        success: function(data) {
+            const books = Array.isArray(data) ? data : Object.values(data);
+            
+            // Filter books based on constraint
+            let filteredBooks = books;
+            if (constraint !== 'all') {
+                const [filterType, filterValue] = constraint.split(':');
+                if (filterType === 'category') {
+                    filteredBooks = books.filter(book => book.category === filterValue);
+                } else if (filterType === 'language') {
+                    filteredBooks = books.filter(book => book.language === filterValue);
+                }
+            }
+            
+            // Display the filtered books
+            renderFilteredBooks(filteredBooks);
+        },
+        error: function(xhr) {
+            console.error('Error fetching books:', xhr);
+            document.querySelector(".books-container").innerHTML = 
+                "<div class='error-message'>Failed to load books. Please try again later.</div>";
+        }
+    });
+}
+
 function renderBooks(books) {
   const homepageContainer = document.querySelector(".blocks");
   if (!homepageContainer) {
@@ -61,9 +101,8 @@ function renderBooks(books) {
 }
 
 function createBookCard(book) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  const isFavorite = favorites.includes(book.id.toString());
-
+  const isFavorite = window.FavoritesModule.isFavorite(book.id);
+  
   return `
     <div class="book-holder">
         <label for="BookPopUp-${book.id}" class="Book-icon">
@@ -79,7 +118,6 @@ function createBookCard(book) {
             </button>
         </div>
     </div>
-    
   `;
 }
 
@@ -99,4 +137,13 @@ function createSectionRow(title, books, constraint) {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
   loadBooksFromBackend();
+  
+  // Listen for favorites updates (e.g. from other parts of the page)
+  document.addEventListener('favoritesUpdated', () => {
+    // If you need to refresh the whole display
+    // loadBooksFromBackend();
+    
+    // Or just update button states
+    window.FavoritesModule.updateAllButtons();
+  });
 });
