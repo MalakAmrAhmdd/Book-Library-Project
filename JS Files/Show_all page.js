@@ -2,18 +2,6 @@ let currentPage = 1;
 const booksPerPage = 24;
 let filteredBooks = [];
 
-// Add this early in your JS code to ensure FavoritesModule always exists
-window.FavoritesModule = window.FavoritesModule || {
-    isFavorite: function(id) {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        return favorites.includes(id.toString());
-    },
-    updateAllButtons: function() {
-        // Simplified version or empty implementation
-        console.log("FavoritesModule.updateAllButtons called");
-    }
-};
-
 // Add this function to handle favorite button clicks
 function handleFavoriteButtonClick(e) {
     if (e.target.closest('.favorite-button')) {
@@ -45,15 +33,10 @@ function handleFavoriteButtonClick(e) {
 
 function fetchBooks() {
     const urlParams = new URLSearchParams(window.location.search);
-    const constraint = decodeURIComponent(urlParams.get('constraint') || 'all');
-    const title = decodeURIComponent(urlParams.get('title') || 'All Books');
+    const constraint = decodeURIComponent(urlParams.get('constraint'));
+    const title = decodeURIComponent(urlParams.get('title'));
 
-    const titleElement = document.querySelector('.homepage-text');
-    if (titleElement) {
-        titleElement.textContent = title;
-    } else {
-        console.error("Could not find .homepage-text element");
-    }
+    document.querySelector('.homepage-text').textContent = title;
 
     $.ajax({
         url: 'http://127.0.0.1:8000/books/getbook/',
@@ -91,11 +74,6 @@ function renderBooks() {
     const currentBooks = filteredBooks.slice(startIndex, endIndex);
 
     currentBooks.forEach(book => {
-        // Check if FavoritesModule exists before using it
-        const isFavorite = window.FavoritesModule && 
-                          typeof window.FavoritesModule.isFavorite === 'function' ? 
-                          window.FavoritesModule.isFavorite(book.id) : false;
-        
         const bookElement = document.createElement("div");
         bookElement.classList.add("book-holder");
         bookElement.innerHTML = `
@@ -106,9 +84,7 @@ function renderBooks() {
             <span class="book-author">${book.author}</span>
             <div class="favorite-container">
                 <button class="favorite-button" data-book-id="${book.id}">
-                    <i class="${isFavorite ? 'fas' : 'far'} fa-heart" 
-                       style="color: ${isFavorite ? '#5D1B21' : '#8A8A8A'}; 
-                       font-size: 18px; padding: 5px;"></i>
+                    <i class="far fa-heart" style="color: #8A8A8A; font-size: 18px; padding: 5px;"></i>
                 </button>
             </div>
         `;
@@ -118,6 +94,12 @@ function renderBooks() {
     updateFooter();
     updatePaginationArrows();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchBooks();
+    // Add event listener for favorite button clicks
+    document.addEventListener('click', handleFavoriteButtonClick);
+});
 
 function updateFooter() {
     const footerText = document.querySelector(".footer-text");
@@ -139,14 +121,6 @@ function updatePaginationArrows() {
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchBooks();
-
-    // Listen for favorite updates
-    document.addEventListener('favoritesUpdated', () => {
-        window.FavoritesModule.updateAllButtons();
-    });
-
-    // Add event listener for favorite button clicks using event delegation
-    document.querySelector(".table-row").addEventListener("click", handleFavoriteButtonClick);
 
     document.querySelector(".footer-left-icon").addEventListener("click", () => {
         if (currentPage > 1) {
