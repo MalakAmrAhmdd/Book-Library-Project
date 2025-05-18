@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
           
           borrowBtn.addEventListener("click", function () {
               if (!activeBook) return;
-      
               
               const currentStatus = localStorage.getItem(`status_${activeBook.title}`) || "In-Shelf";
               let newStatus = "";
