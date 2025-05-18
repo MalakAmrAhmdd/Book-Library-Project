@@ -2,18 +2,18 @@ function loadBooksFromBackend() {
   let csrf = null;
   let cookies = document.cookie.split(";");
   cookies.forEach(element => {
-      let key = element.split("=")[0].trim();
-      let value = element.split("=")[1];
-      if (key === "csrftoken") {
-          csrf = value;
-      }
+    let key = element.split("=")[0].trim();
+    let value = element.split("=")[1];
+    if (key === "csrftoken") {
+      csrf = value;
+    }
   });
   $.ajax({
     url: 'http://127.0.0.1:8000/books/getbook/',
     method: 'GET',
     contentType: 'application/json',
     headers: {
-      "X-CSRFToken": csrf 
+      "X-CSRFToken": csrf
     },
     xhrFields: {
       withCredentials: true
@@ -25,7 +25,7 @@ function loadBooksFromBackend() {
     error: function (xhr) {
       console.error('Error fetching books:', xhr);
       document.querySelector(".blocks").innerHTML =
-          "<div class='error-message'>Failed to load books. Please try again later.</div>";
+        "<div class='error-message'>Failed to load books. Please try again later.</div>";
     }
   });
 }
@@ -66,7 +66,7 @@ function renderBooks(books) {
         e.preventDefault();
         const constraint = button.getAttribute("data-constraint");
         window.location.href = `Show_all page.html?constraint=${encodeURIComponent(constraint)}&title=${encodeURIComponent(
-            button.parentElement.querySelector('.row-title').textContent
+          button.parentElement.querySelector('.row-title').textContent
         )}`;
       });
     });

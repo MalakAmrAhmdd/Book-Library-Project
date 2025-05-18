@@ -37,11 +37,25 @@ function fetchBooks() {
     const title = decodeURIComponent(urlParams.get('title'));
 
     document.querySelector('.homepage-text').textContent = title;
-
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
     $.ajax({
         url: 'http://127.0.0.1:8000/books/getbook/',
         method: 'GET',
         contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             const books = Array.isArray(data) ? data : Object.values(data);
 

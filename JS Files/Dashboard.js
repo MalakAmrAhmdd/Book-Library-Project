@@ -1,6 +1,5 @@
-
+// This Function returns the username and email in the user details page
 document.addEventListener("DOMContentLoaded", () => {
-    // Get ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get("id");
 
@@ -8,11 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("No user ID found in the URL.");
         return;
     }
-
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
     $.ajax({
         url: 'http://127.0.0.1:8000/dashboard/usersTable/',
         method: 'GET',
         contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             const users = Array.isArray(data) ? data : Object.values(data);
             const user = users.find(user => String(user.id) === String(userId));
@@ -29,116 +42,83 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
+// Function to return Latest Borrows in the Dashboard
 document.addEventListener("DOMContentLoaded", () => {
     const dashboardTableBody = document.querySelector(".borrows-table tbody");
-    const dashboardTableInfo = document.querySelector(".table-footer .table-info");
-    const prevButton = document.getElementById("dashboardPrevButton");
-    const nextButton = document.getElementById("dashboardNextButton");
 
-
-    let books = [];
-    let currentPage = 1;
-    const rowsPerPage = 10;
-
-    // Fetch books data
-    fetch("Books/books.json")
-        .then(response => {
-            console.log("Fetching books.json...");
-            if (!response.ok) {
-                throw new Error("Failed to load books data.");
+    function loadLatestBorrows() {
+        let csrf = null;
+        let cookies = document.cookie.split(";");
+        cookies.forEach(element => {
+            let key = element.split("=")[0].trim();
+            let value = element.split("=")[1];
+            if (key === "csrftoken") {
+                csrf = value;
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Books data loaded:", data);
-            books = data;
-            renderTable();
-        })
-        .catch(error => {
-            console.error("Error loading books:", error);
         });
-
-
-    fetch("users.json")
-        .then(response => {
-            console.log("Fetching users.json...");
-            if (!response.ok) {
-                throw new Error("Failed to load users data.");
+        $.ajax({
+            url: 'http://127.0.0.1:8000/dashboard/latestBorrows/',
+            method: 'GET',
+            contentType: 'application/json',
+            headers: {
+                "X-CSRFToken": csrf
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+                dashboardTableBody.innerHTML = "";
+                data.forEach(borrow => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${borrow.id || "N/A"}</td>
+                        <td>${borrow.book_title || borrow.title || "Untitled"}</td>
+                        <td>${borrow.category || "Unknown"}</td>
+                        <td>${borrow.borrow_date || borrow.date || "--"}</td>
+                        <td>${borrow.user?.username || borrow.user || "--"}</td>
+                    `;
+                    dashboardTableBody.appendChild(row);
+                });
+            },
+            error: function (xhr) {
+                let msg = "Failed to load latest borrows.";
+                if (xhr.responseJSON && xhr.responseJSON.detail) {
+                    msg = xhr.responseJSON.detail;
+                }
+                alert(msg);
+                console.error("Error loading latest borrows:", xhr);
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log("users data loaded:", data);
-            users = data.users;
-            if (usersNum) {
-                usersNum.textContent = users.length.toLocaleString(); // makes 40689 look like 40,689
-            } else {
-                console.error("users-number element not found!");
-            }
-        })
-        .catch(error => {
-            console.error("Error loading users:", error);
         });
-
-    // Render table for dashboard
-    function renderTable() {
-        dashboardTableBody.innerHTML = ""; // Clear existing rows
-
-        const startIndex = (currentPage - 1) * rowsPerPage;
-        const endIndex = Math.min(startIndex + rowsPerPage, books.length);
-
-        for (let i = startIndex; i < endIndex; i++) {
-            const book = books[i];
-            const row = document.createElement("tr");
-
-            row.innerHTML = `
-                <td>${book.id || "N/A"}</td>
-                <td>${book.title || "Untitled"}</td>
-                <td>${book.category || "Unknown"}</td>
-                <td>--</td> <!-- Placeholder for Date -->
-                <td>--</td> <!-- Placeholder for Borrowed By -->
-            `;
-            dashboardTableBody.appendChild(row);
-        }
-
-        dashboardTableInfo.textContent = `Showing ${startIndex + 1}-${endIndex} of ${books.length}`;
-        prevButton.disabled = currentPage === 1;
-        nextButton.disabled = currentPage === Math.ceil(books.length / rowsPerPage);
     }
 
-    // Event listeners for pagination buttons
-    prevButton.addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            // const totalPages = Math.ceil(books.length / booksPerPage);
-            renderTable();
-            // updatePaginationArrows(currentPage,totalPages, prevButton, nextButton); // Update the pagination arrows
-        }
-    });
-
-    nextButton.addEventListener("click", () => {
-        if (currentPage < Math.ceil(books.length / rowsPerPage)) {
-            currentPage++;
-            // const totalPages = Math.ceil(books.length / booksPerPage);
-            renderTable();
-            // updatePaginationArrows(currentPage, totalPages, prevButton, nextButton); // Update the pagination arrows
-        }
-    });
+    loadLatestBorrows();
 });
-
-
+// Function to return total (Users,Admins,Borrows)
 document.addEventListener("DOMContentLoaded", () => {
     const usersNum = document.getElementById("users-number");
     const adminsNum = document.getElementById("admins-number");
     const booksNum = document.getElementById("books-number");
     const borrowsNum = document.getElementById("borrows-number");
     const returnsNum = document.getElementById("returns-number");
-
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
     $.ajax({
         url: 'http://127.0.0.1:8000/dashboard/usersTable/',
         method: 'GET',
         contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             const users = Array.isArray(data) ? data : Object.values(data);
 
@@ -187,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Element with id 'books-number' not found!");
     }
 });
-
+// Function to Add new Book
 document.addEventListener("DOMContentLoaded", () => {
     const submitButton = document.getElementById("submit_button");
 
@@ -218,13 +198,27 @@ document.addEventListener("DOMContentLoaded", () => {
             if (imageUrl) {
                 formData.append("cover_image", imageUrl);
             }
-
+            let csrf = null;
+            let cookies = document.cookie.split(";");
+            cookies.forEach(element => {
+                let key = element.split("=")[0].trim();
+                let value = element.split("=")[1];
+                if (key === "csrftoken") {
+                    csrf = value;
+                }
+            });
             $.ajax({
                 url: "http://127.0.0.1:8000/books/addbook/",
                 method: "POST",
                 data: formData,
                 processData: false,
                 contentType: false,
+                headers: {
+                    "X-CSRFToken": csrf
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (data) {
                     alert("Book added successfully!");
                     document.querySelector("form.book").reset();

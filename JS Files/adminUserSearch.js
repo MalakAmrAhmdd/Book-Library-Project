@@ -4,10 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let users = [];
 
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
     $.ajax({
         url: 'http://127.0.0.1:8000/dashboard/usersTable/',
         method: 'GET',
         contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             users = Array.isArray(data) ? data : Object.values(data);
             displayUsers(users);

@@ -9,24 +9,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const rowsPerPage = 10;
 
     function loadUsers() {
-    $.ajax({
-        url: 'http://127.0.0.1:8000/dashboard/usersTable/',
-        method: 'GET',
-        contentType: 'application/json',
-        success: function (data) {
-            users = Array.isArray(data) ? data : Object.values(data);
-            renderTable();
-        },
-        error: function (xhr) {
-            let msg = "Failed to load users.";
-            if (xhr.responseJSON && xhr.responseJSON.detail) {
-                msg = xhr.responseJSON.detail;
+        let csrf = null;
+        let cookies = document.cookie.split(";");
+        cookies.forEach(element => {
+            let key = element.split("=")[0].trim();
+            let value = element.split("=")[1];
+            if (key === "csrftoken") {
+                csrf = value;
             }
-            alert(msg);
-            console.error("Error loading users:", xhr);
-        }
-    });
-}
+        });
+        $.ajax({
+            url: 'http://127.0.0.1:8000/dashboard/usersTable/',
+            method: 'GET',
+            contentType: 'application/json',
+            headers: {
+                "X-CSRFToken": csrf
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+                users = Array.isArray(data) ? data : Object.values(data);
+                renderTable();
+            },
+            error: function (xhr) {
+                let msg = "Failed to load users.";
+                if (xhr.responseJSON && xhr.responseJSON.detail) {
+                    msg = xhr.responseJSON.detail;
+                }
+                alert(msg);
+                console.error("Error loading users:", xhr);
+            }
+        });
+    }
 
     function renderTable() {
         tableBody.innerHTML = "";
