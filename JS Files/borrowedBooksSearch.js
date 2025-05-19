@@ -1,57 +1,89 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const searchInput = document.querySelector('.search-input');
-    const availableBooks = document.getElementById('borrowedBooksTableBody');
-    if (!availableBooks) {
-        console.error("Error: 'borrowedBooksTableBody' element not found.");
-        return;
-    }
+const categoryMap = {
+    "1": "Technology",
+    "2": "Finance",
+    "3": "Fantasy",
+    "4": "Fiction",
+    "5": "Science Fiction",
+    "6": "Romance",
+    "7": "Psychology",
+    "8": "Adventure",
+    "9": "Non-Fiction",
+    "10": "Horror",
+    "11": "Self-Help",
+    "12": "History",
+    "13": "Social",
+    "14": "Philosophy",
+    "15": "Thriller"
+};
 
-    // Fetch users data from users.json
-    fetch("./Books/books.json")
-    let currentPage = 1;
-    const rowsPerPage = 10;
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.querySelector('#searchBar');
+    const booksTableBody = document.getElementById('borrowedBooksTableBody');
+    let books = [];
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
 
-    fetch("Books/books.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load books data.");
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/borrowedBooksTable/',
+        method: 'GET',
+        contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            books = Array.isArray(data) ? data : Object.values(data);
+            displayBooks(books);
+        },
+        error: function (xhr) {
+            console.error("Error loading books:", xhr);
+        }
+    });
+
+    const displayBooks = (filteredBooks) => {
+    booksTableBody.innerHTML = '';
+    filteredBooks.forEach(book => {
+        let formattedDate = '';
+        if (book.last_login) {
+            const dateObj = new Date(book.last_login);
+            if (!isNaN(dateObj)) {
+                formattedDate = dateObj.toISOString().slice(0, 10);
             }
-            return response.json();
-        })
-        .then(data => {
-            books = Object.values(data);
-            renderTable();
-        })
-        .catch(error => {
-            console.error("Error loading books:", error);
-        });
-
-    const displayUsers = (filteredUsers) => {
-        availableBooks.innerHTML = '';
-        filteredUsers.forEach(book => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${book.id}</td>
-                <td>${book.title}</td>
-                <td>${book.category}</td>
-                <td></td>
-            `;
-            availableBooks.appendChild(row);
-        });
-    };
+        }
+        const row = document.createElement('tr');
+        row.setAttribute('data-book-id', book.id);
+        row.innerHTML = `
+            <td>${book.id ?? ''}</td>
+            <td>${book.title ?? ''}</td>
+            <td>${categoryMap[book.category] || book.category || ''}</td>
+            <td>${formattedDate}</td>
+            <td>${book.user ?? ''}</td>
+        `;
+        booksTableBody.appendChild(row);
+    });
+};
 
     const filterBooks = (books) => {
         const filter = searchInput.value.toLowerCase();
-        return books.filter(book => book.title.toLowerCase().includes(filter));
+        return books.filter(book =>
+            (book.title && book.title.toLowerCase().includes(filter)) ||
+            (categoryMap[book.category] && categoryMap[book.category].toLowerCase().includes(filter)) ||
+            String(book.id).includes(filter) ||
+            (book.user && book.user.toLowerCase().includes(filter)) ||
+            (book.last_login && String(book.last_login).toLowerCase().includes(filter))
+        );
     };
-
     searchInput.addEventListener('input', () => {
         const filteredBooks = filterBooks(books);
-        displayUsers(filteredBooks);
+        displayBooks(filteredBooks);
     });
-
-    // Display all users initially
-    displayUsers(books);
-// Ensure all rows are displayed by setting a larger limit or removing any restrictions
-// (This function is no longer needed as all users are displayed initially)
 });

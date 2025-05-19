@@ -47,59 +47,64 @@ document.addEventListener("DOMContentLoaded", () => {
     const dashboardTableBody = document.querySelector(".borrows-table tbody");
 
     function loadLatestBorrows() {
-        let csrf = null;
-        let cookies = document.cookie.split(";");
-        cookies.forEach(element => {
-            let key = element.split("=")[0].trim();
-            let value = element.split("=")[1];
-            if (key === "csrftoken") {
-                csrf = value;
-            }
-        });
-        $.ajax({
-            url: 'http://127.0.0.1:8000/dashboard/latestBorrows/',
-            method: 'GET',
-            contentType: 'application/json',
-            headers: {
-                "X-CSRFToken": csrf
-            },
-            xhrFields: {
-                withCredentials: true
-            },
-            success: function (data) {
-                dashboardTableBody.innerHTML = "";
-                data.forEach(borrow => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${borrow.id || "N/A"}</td>
-                        <td>${borrow.book_title || borrow.title || "Untitled"}</td>
-                        <td>${borrow.category || "Unknown"}</td>
-                        <td>${borrow.borrow_date || borrow.date || "--"}</td>
-                        <td>${borrow.user?.username || borrow.user || "--"}</td>
-                    `;
-                    dashboardTableBody.appendChild(row);
-                });
-            },
-            error: function (xhr) {
-                let msg = "Failed to load latest borrows.";
-                if (xhr.responseJSON && xhr.responseJSON.detail) {
-                    msg = xhr.responseJSON.detail;
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/latestBorrows/',
+        method: 'GET',
+        contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            dashboardTableBody.innerHTML = "";
+            data.forEach(borrow => {
+                // Parse last_login to YYYY-MM-DD
+                let dateStr = "--";
+                if (borrow.last_login) {
+                    const dateObj = new Date(borrow.last_login);
+                    // Format as YYYY-MM-DD
+                    dateStr = dateObj.toISOString().slice(0, 10);
                 }
-                alert(msg);
-                console.error("Error loading latest borrows:", xhr);
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${borrow.id || "N/A"}</td>
+                    <td>${borrow.book_title || borrow.title || "Untitled"}</td>
+                    <td>${borrow.category || "Unknown"}</td>
+                    <td>${dateStr}</td>
+                    <td>${borrow.user?.username || borrow.user || "--"}</td>
+                `;
+                dashboardTableBody.appendChild(row);
+            });
+        },
+        error: function (xhr) {
+            let msg = "Failed to load latest borrows.";
+            if (xhr.responseJSON && xhr.responseJSON.detail) {
+                msg = xhr.responseJSON.detail;
             }
-        });
-    }
+            alert(msg);
+            console.error("Error loading latest borrows:", xhr);
+        }
+    });
+}
 
     loadLatestBorrows();
 });
-// Function to return total (Users,Admins,Borrows)
 document.addEventListener("DOMContentLoaded", () => {
     const usersNum = document.getElementById("users-number");
     const adminsNum = document.getElementById("admins-number");
     const booksNum = document.getElementById("books-number");
     const borrowsNum = document.getElementById("borrows-number");
-    const returnsNum = document.getElementById("returns-number");
 
     let csrf = null;
     let cookies = document.cookie.split(";");
@@ -111,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Users & Admins
     $.ajax({
         url: 'http://127.0.0.1:8000/dashboard/usersTable/',
         method: 'GET',
@@ -123,10 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         success: function (data) {
             const users = Array.isArray(data) ? data : Object.values(data);
-
             const adminCount = users.filter(user => user.is_staff === 1 || user.is_staff === true).length;
             const userCount = users.filter(user => user.is_staff === 0 || user.is_staff === false).length;
-            const totalBorrows = users.reduce((sum, user) => sum + (user.total_borrowings || 0), 0);
 
             if (adminsNum) {
                 adminsNum.textContent = adminCount;
@@ -139,19 +143,15 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 console.error("Element with id 'users-number' not found!");
             }
-
-            if (borrowsNum) {
-                borrowsNum.textContent = totalBorrows;
-            } else {
-                console.error("Element with id 'borrows-number' not found!");
-            }
         },
         error: function (xhr) {
-            alert("Failed to load users for counting.");
-            console.error("Error loading users:", xhr);
+            if (adminsNum) adminsNum.textContent = "0";
+            if (usersNum) usersNum.textContent = "0";
+            console.error("Error loading users for counting:", xhr);
         }
     });
 
+    // Books
     $.ajax({
         url: 'http://127.0.0.1:8000/books/getbook/',
         method: 'GET',
@@ -172,10 +172,32 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         },
         error: function (xhr) {
+            if (booksNum) booksNum.textContent = "0";
             console.error("Failed to load books for counting:", xhr);
-            if (booksNum) {
-                booksNum.textContent = "0";
+        }
+    });
+
+    // Borrows (Total Borrowed Books)
+    $.ajax({
+        url: 'http://127.0.0.1:8000/dashboard/borrowedBooksTable/',
+        method: 'GET',
+        contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            if (borrowsNum) {
+                borrowsNum.textContent = Array.isArray(data) ? data.length : 0;
+            } else {
+                console.error("Element with id 'borrows-number' not found!");
             }
+        },
+        error: function (xhr) {
+            if (borrowsNum) borrowsNum.textContent = "0";
+            console.error("Error loading borrowed books:", xhr);
         }
     });
 });

@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             data: JSON.stringify({ user_id: userId }),
             success: function (data) {
-                borrowedBooks = Array.isArray(data) ? data : Object.values(data);
+                borrowedBooks = data.books || [];
                 renderBorrowedBooksTable();
             },
             error: function (xhr) {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderBorrowedBooksTable() {
-        borrowedBooksTableBody.innerHTML = ""; 
+        borrowedBooksTableBody.innerHTML = "";
 
         const startIndex = (borrowedCurrentPage - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, borrowedBooks.length);

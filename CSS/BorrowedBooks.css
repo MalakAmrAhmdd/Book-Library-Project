@@ -72,7 +72,10 @@ tbody tr {
 tbody tr:last-child {
     border-bottom: none; 
 }
-
+.borrowed-books-table td:nth-child(4),
+.borrowed-books-table th:nth-child(4) {
+    padding-left: 60px;
+}
 tbody td {
     font-family: "Nunito Sans", sans-serif;
     font-size: 14px;

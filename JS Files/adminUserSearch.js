@@ -36,14 +36,34 @@ document.addEventListener('DOMContentLoaded', () => {
         usersTableBody.innerHTML = '';
         filteredUsers.forEach(user => {
             const row = document.createElement('tr');
+            // Placeholder while loading
             row.innerHTML = `
-                <td>${user.id}</td>
-                <td>${user.username}</td>
-                <td>${user.total_borrowings ?? 0}</td>
-                <td>${user.total_returns ?? 0}</td>
-                <td><a href="UserDetails.html?id=${user.id}" class="viewLink">View Details</a></td>
-`;
+            <td>${user.id}</td>
+            <td>${user.username}</td>
+            <td class="borrowings-cell">Loading...</td>
+            <td><a href="UserDetails.html?id=${user.id}" class="viewLink">View Details</a></td>
+        `;
             usersTableBody.appendChild(row);
+
+            $.ajax({
+                url: 'http://127.0.0.1:8000/dashboard/userBorrowedBooks/',
+                method: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    "X-CSRFToken": csrf
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: JSON.stringify({ user_id: user.id }),
+                success: function (data) {
+                    // Update the borrowings cell with the count
+                    row.querySelector('.borrowings-cell').textContent = data.count;
+                },
+                error: function () {
+                    row.querySelector('.borrowings-cell').textContent = "Error";
+                }
+            });
         });
     };
 
@@ -59,5 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredUsers = filterUsers(users);
         displayUsers(filteredUsers);
     });
-   
 });
