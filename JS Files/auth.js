@@ -128,6 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const username = document.getElementById("username")?.value.trim();
             const password = document.getElementById("pass")?.value.trim();
 
+            
+            const jsonForm = {
+                username: username,
+                password: password
+            };
             let csrf = null;
             let cookies = document.cookie.split(";");
             cookies.forEach(element => {
@@ -137,23 +142,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     csrf = value;
                 }
             });
-
-            const jsonForm = {
-                username: username,
-                password: password
-            };
-
             $.ajax({
                 url: 'http://127.0.0.1:8000/users/login/',
                 method: 'POST',
                 headers: {
                     "X-CSRFToken": csrf 
                 },
-                contentType: 'application/json',
-                data: JSON.stringify(jsonForm),
                 xhrFields: {
                     withCredentials: true
                 },
+                contentType: 'application/json',
+                data: JSON.stringify(jsonForm),
                 success: function (response) {
                     if (response.is_staff === 1 || response.is_staff === true) {
                         window.location.href = "Dashboard.html";

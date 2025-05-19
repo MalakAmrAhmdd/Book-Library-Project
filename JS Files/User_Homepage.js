@@ -1,3 +1,21 @@
+const categoryMap = {
+  "1": "Technology",
+  "2": "Finance",
+  "3": "Fantasy",
+  "4": "Fiction",
+  "5": "Science Fiction",
+  "6": "Romance",
+  "7": "Psychology",
+  "8": "Adventure",
+  "9": "Non-Fiction",
+  "10": "Horror",
+  "11": "Self-Help",
+  "12": "History",
+  "13": "Social",
+  "14": "Philosophy",
+  "15": "Thriller"
+};
+
 function loadBooksFromBackend() {
   let csrf = null;
   let cookies = document.cookie.split(";");
@@ -48,7 +66,8 @@ function renderBooks(books) {
     categories.forEach(category => {
       const categoryBooks = books.filter(book => book.category === category).slice(0, 12);
       if (categoryBooks.length > 0) {
-        homepageContainer.innerHTML += createSectionRow(category, categoryBooks, `category:${category}`);
+        const categoryName = categoryMap[category] || category;
+        homepageContainer.innerHTML += createSectionRow(categoryName, categoryBooks, `category:${category}`);
       }
     });
 

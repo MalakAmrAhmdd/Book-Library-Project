@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const booksNum = document.getElementById("books-number");
     const borrowsNum = document.getElementById("borrows-number");
     const returnsNum = document.getElementById("returns-number");
+
     let csrf = null;
     let cookies = document.cookie.split(";");
     cookies.forEach(element => {
@@ -109,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             csrf = value;
         }
     });
+
     $.ajax({
         url: 'http://127.0.0.1:8000/dashboard/usersTable/',
         method: 'GET',
@@ -124,9 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const adminCount = users.filter(user => user.is_staff === 1 || user.is_staff === true).length;
             const userCount = users.filter(user => user.is_staff === 0 || user.is_staff === false).length;
-
             const totalBorrows = users.reduce((sum, user) => sum + (user.total_borrowings || 0), 0);
-            const totalReturns = users.reduce((sum, user) => sum + (user.total_returns || 0), 0);
 
             if (adminsNum) {
                 adminsNum.textContent = adminCount;
@@ -145,12 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 console.error("Element with id 'borrows-number' not found!");
             }
-
-            if (returnsNum) {
-                returnsNum.textContent = totalReturns;
-            } else {
-                console.error("Element with id 'returns-number' not found!");
-            }
         },
         error: function (xhr) {
             alert("Failed to load users for counting.");
@@ -158,14 +152,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const localStorageBooks = JSON.parse(localStorage.getItem("books")) || [];
-    const totalBooks = localStorageBooks.length;
-
-    if (booksNum) {
-        booksNum.textContent = totalBooks;
-    } else {
-        console.error("Element with id 'books-number' not found!");
-    }
+    $.ajax({
+        url: 'http://127.0.0.1:8000/books/getbook/',
+        method: 'GET',
+        contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            const books = Array.isArray(data) ? data : Object.values(data);
+            const totalBooks = books.length;
+            if (booksNum) {
+                booksNum.textContent = totalBooks;
+            } else {
+                console.error("Element with id 'books-number' not found!");
+            }
+        },
+        error: function (xhr) {
+            console.error("Failed to load books for counting:", xhr);
+            if (booksNum) {
+                booksNum.textContent = "0";
+            }
+        }
+    });
 });
 // Function to Add new Book
 document.addEventListener("DOMContentLoaded", () => {
@@ -196,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
             formData.append("description", description);
             formData.append("language", language);
             if (imageUrl) {
-                formData.append("cover_image", imageUrl);
+                formData.append("image", imageUrl);
             }
             let csrf = null;
             let cookies = document.cookie.split(";");

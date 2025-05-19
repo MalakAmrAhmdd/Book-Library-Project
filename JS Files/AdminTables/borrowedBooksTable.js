@@ -4,9 +4,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.getElementById("borrowedPrevButton");
     const nextButton = document.getElementById("borrowedNextButton");
 
-    let books = JSON.parse(localStorage.getItem("books")) || [];
+    let books = [];
     let currentPage = 1;
     const rowsPerPage = 8;
+
+    function loadBorrowedBooks() {
+        let csrf = null;
+        let cookies = document.cookie.split(";");
+        cookies.forEach(element => {
+            let key = element.split("=")[0].trim();
+            let value = element.split("=")[1];
+            if (key === "csrftoken") {
+                csrf = value;
+            }
+        });
+        $.ajax({
+            url: 'http://127.0.0.1:8000/dashboard/borrowedBooksTable/',
+            method: 'GET',
+            contentType: 'application/json',
+            headers: {
+                "X-CSRFToken": csrf
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+                books = Array.isArray(data) ? data : Object.values(data);
+                renderTable();
+            },
+            error: function (xhr) {
+                let msg = "Failed to load borrowed books.";
+                if (xhr.responseJSON && xhr.responseJSON.detail) {
+                    msg = xhr.responseJSON.detail;
+                }
+                borrowedTableBody.innerHTML = `<tr><td colspan="5">${msg}</td></tr>`;
+                borrowedTableInfo.textContent = msg;
+                console.error("Error loading borrowed books:", xhr);
+            }
+        });
+    }
 
     function renderTable() {
         borrowedTableBody.innerHTML = "";
@@ -22,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td>${book.id || "N/A"}</td>
                 <td>${book.title || "Untitled"}</td>
                 <td>${book.category || "Unknown"}</td>
-                <td>--</td> <!-- Placeholder for Date -->
-                <td>--</td> <!-- Placeholder for Borrowed By -->
+                <td>${book.borrow_date || book.date || "--"}</td>
+                <td>${book.user?.username || book.user || "--"}</td>
             `;
             borrowedTableBody.appendChild(row);
         }
@@ -49,40 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    renderTable();
+    loadBorrowedBooks();
 });
-
-function updatePaginationArrows(currentPage, totalPages, prevButton, nextButton) {
-    const leftButton = document.querySelector(".toggle-left-button");
-    const rightButton = document.querySelector(".toggle-right-button");
-
-    if (totalPages === 1) {
-        prevButton.style.color = "#8A8A8A";
-        nextButton.style.color = "#8A8A8A";
-        prevButton.style.cursor = "default";
-        nextButton.style.cursor = "default";
-        leftButton.style.background = "#f9f9f9";
-        rightButton.style.background = "#f9f9f9";
-    } else if (currentPage === 1) {
-        prevButton.style.color = "#8A8A8A";
-        nextButton.style.color = "#8c6051";
-        prevButton.style.cursor = "default";
-        nextButton.style.cursor = "pointer";
-        leftButton.style.background = "#f9f9f9";
-        rightButton.style.background = "#fff";
-    } else if (currentPage === totalPages) {
-        prevButton.style.color = "#8c6051";
-        nextButton.style.color = "#8A8A8A";
-        prevButton.style.cursor = "pointer";
-        nextButton.style.cursor = "default";
-        leftButton.style.background = "#fff";
-        rightButton.style.background = "#f9f9f9";
-    } else {
-        prevButton.style.color = "#8c6051";
-        nextButton.style.color = "#8c6051";
-        prevButton.style.cursor = "pointer";
-        nextButton.style.cursor = "pointer";
-        leftButton.style.background = "#fff";
-        rightButton.style.background = "#fff";
-    }
-}

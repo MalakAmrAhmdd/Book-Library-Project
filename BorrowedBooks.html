@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
 
     <title>Borrowed Books</title>
@@ -18,8 +23,9 @@
     <link rel="stylesheet" href="CSS/Books.css">
     <link rel="stylesheet" href="CSS/ScrollBar.css">
     <link rel="website icon" type="png" href="assets/logo.png">
-    
+
 </head>
+
 <body>
     <div class="container">
         <nav class="sidebar">
@@ -28,7 +34,7 @@
                 <img src="assets/logo.png" alt="Logo" class="icon">
                 <span class="logo-text">BiblioGate</span>
             </div>
-        
+
             <!-- Navigation Rows -->
             <div class="nav-rows">
                 <a href="Dashboard.html" class="sidebar-link">
@@ -50,17 +56,17 @@
                     </div>
                 </a>
                 <a href="Books.html" class="sidebar-link">
-                <div class="sidebar-row">
-                    <i class="fa fa-book" class="icon"></i>
-                    <span class="text">Books</span>
-                </div>
+                    <div class="sidebar-row">
+                        <i class="fa fa-book" class="icon"></i>
+                        <span class="text">Books</span>
+                    </div>
                 </a>
             </div>
 
             <!-- Log Out Row -->
             <div class="sidebar-row log-out">
                 <i class="fa fa-sign-out fa-rotate-180" class="icon"></i>
-                
+
                 <a href="Sign_in.html" class="sidebar-link">
                     <span class="text">Log Out</span>
                 </a>
@@ -73,10 +79,10 @@
                 <span class="Header-text">Books List</span>
                 <div class="search-container">
                     <i class="fa fa-search search-icon"></i>
-                    <input type="text" id="searchBar" class="search-input" placeholder="Search Users">
+                    <input type="text" id="searchBar" class="search-input" placeholder="Search Books">
                 </div>
             </div>
-            
+
             <div class="toggle-container">
                 <a href="Books.html" class="toggle-button">Available Books</a>
                 <a href="BorrowedBooks.html" class="toggle-button active">Borrowed Books</a>
@@ -101,16 +107,20 @@
             <div class="table-footer">
                 <span class="table-info">Showing 1-08 of 78</span>
                 <div class="toggle-book-container">
-                    <button class="toggle-left-button" id="borrowedPrevButton"><i class='fas fa-angle-left'></i></button>
-                    <button class="toggle-right-button" id="borrowedNextButton"><i class='fas fa-angle-right'></i></button>
+                    <button class="toggle-left-button" id="borrowedPrevButton"><i
+                            class='fas fa-angle-left'></i></button>
+                    <button class="toggle-right-button" id="borrowedNextButton"><i
+                            class='fas fa-angle-right'></i></button>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    <script src="JS Files//AdminTables/borrowedBooksTable.js"></script>
-    <script src="JS Files/SideBarMethods.js"></script>
-    <script src="JS Files/borrowedBooksSearch.js"></script>
     <!-- comment -->
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="JS Files//AdminTables/borrowedBooksTable.js"></script>
+<script src="JS Files/SideBarMethods.js"></script>
+<script src="JS Files/borrowedBooksSearch.js"></script>
+
 </html>

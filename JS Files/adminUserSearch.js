@@ -59,4 +59,5 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredUsers = filterUsers(users);
         displayUsers(filteredUsers);
     });
+   
 });

@@ -1,3 +1,21 @@
+const categoryMap = {
+    "1": "Technology",
+    "2": "Finance",
+    "3": "Fantasy",
+    "4": "Fiction",
+    "5": "Science Fiction",
+    "6": "Romance",
+    "7": "Psychology",
+    "8": "Adventure",
+    "9": "Non-Fiction",
+    "10": "Horror",
+    "11": "Self-Help",
+    "12": "History",
+    "13": "Social",
+    "14": "Philosophy",
+    "15": "Thriller"
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     const booksTableBody = document.querySelector(".books-table tbody");
     const booksTableInfo = document.querySelector(".table-footer .table-info");
@@ -9,29 +27,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const rowsPerPage = 10;
 
     function loadBooks() {
-        const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
-    
-        if (addedBooks.length > 0) {
-            books = addedBooks;
-            setTimeout(() => renderTable(), 0);
-        } else {
-            fetch("books.json")
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("Failed to load static books data");
-                    }
-                    return response.json();
-                })
-                .then((staticBooks) => {
-                    books = staticBooks;
-                    renderTable();
-                })
-                .catch((error) => {
-                    console.error(error);
-                    booksTableBody.innerHTML = `<tr><td colspan="4">Error loading books</td></tr>`;
-                    booksTableInfo.textContent = "Error loading books";
-                });
-        }
+        let csrf = null;
+        let cookies = document.cookie.split(";");
+        cookies.forEach(element => {
+            let key = element.split("=")[0].trim();
+            let value = element.split("=")[1];
+            if (key === "csrftoken") {
+                csrf = value;
+            }
+        });
+        $.ajax({
+            url: 'http://127.0.0.1:8000/dashboard/availableBooksTable/',
+            method: 'GET',
+            contentType: 'application/json',
+            headers: {
+                "X-CSRFToken": csrf
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+                books = Array.isArray(data) ? data : Object.values(data);
+                renderTable();
+            },
+            error: function (xhr) {
+                let msg = "Failed to load available books.";
+                if (xhr.responseJSON && xhr.responseJSON.detail) {
+                    msg = xhr.responseJSON.detail;
+                }
+                booksTableBody.innerHTML = `<tr><td colspan="4">${msg}</td></tr>`;
+                booksTableInfo.textContent = msg;
+                console.error("Error loading available books:", xhr);
+            }
+        });
     }
 
     function renderTable() {
@@ -43,18 +71,20 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = startIndex; i < endIndex; i++) {
             const book = books[i];
             const row = document.createElement("tr");
+            row.setAttribute("data-book-id", book.id);
+            const categoryName = categoryMap[book.category] || book.category;
 
             row.innerHTML = `
-                <td>${book.id || "N/A"}</td>
-                <td>${book.title || "Untitled"}</td>
-                <td>${book.category || "Unknown"}</td>
-                <td>
-                    <div class="action-icons">
-                        <label for="editPopup" class="edit-icon"><i class="fa-solid fa-pen"></i></label>
-                        <label for="deletePopup" class="delete-icon"><i class="fa-solid fa-trash"></i></label>
-                    </div>
-                </td>
-            `;
+        <td>${book.id || "N/A"}</td>
+        <td>${book.title || "Untitled"}</td>
+        <td>${categoryName}</td>
+        <td>
+            <div class="action-icons">
+                <label for="editPopup" class="edit-icon"><i class="fa-solid fa-pen"></i></label>
+                <label for="deletePopup" class="delete-icon"><i class="fa-solid fa-trash"></i></label>
+            </div>
+        </td>
+    `;
             booksTableBody.appendChild(row);
         }
 
@@ -79,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    loadBooks(); 
+    loadBooks();
 });
 
 function updatePaginationArrows(currentPage, totalPages, prevButton, nextButton) {
