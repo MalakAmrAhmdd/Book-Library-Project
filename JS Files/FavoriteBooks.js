@@ -1,54 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const bookList = document.querySelector('.book-list');
-  console.log("FavoriteBooks.js loaded");
-
-  const getCsrfToken = () => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; csrftoken=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-  };
-
-  function makeAjaxRequest(url, method, data, successCallback, errorCallback) {
-    const csrf = getCsrfToken();
-    console.log("Using CSRF token:", csrf);
-
-    const csrfOptions = {
-      url: url,
-      method: method,
-      data: data ? JSON.stringify(data) : undefined,
-      contentType: data ? 'application/json' : undefined,
-      headers: { 
-        "X-CSRFToken": csrf,
-        "X-Requested-With": "XMLHttpRequest"
-      },
-      xhrFields: { 
-        withCredentials: true 
-      },
-      crossDomain: true,
-      success: successCallback,
-      error: function(xhr, status, error) {
-        console.error(`Error in ${method} request to ${url}:`, status, error);
-        console.error("Response:", xhr.responseText);
-        if (xhr.status === 403 && xhr.responseText.includes("CSRF")) {
-          console.error("CSRF verification failed. Try refreshing the page to get a new token.");
-        }
-        if (errorCallback) errorCallback(xhr, status, error);
-      }
-    };
-
-    console.log("Making AJAX request:", {
-      url: csrfOptions.url,
-      method: csrfOptions.method,
-      headers: csrfOptions.headers
-    });
-
-    $.ajax(csrfOptions);
-  }
 
   function renderFavorites() {
-    console.log("Rendering favorites, window.favorites =", window.favorites);
-    
     while (bookList.children.length > 1) {
       bookList.removeChild(bookList.lastChild);
     }
@@ -63,20 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    const loadingMessage = document.createElement('div');
-    loadingMessage.className = 'loading-favorites';
-    loadingMessage.textContent = 'Loading your favorite books...';
-    bookList.appendChild(loadingMessage);
+    let csrf = null;
+    document.cookie.split(";").forEach(element => {
+      let key = element.split("=")[0].trim();
+      let value = element.split("=")[1];
+      if (key === "csrftoken") csrf = value;
+    });
 
-    console.log("Fetching books for favorites...");
-    makeAjaxRequest(
-      'http://127.0.0.1:8000/books/getbook/',
-      'GET',
-      null,
-      function(books) {
-        console.log("Books fetched successfully:", books);
-        bookList.removeChild(loadingMessage);
-        
+    $.ajax({
+      url: 'http://127.0.0.1:8000/books/getbook/',
+      method: 'GET',
+      headers: { "X-CSRFToken": csrf },
+      xhrFields: { withCredentials: true },
+      success: function(books) {
         const favoriteBooks = books.filter(book => favorites.includes(book.id.toString()));
         
         favoriteBooks.forEach(book => {
@@ -113,31 +65,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (window.updateFavoriteButtons) window.updateFavoriteButtons();
       },
-      function(xhr, status, error) {
-        console.error("Error loading books:", status, error);
-        console.error("Response:", xhr.responseText);
-        bookList.removeChild(loadingMessage);
+      error: function() {
         const errorMessage = document.createElement('div');
         errorMessage.className = 'error-message';
         errorMessage.textContent = 'Error loading favorite books. Please try again later.';
         bookList.appendChild(errorMessage);
       }
-    );
+    });
   }
+
+  renderFavorites();
 
   document.addEventListener('favoritesUpdated', function() {
-    console.log("favoritesUpdated event received");
     renderFavorites();
   });
-
-  if (window.favorites) {
-    console.log("window.favorites already exists:", window.favorites);
-    renderFavorites();
-  } else {
-    console.log("Waiting for favorites to be loaded...");
-    const waitingMessage = document.createElement('div');
-    waitingMessage.className = 'loading-favorites';
-    waitingMessage.textContent = 'Loading your favorite books...';
-    bookList.appendChild(waitingMessage);
-  }
 });
