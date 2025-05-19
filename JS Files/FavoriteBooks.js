@@ -1,28 +1,44 @@
 document.addEventListener('DOMContentLoaded', function() {
   const bookList = document.querySelector('.book-list');
 
+<<<<<<< HEAD
+    function renderFavorites() {
+=======
   // Function to render the favorites list
   function renderFavorites() {
     // Clear existing dynamic content while preserving the header (assumed to be the first child)
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
     while (bookList.children.length > 1) {
       bookList.removeChild(bookList.lastChild);
     }
 
+<<<<<<< HEAD
+    
+=======
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
 
-    if (favorites.length === 0) {
-      const emptyMessage = document.createElement('div');
-      emptyMessage.className = 'empty-favorites';
-      emptyMessage.textContent = 'You have no favorite books yet.';
-      bookList.appendChild(emptyMessage);
-      return;
-    }
+    let csrf = null;
+    document.cookie.split(";").forEach(element => {
+      let key = element.split("=")[0].trim();
+      let value = element.split("=")[1];
+      if (key === "csrftoken") csrf = value;
+    });
 
+<<<<<<< HEAD
+    $.ajax({
+      url: 'http://127.0.0.1:8000/books/getbook/',
+      method: 'GET',
+      headers: { "X-CSRFToken": csrf },
+      xhrFields: { withCredentials: true },
+      success: function(books) {
+=======
     // Fetch books data
     fetch('Books/books.json') // Ensure the path is correct
       .then(response => response.json())
       .then(books => {
         // Filter to include only favorite books
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
         const favoriteBooks = books.filter(book => favorites.includes(book.id.toString()));
         
         favoriteBooks.forEach(book => {
@@ -60,13 +76,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (window.updateFavoriteButtons) window.updateFavoriteButtons();
+<<<<<<< HEAD
+      },
+      error: function() {
+=======
       })
       .catch(error => {
         console.error('Error loading books:', error);
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
         const errorMessage = document.createElement('div');
         errorMessage.className = 'error-message';
         errorMessage.textContent = 'Error loading favorite books. Please try again later.';
         bookList.appendChild(errorMessage);
+<<<<<<< HEAD
+      }
+    });
+  }
+
+  renderFavorites();
+
+  document.addEventListener('favoritesUpdated', function() {
+    renderFavorites();
+  });
+});
+=======
       });
   }
 
@@ -98,3 +131,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
