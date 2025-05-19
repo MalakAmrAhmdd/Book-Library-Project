@@ -1,12 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
   const bookList = document.querySelector('.book-list');
 
+<<<<<<< HEAD
     function renderFavorites() {
+=======
+  // Function to render the favorites list
+  function renderFavorites() {
+    // Clear existing dynamic content while preserving the header (assumed to be the first child)
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
     while (bookList.children.length > 1) {
       bookList.removeChild(bookList.lastChild);
     }
 
+<<<<<<< HEAD
     
+=======
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
 
     let csrf = null;
     document.cookie.split(";").forEach(element => {
@@ -15,17 +25,27 @@ document.addEventListener('DOMContentLoaded', function() {
       if (key === "csrftoken") csrf = value;
     });
 
+<<<<<<< HEAD
     $.ajax({
       url: 'http://127.0.0.1:8000/books/getbook/',
       method: 'GET',
       headers: { "X-CSRFToken": csrf },
       xhrFields: { withCredentials: true },
       success: function(books) {
+=======
+    // Fetch books data
+    fetch('Books/books.json') // Ensure the path is correct
+      .then(response => response.json())
+      .then(books => {
+        // Filter to include only favorite books
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
         const favoriteBooks = books.filter(book => favorites.includes(book.id.toString()));
         
         favoriteBooks.forEach(book => {
           const isFavorite = favorites.includes(book.id.toString());
+          // Retrieve the current borrowing status for this book (default "In-Shelf")
           const bookStatus = localStorage.getItem(`status_${book.title}`) || "In-Shelf";
+          // Determine badge color based on status
           const badgeColor = (bookStatus === "Borrowed") ? "#735E57" : "#214539";
 
           const bookRow = document.createElement('div');
@@ -56,12 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (window.updateFavoriteButtons) window.updateFavoriteButtons();
+<<<<<<< HEAD
       },
       error: function() {
+=======
+      })
+      .catch(error => {
+        console.error('Error loading books:', error);
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
         const errorMessage = document.createElement('div');
         errorMessage.className = 'error-message';
         errorMessage.textContent = 'Error loading favorite books. Please try again later.';
         bookList.appendChild(errorMessage);
+<<<<<<< HEAD
       }
     });
   }
@@ -72,3 +99,36 @@ document.addEventListener('DOMContentLoaded', function() {
     renderFavorites();
   });
 });
+=======
+      });
+  }
+
+  // Initial render on page load
+  renderFavorites();
+
+  // Listen for a custom event to re-render the favorites when a book's status changes.
+  document.addEventListener('borrowingsUpdated', function() {
+    renderFavorites();
+  });
+
+  // Listen for favorites updates
+  document.addEventListener('favoritesUpdated', function() {
+    renderFavorites();
+  });
+
+  // Handle removing a favorite from the favorites page
+  bookList.addEventListener('click', function(e) {
+    const button = e.target.closest('.favorite-button');
+    if (button) {
+      const bookId = button.getAttribute('data-book-id');
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const index = favorites.indexOf(bookId);
+      if (index !== -1) {
+        favorites.splice(index, 1);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        renderFavorites();
+      }
+    }
+  });
+});
+>>>>>>> parent of 623bcfe (Update FavoriteBooks.js)
