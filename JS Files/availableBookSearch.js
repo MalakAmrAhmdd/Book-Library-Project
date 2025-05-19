@@ -17,8 +17,8 @@ const categoryMap = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const bookSearchInput = document.querySelector('#searchBar');
-    const booksTableBody = document.querySelector('#availableBooksTableBody');
+    const bookSearchInput = document.querySelector('.search-input');
+    const booksTableBody = document.get('#availableBooksTableBody');
     let books = [];
 
     if (bookSearchInput && booksTableBody) {

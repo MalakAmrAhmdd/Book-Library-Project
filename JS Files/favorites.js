@@ -12,8 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     $.ajax({
       url: 'http://127.0.0.1:8000/favorites/get_favs/',
       method: 'GET',
-      headers: { "X-CSRFToken": csrf },
-      xhrFields: { withCredentials: true },
+      headers: { 
+        "X-CSRFToken": csrf 
+      },
+      xhrFields: { 
+        withCredentials: true 
+      },
       success: function(data) {
         favorites = data.map(book => book.id.toString());
         updateAllFavoriteButtons();

@@ -1,20 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   const bookList = document.querySelector('.book-list');
 
-  function renderFavorites() {
+    function renderFavorites() {
     while (bookList.children.length > 1) {
       bookList.removeChild(bookList.lastChild);
     }
 
-    const favorites = window.favorites || [];
-
-    if (favorites.length === 0) {
-      const emptyMessage = document.createElement('div');
-      emptyMessage.className = 'empty-favorites';
-      emptyMessage.textContent = 'You have no favorite books yet.';
-      bookList.appendChild(emptyMessage);
-      return;
-    }
+    
 
     let csrf = null;
     document.cookie.split(";").forEach(element => {
