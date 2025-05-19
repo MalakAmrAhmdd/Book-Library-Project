@@ -1,14 +1,59 @@
 document.addEventListener('DOMContentLoaded', function() {
   const bookList = document.querySelector('.book-list');
+  console.log("FavoriteBooks.js loaded");
 
-  // Function to render the favorites list
+  const getCsrfToken = () => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; csrftoken=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  };
+
+  function makeAjaxRequest(url, method, data, successCallback, errorCallback) {
+    const csrf = getCsrfToken();
+    console.log("Using CSRF token:", csrf);
+
+    const csrfOptions = {
+      url: url,
+      method: method,
+      data: data ? JSON.stringify(data) : undefined,
+      contentType: data ? 'application/json' : undefined,
+      headers: { 
+        "X-CSRFToken": csrf,
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      xhrFields: { 
+        withCredentials: true 
+      },
+      crossDomain: true,
+      success: successCallback,
+      error: function(xhr, status, error) {
+        console.error(`Error in ${method} request to ${url}:`, status, error);
+        console.error("Response:", xhr.responseText);
+        if (xhr.status === 403 && xhr.responseText.includes("CSRF")) {
+          console.error("CSRF verification failed. Try refreshing the page to get a new token.");
+        }
+        if (errorCallback) errorCallback(xhr, status, error);
+      }
+    };
+
+    console.log("Making AJAX request:", {
+      url: csrfOptions.url,
+      method: csrfOptions.method,
+      headers: csrfOptions.headers
+    });
+
+    $.ajax(csrfOptions);
+  }
+
   function renderFavorites() {
-    // Clear existing dynamic content while preserving the header (assumed to be the first child)
+    console.log("Rendering favorites, window.favorites =", window.favorites);
+    
     while (bookList.children.length > 1) {
       bookList.removeChild(bookList.lastChild);
     }
 
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = window.favorites || [];
 
     if (favorites.length === 0) {
       const emptyMessage = document.createElement('div');
@@ -18,18 +63,25 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Fetch books data
-    fetch('Books/books.json') // Ensure the path is correct
-      .then(response => response.json())
-      .then(books => {
-        // Filter to include only favorite books
+    const loadingMessage = document.createElement('div');
+    loadingMessage.className = 'loading-favorites';
+    loadingMessage.textContent = 'Loading your favorite books...';
+    bookList.appendChild(loadingMessage);
+
+    console.log("Fetching books for favorites...");
+    makeAjaxRequest(
+      'http://127.0.0.1:8000/books/getbook/',
+      'GET',
+      null,
+      function(books) {
+        console.log("Books fetched successfully:", books);
+        bookList.removeChild(loadingMessage);
+        
         const favoriteBooks = books.filter(book => favorites.includes(book.id.toString()));
         
         favoriteBooks.forEach(book => {
           const isFavorite = favorites.includes(book.id.toString());
-          // Retrieve the current borrowing status for this book (default "In-Shelf")
           const bookStatus = localStorage.getItem(`status_${book.title}`) || "In-Shelf";
-          // Determine badge color based on status
           const badgeColor = (bookStatus === "Borrowed") ? "#735E57" : "#214539";
 
           const bookRow = document.createElement('div');
@@ -60,41 +112,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (window.updateFavoriteButtons) window.updateFavoriteButtons();
-      })
-      .catch(error => {
-        console.error('Error loading books:', error);
+      },
+      function(xhr, status, error) {
+        console.error("Error loading books:", status, error);
+        console.error("Response:", xhr.responseText);
+        bookList.removeChild(loadingMessage);
         const errorMessage = document.createElement('div');
         errorMessage.className = 'error-message';
         errorMessage.textContent = 'Error loading favorite books. Please try again later.';
         bookList.appendChild(errorMessage);
-      });
+      }
+    );
   }
 
-  // Initial render on page load
-  renderFavorites();
-
-  // Listen for a custom event to re-render the favorites when a book's status changes.
-  document.addEventListener('borrowingsUpdated', function() {
-    renderFavorites();
-  });
-
-  // Listen for favorites updates
   document.addEventListener('favoritesUpdated', function() {
+    console.log("favoritesUpdated event received");
     renderFavorites();
   });
 
-  // Handle removing a favorite from the favorites page
-  bookList.addEventListener('click', function(e) {
-    const button = e.target.closest('.favorite-button');
-    if (button) {
-      const bookId = button.getAttribute('data-book-id');
-      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      const index = favorites.indexOf(bookId);
-      if (index !== -1) {
-        favorites.splice(index, 1);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        renderFavorites();
-      }
-    }
-  });
+  if (window.favorites) {
+    console.log("window.favorites already exists:", window.favorites);
+    renderFavorites();
+  } else {
+    console.log("Waiting for favorites to be loaded...");
+    const waitingMessage = document.createElement('div');
+    waitingMessage.className = 'loading-favorites';
+    waitingMessage.textContent = 'Loading your favorite books...';
+    bookList.appendChild(waitingMessage);
+  }
 });
