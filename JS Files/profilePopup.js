@@ -3,11 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalProfile = document.querySelector(".modal-profile");
     const usernameBox = document.getElementById("username");
     const borrowedCount = document.getElementById("borrowed-count");
-    const returnedCount = document.getElementById("returned-count");
     const closeProfileBtn = document.getElementById("close-profile");
   
-    // for testing 
-    const loggedInUsername = "hazem-user";
+ 
   
     // Fetch user data from users.json
     fetch("users.json")

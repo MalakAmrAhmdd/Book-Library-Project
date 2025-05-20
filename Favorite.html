@@ -82,7 +82,6 @@
                 <div class="modal-profile-content">
                     <p id="username" class="username-box">Username</p>
                     <p>Borrowed Books: <span id="borrowed-count">20</span></p>
-                    <p>Returned Books: <span id="returned-count">20</span></p>
                     <button id="close-profile" class="close-profile-btn">Close</button>
                 </div>
             </div>
@@ -97,9 +96,10 @@
             <div class="book-list">
                 <div class="table-header">
                     <span class="column-title">Title</span>
-                    <span class="column-category">Category</span>
-                    <span class="column-status">Status</span>
+                    <span class="column-category-header">Category</span>
+                    <span class="column-status">Actions</span>
                 </div>
+
                 <!-- Favorite books will be dynamically inserted here -->
             </div>
             <div>
@@ -148,10 +148,11 @@
             </div>
         </div>
     </div>
-    <script src="JS Files/FavouriteButton.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+    <!-- <script src="JS Files/FavouriteButton.js"></script> -->
     <script src="JS Files/bookPopup.js"></script>
     <script src="JS Files/profilePopup.js"></script>
-    <script src="JS Files/FavoriteBooks.js"></script>
+    <script src="JS Files/favorites.js"></script>
     <script src="JS Files/Show_all page.js"></script>
     <script src="JS Files/SideBarMethods.js"></script>
 </body>
