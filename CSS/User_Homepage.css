@@ -358,7 +358,7 @@
     width: 350px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     font-family: "Nunito Sans", sans-serif;
-    height: 250px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -391,8 +391,9 @@
 }
 
 .close-profile-btn{
+    margin-top: auto;
     width: 37%;
-    height: 57px;
+    height: 40px;
     flex-shrink: 0;
     border-radius: 10px;
     border: 1px solid #8C6051;

@@ -28,20 +28,15 @@ function displayBooks(filteredBooks, bookList) {
     paginatedBooks.forEach(book => {
         // --- Begin: Status logic from bookPopup.js ---
         let statusText = "In-Shelf";
-        let buttonText = "Borrow";
+        let buttonText = "Preview";
         let buttonCursor = "pointer";
         let badgeColor = "#214539";
 
         if (book.user) {
             statusText = "Borrowed";
             badgeColor = "#735E57";
-            if (book.requested_by && book.requested_by === book.user) {
-                buttonText = "Give Back";
-                buttonCursor = "pointer";
-            } else {
-                buttonText = "Borrowed";
-                buttonCursor = "not-allowed";
-            }
+            buttonText = "Preview";
+            buttonCursor = "pointer";
         }
 
 
@@ -63,9 +58,7 @@ function displayBooks(filteredBooks, bookList) {
                 <span class="status-badge" style="background-color: ${badgeColor};">
                   ${statusText}
                 </span>
-                <button class="favorite-button" data-book-id="${book.id}">
-                    <i class="far fa-heart"></i>
-                </button>
+                
                 <button class="preview-button">${buttonText}</button>
             </div>
         `;
@@ -123,7 +116,7 @@ function updateSearchPaginationArrows() {
 }
 
 function initializeSearch(books, bookList, searchInput, searchCategory) {
-    filteredBooks = books; 
+    filteredBooks = books;
     displayBooks(filteredBooks, bookList);
 
     searchInput.addEventListener('input', () => filterBooks(books, bookList, searchInput, searchCategory));
@@ -147,6 +140,44 @@ function initializeSearch(books, bookList, searchInput, searchCategory) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const { bookList, searchInput, searchCategory } = ensureSearchUI();
+
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
+
+    $.ajax({
+        url: 'http://127.0.0.1:8000/books/getbook/',
+        method: 'GET',
+        contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            const books = Array.isArray(data) ? data : Object.values(data);
+            if (searchInput && searchCategory) {
+                initializeSearch(books, bookList, searchInput, searchCategory);
+            } else {
+                filteredBooks = books;
+                displayBooks(filteredBooks, bookList);
+            }
+        },
+        error: function (xhr) {
+            bookList.innerHTML = '<div style="color:red;">Failed to load books.</div>';
+            console.error("Failed to load books:", xhr);
+        }
+    });
+});
+
+document.addEventListener("borrowingsUpdated", function () {
 
     let csrf = null;
     let cookies = document.cookie.split(";");

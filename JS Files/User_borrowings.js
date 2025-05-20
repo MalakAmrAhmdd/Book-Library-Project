@@ -120,3 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+document.addEventListener("borrowingsUpdated", function () {
+    getBorrowedBooks();
+});

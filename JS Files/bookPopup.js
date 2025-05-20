@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let activeBook = null;
+    let activeBook = null;
 
     const modalBook = document.querySelector(".modal-Book");
     const popupImg = document.querySelector(".pop-up-img");
@@ -11,33 +11,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const borrowBtn = document.querySelector(".borrow-btn");
 
     function fetchBookDetails(book) {
-
-            console.log("Received book data:", book);
-            activeBook = book;
-            popupImg.src = book.image;
-            console.log("Book image source:", book.image);
-            popupTitle.textContent = book.title;
-            popupAuthor.textContent = book.author;
-            popupDescription.textContent = book.description;
-            popupStatus.textContent = book.user ? "Borrowed" : "In-Shelf";
-            if (book.user) {
-                if (book.requested_by==book.user){
-                    borrowBtn.textContent = "Give Back";
-                    borrowBtn.style.cursor = "pointer";
-                }
-                else{
-                    borrowBtn.textContent = "Borrowed";
-                    borrowBtn.style.cursor = "not-allowed";
-                }
-            }
-            else {
-                borrowBtn.textContent = "Borrow";
+        if (!book) return;
+        activeBook = book;
+        popupImg.src = book.image;
+        popupTitle.textContent = book.title;
+        popupAuthor.textContent = book.author;
+        popupDescription.textContent = book.description;
+        popupStatus.textContent = book.user ? "Borrowed" : "In-Shelf";
+        if (book.user) {
+            if (book.requested_by == book.user) {
+                borrowBtn.textContent = "Give Back";
                 borrowBtn.style.cursor = "pointer";
+            } else {
+                borrowBtn.textContent = "Borrowed";
+                borrowBtn.style.cursor = "not-allowed";
             }
-
-            modalBook.style.display = "flex";
-
-    };
+        } else {
+            borrowBtn.textContent = "Borrow";
+            borrowBtn.style.cursor = "pointer";
+        }
+        modalBook.style.display = "flex";
+    }
 
     document.addEventListener("click", function (event) {
         const previewButton = event.target.closest(".preview-button");
@@ -59,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 contentType: "application/json",
                 xhrFields: { withCredentials: true },
                 success: function (books) {
-                    const book = books.find((b) => b.title === bookTitle);
+                    const bookList = Array.isArray(books) ? books : Object.values(books);
+                    const book = bookList.find(b => b.title === bookTitle);
                     if (book) {
                         fetchBookDetails(book);
                     }
@@ -79,7 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return key.trim() === "csrftoken" ? value : acc;
         }, null);
 
-        let url = activeBook.user ? "http://127.0.0.1:8000/borrowings/return_book/" : "http://127.0.0.1:8000/borrowings/borrow_book/";
+        let url = activeBook.user
+            ? "http://127.0.0.1:8000/borrowings/return_book/"
+            : "http://127.0.0.1:8000/borrowings/borrow_book/";
         let requestData = { book_id: activeBook.id };
 
         $.ajax({
@@ -90,7 +87,22 @@ document.addEventListener("DOMContentLoaded", function () {
             data: JSON.stringify(requestData),
             xhrFields: { withCredentials: true },
             success: function () {
-                fetchBookDetails(activeBook);
+                $.ajax({
+                    url: "http://127.0.0.1:8000/books/getbook/",
+                    method: "GET",
+                    contentType: "application/json",
+                    xhrFields: { withCredentials: true },
+                    success: function (books) {
+                        const bookList = Array.isArray(books) ? books : Object.values(books);
+                        const updatedBook = bookList.find(b => b.id === activeBook.id);
+                        if (updatedBook) {
+                            fetchBookDetails(updatedBook);
+                        }
+                    },
+                    error: function () {
+                        console.error("Error fetching updated book data");
+                    }
+                });
                 document.dispatchEvent(new Event("borrowingsUpdated"));
                 setTimeout(() => {
                     modalBook.style.display = "none";
@@ -107,5 +119,4 @@ document.addEventListener("DOMContentLoaded", function () {
             modalBook.style.display = "none";
         }
     });
-
 });

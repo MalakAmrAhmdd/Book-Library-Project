@@ -1,19 +1,19 @@
-function getwishlist(){
+function getwishlist() {
   let csrf = null;
   let cookies = document.cookie.split(";");
   cookies.forEach(element => {
-      let key = element.split("=")[0].trim();
-      let value = element.split("=")[1];
-      if (key === "csrftoken") {
-          csrf = value;
-      }
+    let key = element.split("=")[0].trim();
+    let value = element.split("=")[1];
+    if (key === "csrftoken") {
+      csrf = value;
+    }
   });
 
   return $.ajax({
-    url : 'http://127.0.0.1:8000/favorites/get_favs/',
-    method : 'GET',
+    url: 'http://127.0.0.1:8000/favorites/get_favs/',
+    method: 'GET',
     headers: {
-      "X-CSRFToken": csrf 
+      "X-CSRFToken": csrf
     },
     xhrFields: {
       withCredentials: true
@@ -26,7 +26,7 @@ let favoriteBookIds = [];
 
 // Fetch favorites from backend and update UI
 function loadFavoritesAndUpdateUI() {
-  getwishlist().done(function(data) {
+  getwishlist().done(function (data) {
     // Assuming data is a list of book objects or IDs
     favoriteBookIds = data.map(book => book.id ? book.id.toString() : book.toString());
     updateFavoriteButtons();
@@ -65,7 +65,7 @@ function togglewishlist(bookId) {
     ? 'http://127.0.0.1:8000/favorites/remove_fav/'
     : 'http://127.0.0.1:8000/favorites/add_to_fav/';
   const method = isFavorite ? 'DELETE' : 'POST';
-  
+
   $.ajax({
     url: url,
     method: method,
@@ -73,7 +73,7 @@ function togglewishlist(bookId) {
     xhrFields: { withCredentials: true },
     contentType: 'application/json',
     data: JSON.stringify({ book_id: bookId }),
-    success: function(response) {
+    success: function (response) {
       // Update local favoriteBookIds and UI
       if (isFavorite) {
         favoriteBookIds = favoriteBookIds.filter(id => id !== bookId.toString());
@@ -90,7 +90,7 @@ function togglewishlist(bookId) {
 document.addEventListener('DOMContentLoaded', loadFavoritesAndUpdateUI);
 
 // Example: Attach event listeners to favorite buttons
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   if (e.target.closest('.favorite-button')) {
     const button = e.target.closest('.favorite-button');
     const bookId = button.getAttribute('data-book-id');
@@ -195,16 +195,16 @@ function getFavorites() {
     xhrFields: {
       withCredentials: true
     },
-    success: function(data) {
+    success: function (data) {
       renderwishlist(data);
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.error("Error fetching borrowed books:", error);
     }
   })
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const favoriteContainer = document.querySelector(".book-list");
   if (!favoriteContainer) return;
 
@@ -223,4 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
       renderwishlist(filteredwishlist);
     }
   });
+});
+document.addEventListener("borrowingsUpdated", function () {
+    getFavorites();
 });
