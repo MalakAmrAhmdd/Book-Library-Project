@@ -1,6 +1,25 @@
 let currentPage = 1;
 const booksPerPage = 24;
 let filteredBooks = [];
+let favoriteBookIds = [];
+
+// Fetch favorites from backend
+function fetchFavorites() {
+    let csrf = null;
+    document.cookie.split(";").forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") csrf = value;
+    });
+
+    return $.ajax({
+        url: 'http://127.0.0.1:8000/favorites/get_favs/',
+        method: 'GET',
+        headers: { "X-CSRFToken": csrf },
+        xhrFields: { withCredentials: true },
+        contentType: 'application/json'
+    });
+}
 
 // Add this function to handle favorite button clicks
 function handleFavoriteButtonClick(e) {
@@ -8,26 +27,40 @@ function handleFavoriteButtonClick(e) {
         const button = e.target.closest('.favorite-button');
         const bookId = button.getAttribute('data-book-id');
         const icon = button.querySelector('i');
+        let csrf = null;
+        document.cookie.split(";").forEach(element => {
+            let key = element.split("=")[0].trim();
+            let value = element.split("=")[1];
+            if (key === "csrftoken") csrf = value;
+        });
 
-        // Get current favorites from localStorage
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const isFavorite = favoriteBookIds.includes(bookId);
+        const url = isFavorite
+            ? 'http://127.0.0.1:8000/favorites/remove_fav/'
+            : 'http://127.0.0.1:8000/favorites/add_to_fav/';
+        const method = isFavorite ? 'DELETE' : 'POST';
 
-        // Toggle favorite status
-        const index = favorites.indexOf(bookId);
-        if (index === -1) {
-            favorites.push(bookId);
-            icon.classList.remove('far');
-            icon.classList.add('fas');
-            icon.style.color = '#5D1B21';
-        } else {
-            favorites.splice(index, 1);
-            icon.classList.remove('fas');
-            icon.classList.add('far');
-            icon.style.color = '#8A8A8A';
-        }
-
-        // Save to localStorage
-        localStorage.setItem('favorites', JSON.stringify(favorites));
+        $.ajax({
+            url: url,
+            method: method,
+            headers: { "X-CSRFToken": csrf },
+            xhrFields: { withCredentials: true },
+            contentType: 'application/json',
+            data: JSON.stringify({ book_id: bookId }),
+            success: function () {
+                if (isFavorite) {
+                    favoriteBookIds = favoriteBookIds.filter(id => id !== bookId);
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '#8A8A8A';
+                } else {
+                    favoriteBookIds.push(bookId);
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = '#5D1B21';
+                }
+            }
+        });
     }
 }
 
@@ -88,6 +121,7 @@ function renderBooks() {
     const currentBooks = filteredBooks.slice(startIndex, endIndex);
 
     currentBooks.forEach(book => {
+        const isFavorite = favoriteBookIds.includes(book.id.toString());
         const bookElement = document.createElement("div");
         bookElement.classList.add("book-holder");
         bookElement.innerHTML = `
@@ -98,7 +132,7 @@ function renderBooks() {
             <span class="book-author">${book.author}</span>
             <div class="favorite-container">
                 <button class="favorite-button" data-book-id="${book.id}">
-                    <i class="far fa-heart" style="color: #8A8A8A; font-size: 18px; padding: 5px;"></i>
+                    <i class="${isFavorite ? 'fas' : 'far'} fa-heart" style="color: ${isFavorite ? '#5D1B21' : '#8A8A8A'}; font-size: 18px; padding: 5px;"></i>
                 </button>
             </div>
         `;
@@ -110,31 +144,11 @@ function renderBooks() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchBooks();
-    // Add event listener for favorite button clicks
+    fetchFavorites().done(function(data) {
+        favoriteBookIds = data.map(book => book.id ? book.id.toString() : book.toString());
+        fetchBooks();
+    });
     document.addEventListener('click', handleFavoriteButtonClick);
-});
-
-function updateFooter() {
-    const footerText = document.querySelector(".footer-text");
-    const totalPages = Math.max(1, Math.ceil(filteredBooks.length / booksPerPage));
-    footerText.textContent = `Page ${currentPage} of ${totalPages}`;
-}
-
-function updatePaginationArrows() {
-    const leftArrow = document.querySelector(".footer-left-icon");
-    const rightArrow = document.querySelector(".footer-right-icon");
-    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-
-    leftArrow.style.color = currentPage === 1 ? "#8A8A8A" : "#5D1B21";
-    rightArrow.style.color = currentPage === totalPages ? "#8A8A8A" : "#5D1B21";
-
-    leftArrow.style.cursor = currentPage === 1 ? "default" : "pointer";
-    rightArrow.style.cursor = currentPage === totalPages ? "default" : "pointer";
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    fetchBooks();
 
     document.querySelector(".footer-left-icon").addEventListener("click", () => {
         if (currentPage > 1) {

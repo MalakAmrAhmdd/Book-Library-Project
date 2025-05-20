@@ -107,4 +107,5 @@ document.addEventListener("DOMContentLoaded", function () {
             modalBook.style.display = "none";
         }
     });
+
 });

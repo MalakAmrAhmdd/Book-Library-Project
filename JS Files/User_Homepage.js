@@ -95,8 +95,9 @@ function renderBooks(books) {
 }
 
 function createBookCard(book) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  const isFavorite = favorites.includes(book.id.toString());
+  // const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  // const isFavorite = favorites.includes(book.id.toString());
+  const isFavorite = favoriteBookIds.includes(book.id.toString());
 
   return `
     <div class="book-holder">
