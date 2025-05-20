@@ -154,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 contentType: 'application/json',
                 data: JSON.stringify(jsonForm),
                 success: function (response) {
+                    document.cookie = `username=${response.username}; path=/; max-age=86400`;
                     if (response.is_staff === 1 || response.is_staff === true) {
                         window.location.href = "Dashboard.html";
                     } else {

@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
             popupAuthor.textContent = book.author;
             popupDescription.textContent = book.description;
             popupStatus.textContent = book.user ? "Borrowed" : "In-Shelf";
-            // borrowBtn.textContent = book.user ? "Give Back" : "Borrow";
             if (book.user) {
                 if (book.requested_by==book.user){
                     borrowBtn.textContent = "Give Back";

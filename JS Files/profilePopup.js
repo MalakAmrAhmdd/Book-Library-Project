@@ -1,49 +1,70 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const profilePopupCheckbox = document.getElementById("profilePopup");
-    const modalProfile = document.querySelector(".modal-profile");
-    const usernameBox = document.getElementById("username");
-    const borrowedCount = document.getElementById("borrowed-count");
-    const returnedCount = document.getElementById("returned-count");
-    const closeProfileBtn = document.getElementById("close-profile");
-  
-    // for testing 
-    const loggedInUsername = "hazem-user";
-  
-    // Fetch user data from users.json
-    fetch("users.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(data => {
-        //  obtain array of the object keys
-        const profiles = Object.values(data);
-        const userProfile = profiles.find(profile => profile.username === loggedInUsername);
-        if (userProfile) {
-          usernameBox.textContent = userProfile.username;
-          borrowedCount.textContent = userProfile.numOfBorrowedBooks;
-          returnedCount.textContent = userProfile.numOfReturnedBooks;
-        } else {
-          
-          usernameBox.textContent = "Guest";
-          borrowedCount.textContent = "0";
-          returnedCount.textContent = "0";
-        }
-      })
-      .catch(error => console.error("Error loading profile:", error));
-  
-    const profileIcon = document.querySelector(".profile");
-    if (profileIcon) {
-      profileIcon.addEventListener("click", function () {
-        profilePopupCheckbox.checked = true;
-        modalProfile.style.display = "flex";
-      });
+  const profilePopupCheckbox = document.getElementById("profilePopup");
+  const modalProfile = document.querySelector(".modal-profile");
+  const usernameBox = document.getElementById("username");
+  const borrowedCount = document.getElementById("borrowed-count");
+
+  const closeProfileBtn = document.getElementById("close-profile");
+
+
+  function getCookie(name) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+  const loggedInUsername = getCookie("username");
+
+  let csrf = null;
+  let cookies = document.cookie.split(";");
+  cookies.forEach(element => {
+    let key = element.split("=")[0].trim();
+    let value = element.split("=")[1];
+    if (key === "csrftoken") {
+      csrf = value;
     }
-  
-    closeProfileBtn.addEventListener("click", function () {
-      profilePopupCheckbox.checked = false;
-      modalProfile.style.display = "none";
-    });
   });
+
+  $.ajax({
+    url: "http://127.0.0.1:8000/dashboard/usersTable/",
+    method: "GET",
+    contentType: "application/json",
+    headers: {
+      "X-CSRFToken": csrf
+    },
+    xhrFields: {
+      withCredentials: true
+    },
+    success: function (data) {
+      const users = Array.isArray(data) ? data : Object.values(data);
+      const userProfile = users.find(profile => profile.username === loggedInUsername);
+      if (userProfile) {
+        usernameBox.textContent = userProfile.username;
+        borrowedCount.textContent = userProfile.numOfBorrowedBooks || userProfile.total_borrowings || "0";
+
+      } else {
+        usernameBox.textContent = "Guest";
+        borrowedCount.textContent = "0";
+
+      }
+    },
+    error: function (xhr) {
+      usernameBox.textContent = "Guest";
+      borrowedCount.textContent = "0";
+
+      console.error("Error loading profile:", xhr);
+    }
+  });
+
+  const profileIcon = document.querySelector(".profile");
+  if (profileIcon) {
+    profileIcon.addEventListener("click", function () {
+      profilePopupCheckbox.checked = true;
+      modalProfile.style.display = "flex";
+    });
+  }
+
+  closeProfileBtn.addEventListener("click", function () {
+    profilePopupCheckbox.checked = false;
+    modalProfile.style.display = "none";
+  });
+});

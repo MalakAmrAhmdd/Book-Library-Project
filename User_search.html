@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/90e1fb164f.js" crossorigin="anonymous"></script>
 
     <title>Search</title>
@@ -19,6 +24,7 @@
     <link rel="stylesheet" href="CSS/Shared.css">
     <link rel="website icon" type="png" href="assets/logo.png">
 </head>
+
 <body>
     <div class="container">
         <nav class="sidebar">
@@ -27,8 +33,8 @@
                 <img src="assets/logo icon.svg" alt="Logo" class="icon">
                 <span class="logo-text">BiblioGate</span>
             </div>
-        
-           
+
+
             <div class="nav-rows">
                 <a href="User_Homepage.html" class="sidebar-link">
                     <div class="sidebar-row">
@@ -54,38 +60,38 @@
                         <span class="text">Borrowings</span>
                     </div>
                 </a>
-                
-            </div>
-            
-          <!-- User Section -->
-        <div class="user-section">
-            <!-- Profile -->
-            <div class="sidebar-row profile">
-                <a href="User_Profile.html" class="sidebar-link"></a>
-                <i class="fa fa-user" class="icon"></i>
-                    <span class="text">Profile</span>
-                </a>
-            </div>
-            
-            <!-- Log Out -->
-            <div class="sidebar-row log-out">
-                <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
-                <a href="Sign_in.html" class="sidebar-link">
-                    <span class="text">Log Out</span>
-                </a>
-            </div>
-        </div>
 
-        <input type="checkbox" id="profilePopup" class="modal-profile-toggle">
+            </div>
+
+            <!-- User Section -->
+            <div class="user-section">
+                <!-- Profile -->
+                <div class="sidebar-row profile">
+                    <a href="User_Profile.html" class="sidebar-link"></a>
+                    <i class="fa fa-user" class="icon"></i>
+                    <span class="text">Profile</span>
+                    </a>
+                </div>
+
+                <!-- Log Out -->
+                <div class="sidebar-row log-out">
+                    <img src="assets/Log out .svg" alt="Log Out Icon" class="icon">
+                    <a href="Sign_in.html" class="sidebar-link">
+                        <span class="text">Log Out</span>
+                    </a>
+                </div>
+            </div>
+
+            <input type="checkbox" id="profilePopup" class="modal-profile-toggle">
             <div class="modal-profile">
                 <div class="modal-profile-content">
                     <p id="username" class="username-box">Username</p>
                     <p>Borrowed Books: <span id="borrowed-count">20</span></p>
-                    <p>Returned Books: <span id="returned-count">20</span></p>
+
                     <button id="close-profile" class="close-profile-btn">Close</button>
                 </div>
             </div>
-        
+
         </nav>
         <div class="separator"></div>
         <div class="main-content">
@@ -101,79 +107,63 @@
                 <div class="search-container">
                     <input type="text" id="searchInput" placeholder="Search books..." class="search-input">
                     <span style="color: #797a7a;">
-            <i class="fa fa-search"></i>
-        </span>
+                        <i class="fa fa-search"></i>
+                    </span>
                 </div>
             </div>
             <!-- Main content here -->
             <div class="book-list" id="bookList"></div>
             <div class="footer">
-    <span class="search-footer-left-icon" style="color: #8A8A8A; cursor: default;">
-        <i class="fas fa-angle-left"></i>
-    </span>
+                <span class="search-footer-left-icon" style="color: #8A8A8A; cursor: default;">
+                    <i class="fas fa-angle-left"></i>
+                </span>
                 <span class="search-footer-text">Page 1 of 1</span>
                 <span class="search-footer-right-icon" style="color: #8A8A8A; cursor: default;">
-        <i class="fas fa-angle-right"></i>
-    </span>
+                    <i class="fas fa-angle-right"></i>
+                </span>
             </div>
-            <script type="module">
-                import { initializeSearch, displayBooks } from './JS Files/Search.js';
 
-                async function loadBooks() {
-                    const response = await fetch('Books/books.json');
-                    const books = await response.json();
-                    const bookList = document.getElementById('bookList');
-                    const searchInput = document.getElementById('searchInput');
-                    const searchCategory = document.getElementById('searchCategory');
-
-                    // Call the external search function
-                    initializeSearch(books, bookList, searchInput, searchCategory);
-
-                    // Display all books initially
-                    displayBooks(books, bookList);
-                }
-
-                // Load books on page load
-                document.addEventListener('DOMContentLoaded', loadBooks);
-            </script>
             <div>
                 <label for="BookPopUp" class="Book-icon">
-                <input type="checkbox" id="BookPopUp" class="modal-Book-toggle">
-                <div class="modal-Book">
-                    <div class="modal-Book-content">
-                        <div class="pop-up-book-image">
-                            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg" alt="book" class="pop-up-img">
-                        </div>
-                        <div class="book-pop-up-details">
-                            <div class="title-fav">
-                                <span class="pop-up-book-title">The Picture of Dorian Gray</span>
-                                
+                    <input type="checkbox" id="BookPopUp" class="modal-Book-toggle">
+                    <div class="modal-Book">
+                        <div class="modal-Book-content">
+                            <div class="pop-up-book-image">
+                                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454087681i/489732.jpg"
+                                    alt="book" class="pop-up-img">
                             </div>
-                            <span class="pop-up-author">Oscar Wilde</span>
-                            <span class="borrows">25 Borrows</span>
-                            <div class="pop-up-desc">
-                                <span class="pop-up-description">Description</span>
-                                <span class="pop-up-text">A Common Sense approach to web usability</span>
-                                
-                            </div> 
-                            <label for ="BookPopUp" class="status">Status</label> 
-                            <label for="BookPopUp" class="status-btn">In-Shelf</label>
-                            <label for="BookPopUp" class="borrow-btn">Borrow</label>
+                            <div class="book-pop-up-details">
+                                <div class="title-fav">
+                                    <span class="pop-up-book-title">The Picture of Dorian Gray</span>
+
+                                </div>
+                                <span class="pop-up-author">Oscar Wilde</span>
+                                <span class="borrows">25 Borrows</span>
+                                <div class="pop-up-desc">
+                                    <span class="pop-up-description">Description</span>
+                                    <span class="pop-up-text">A Common Sense approach to web usability</span>
+
+                                </div>
+                                <label for="BookPopUp" class="status">Status</label>
+                                <label for="BookPopUp" class="status-btn">In-Shelf</label>
+                                <label for="BookPopUp" class="borrow-btn">Borrow</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--<label for="BookPopUp" class="preview-button">Preview</label>-->
 
-                
+
+
 
             </div>
-    
-    </div>
-    <script src="JS Files/FavouriteButton.js"></script>
-    <script src="JS Files/bookPopup.js"></script>
-    <script src="JS Files/favorites.js"></script>
-    <script src="JS Files/profilePopup.js"></script>
-    <script src="JS Files/favorites.js"></script>
-    <script src="JS Files/SideBarMethods.js"></script>
+
+        </div>
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="JS Files/Search.js"></script>
+<script src="JS Files/FavouriteButton.js"></script>
+<script src="JS Files/bookPopup.js"></script>
+<script src="JS Files/favorites.js"></script>
+<script src="JS Files/profilePopup.js"></script>
+<script src="JS Files/SideBarMethods.js"></script>
+
 </html>

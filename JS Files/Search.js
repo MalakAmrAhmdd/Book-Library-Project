@@ -1,8 +1,19 @@
-let filteredBooks = []
+let filteredBooks = [];
 let currentPage = 1;
 const booksPerPage = 10;
 
-export function displayBooks(filteredBooks, bookList) {
+function ensureSearchUI() {
+    let bookList = document.getElementById('bookList');
+    let searchInput = document.getElementById('searchInput');
+    let searchCategory = document.getElementById('searchCategory');
+    return {
+        bookList,
+        searchInput,
+        searchCategory
+    };
+}
+
+function displayBooks(filteredBooks, bookList) {
     const startIndex = (currentPage - 1) * booksPerPage;
     const endIndex = startIndex + booksPerPage;
     const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
@@ -15,8 +26,24 @@ export function displayBooks(filteredBooks, bookList) {
         </div>
     `;
     paginatedBooks.forEach(book => {
-        const bookStatus = localStorage.getItem(`status_${book.title}`) || "In-Shelf";
-        const badgeColor = (bookStatus === "Borrowed") ? "#735E57" : "#214539";
+        // --- Begin: Status logic from bookPopup.js ---
+        let statusText = "In-Shelf";
+        let buttonText = "Borrow";
+        let buttonCursor = "pointer";
+        let badgeColor = "#214539";
+
+        if (book.user) {
+            statusText = "Borrowed";
+            badgeColor = "#735E57";
+            if (book.requested_by && book.requested_by === book.user) {
+                buttonText = "Give Back";
+                buttonCursor = "pointer";
+            } else {
+                buttonText = "Borrowed";
+                buttonCursor = "not-allowed";
+            }
+        }
+
 
         const row = document.createElement('div');
         row.className = 'table-row';
@@ -34,14 +61,16 @@ export function displayBooks(filteredBooks, bookList) {
             </div>
             <div class="column-status">
                 <span class="status-badge" style="background-color: ${badgeColor};">
-                  ${bookStatus}
+                  ${statusText}
                 </span>
                 <button class="favorite-button" data-book-id="${book.id}">
                     <i class="far fa-heart"></i>
                 </button>
-                <button class="preview-button">Preview</button>
+                <button class="preview-button">${buttonText}</button>
             </div>
         `;
+
+        row.querySelector('.preview-button').style.cursor = buttonCursor;
         bookList.appendChild(row);
     });
     updateSearchFooter();
@@ -68,14 +97,14 @@ function filterBooks(books, bookList, searchInput, searchCategory) {
         }
     });
 
-    currentPage = 1; // Reset to the first page
+    currentPage = 1;
     displayBooks(filteredBooks, bookList);
 }
 
 function updateSearchFooter() {
     const footerText = document.querySelector(".search-footer-text");
     const totalPages = Math.max(1, Math.ceil(filteredBooks.length / booksPerPage));
-    footerText.textContent = `Page ${currentPage} of ${totalPages}`;
+    if (footerText) footerText.textContent = `Page ${currentPage} of ${totalPages}`;
 }
 
 function updateSearchPaginationArrows() {
@@ -83,15 +112,18 @@ function updateSearchPaginationArrows() {
     const rightArrow = document.querySelector(".search-footer-right-icon");
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
-    leftArrow.style.color = currentPage === 1 ? "#8A8A8A" : "#5D1B21";
-    leftArrow.style.cursor = currentPage === 1 ? "default" : "pointer";
-
-    rightArrow.style.color = currentPage === totalPages ? "#8A8A8A" : "#5D1B21";
-    rightArrow.style.cursor = currentPage === totalPages ? "default" : "pointer";
+    if (leftArrow) {
+        leftArrow.style.color = currentPage === 1 ? "#8A8A8A" : "#5D1B21";
+        leftArrow.style.cursor = currentPage === 1 ? "default" : "pointer";
+    }
+    if (rightArrow) {
+        rightArrow.style.color = currentPage === totalPages ? "#8A8A8A" : "#5D1B21";
+        rightArrow.style.cursor = currentPage === totalPages ? "default" : "pointer";
+    }
 }
 
-export function initializeSearch(books, bookList, searchInput, searchCategory) {
-    filteredBooks = books; // Initially display all books
+function initializeSearch(books, bookList, searchInput, searchCategory) {
+    filteredBooks = books; 
     displayBooks(filteredBooks, bookList);
 
     searchInput.addEventListener('input', () => filterBooks(books, bookList, searchInput, searchCategory));
@@ -112,3 +144,42 @@ export function initializeSearch(books, bookList, searchInput, searchCategory) {
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const { bookList, searchInput, searchCategory } = ensureSearchUI();
+
+    let csrf = null;
+    let cookies = document.cookie.split(";");
+    cookies.forEach(element => {
+        let key = element.split("=")[0].trim();
+        let value = element.split("=")[1];
+        if (key === "csrftoken") {
+            csrf = value;
+        }
+    });
+
+    $.ajax({
+        url: 'http://127.0.0.1:8000/books/getbook/',
+        method: 'GET',
+        contentType: 'application/json',
+        headers: {
+            "X-CSRFToken": csrf
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            const books = Array.isArray(data) ? data : Object.values(data);
+            if (searchInput && searchCategory) {
+                initializeSearch(books, bookList, searchInput, searchCategory);
+            } else {
+                filteredBooks = books;
+                displayBooks(filteredBooks, bookList);
+            }
+        },
+        error: function (xhr) {
+            bookList.innerHTML = '<div style="color:red;">Failed to load books.</div>';
+            console.error("Failed to load books:", xhr);
+        }
+    });
+});

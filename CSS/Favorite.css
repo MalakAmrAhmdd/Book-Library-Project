@@ -397,9 +397,6 @@ line-height: 128.523%; /* 19.278px */
     display: none;
 }
 
-.modal-Book-toggle:checked+.modal-Book {
-    display: flex;
-}
 
 .modal-profile {
     display: none;
@@ -412,6 +409,9 @@ line-height: 128.523%; /* 19.278px */
     justify-content: center;
     align-items: center;
     z-index: 1000;
+}
+.modal-Book-toggle:checked+.modal-Book {
+    display: flex;
 }
 
 .modal-profile-content {
